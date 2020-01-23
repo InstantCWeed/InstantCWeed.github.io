@@ -18,13 +18,15 @@
   
   
   <title>for循环中的执行顺序 | FluffySpoooooonge!!!</title>
-  <meta name="keywords" content="编程疑惑">
+  <meta name="description" content="以下列for循环语句为例：int i;for(i = 0; i&amp;lt;2; i++ ){    System.out.println(i);} 执行步骤：  i = 0 初始化数据 i &amp;lt; 2 (i = 0, i &amp;lt; 2 成立，进入循环) 打印出i(i=0) i++(i=1) i &amp;lt; 2(i = 1 &amp;lt; 2 成立，进入循环) 打印出i(i=1) i++(i = 2) i &amp;">
+<meta name="keywords" content="编程疑惑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="for循环中的执行顺序">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;01&#x2F;22&#x2F;for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
+<meta property="og:description" content="以下列for循环语句为例：int i;for(i = 0; i&amp;lt;2; i++ ){    System.out.println(i);} 执行步骤：  i = 0 初始化数据 i &amp;lt; 2 (i = 0, i &amp;lt; 2 成立，进入循环) 打印出i(i=0) i++(i=1) i &amp;lt; 2(i = 1 &amp;lt; 2 成立，进入循环) 打印出i(i=1) i++(i = 2) i &amp;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-22T15:43:59.908Z">
+<meta property="og:updated_time" content="2020-01-23T15:16:37.266Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/01/22/for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/index.html">
@@ -375,7 +377,19 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        
+        <p>以下列for循环语句为例：<br>int i;<br>for(i = 0; i&lt;2; i++ ){<br>    System.out.println(i);<br>}</p>
+<p>执行步骤：</p>
+<ol>
+<li>i = 0 初始化数据</li>
+<li>i &lt; 2 (i = 0, i &lt; 2 成立，进入循环)</li>
+<li>打印出i(i=0)</li>
+<li>i++(i=1)</li>
+<li>i &lt; 2(i = 1 &lt; 2 成立，进入循环)</li>
+<li>打印出i(i=1)</li>
+<li>i++(i = 2)</li>
+<li>i &lt; 2(i = 2 &lt; 2 不成立，退出循环)</li>
+</ol>
+
       
     </div>
     <div class="article-footer">
