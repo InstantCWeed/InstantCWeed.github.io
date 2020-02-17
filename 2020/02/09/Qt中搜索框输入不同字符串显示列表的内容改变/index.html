@@ -18,13 +18,15 @@
   
   
   <title>Qt中搜索框输入不同字符串显示列表的内容改变 | FluffySpoooooonge!!!</title>
-  <meta name="keywords" content="解决问题">
+  <meta name="description" content="void FixedWingAircraftModelManager::slotBackgroundFilter(QString f){ &#x2F;&#x2F; 根据lineEdit框内文字，动态刷新item列表显示    const bool empty = f.isEmpty();    QRegExp re = empty ? QRegExp() : QRegExp(f,Qt::CaseInsensitive">
+<meta name="keywords" content="解决问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt中搜索框输入不同字符串显示列表的内容改变">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;02&#x2F;09&#x2F;Qt%E4%B8%AD%E6%90%9C%E7%B4%A2%E6%A1%86%E8%BE%93%E5%85%A5%E4%B8%8D%E5%90%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E7%9A%84%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
+<meta property="og:description" content="void FixedWingAircraftModelManager::slotBackgroundFilter(QString f){ &#x2F;&#x2F; 根据lineEdit框内文字，动态刷新item列表显示    const bool empty = f.isEmpty();    QRegExp re = empty ? QRegExp() : QRegExp(f,Qt::CaseInsensitive">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-14T15:52:41.082Z">
+<meta property="og:updated_time" content="2020-02-17T05:45:19.223Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/02/09/Qt%E4%B8%AD%E6%90%9C%E7%B4%A2%E6%A1%86%E8%BE%93%E5%85%A5%E4%B8%8D%E5%90%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E7%9A%84%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98/index.html">
@@ -375,7 +377,34 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        
+        <p>void FixedWingAircraftModelManager::slotBackgroundFilter(QString f){ // 根据lineEdit框内文字，动态刷新item列表显示<br>    const bool empty = f.isEmpty();<br>    QRegExp re = empty ? QRegExp() : QRegExp(f,Qt::CaseInsensitive,QRegExp::FixedString);</p>
+<pre><code>const int numTopLevels = ui-&gt;treeWidget-&gt;topLevelItemCount();
+for(int i = 0; i&lt; numTopLevels; i++ ){
+    QTreeWidgetItem *ti = ui-&gt;treeWidget-&gt;topLevelItem(i);
+    setBackgroundFilter(ti,re);
+}
+</code></pre><p>}</p>
+<p>int setTreeItemHidden(QTreeWidgetItem* item){<br>    if(item-&gt;childCount() != 0){<br>        for(int i = 0; i &lt; item-&gt;childCount(); i++){<br>            item-&gt;child(i)-&gt;setHidden(false);<br>            setTreeItemHidden(item-&gt;child(i));<br>        }<br>    }<br>    return 0;<br>}</p>
+<p>int setBackgroundFilter(QTreeWidgetItem *item,QRegExp re){<br>    if(item == NULL) return 0;<br>    int nVisibleCount = 0;<br>    int count = item-&gt;childCount();</p>
+<pre><code>QString text = item-&gt;text(0);
+bool bMatched = text.contains(re);
+if(bMatched){
+    item-&gt;setHidden(false);
+    setTreeItemHidden(item);
+    return count;
+}else{
+    for(int i = 0; i&lt; count; i++){
+        QTreeWidgetItem* child = item-&gt;child(i);
+        setBackgroundFilter(child,re);
+        if(!child-&gt;isHidden()){
+            nVisibleCount ++;
+        }
+    }
+}
+item-&gt;setHidden(nVisibleCount == 0);
+return nVisibleCount;
+</code></pre><p>}</p>
+
       
     </div>
     <div class="article-footer">
