@@ -17,19 +17,19 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>for循环中的执行顺序 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="以下列for循环语句为例：int i;for(i = 0; i&amp;lt;2; i++ ){    System.out.println(i);} 执行步骤：  i = 0 初始化数据 i &amp;lt; 2 (i = 0, i &amp;lt; 2 成立，进入循环) 打印出i(i=0) i++(i=1) i &amp;lt; 2(i = 1 &amp;lt; 2 成立，进入循环) 打印出i(i=1) i++(i = 2) i &amp;">
+  <title>while(temp != null)还是while(temp.next != null)有什么区别？ | FluffySpoooooonge!!!</title>
+  <meta name="description" content="这个问题一直困扰了我很久，直到今天再写leetcode-19题:删除链表的倒数第n个节点时，用到“快慢指针”时，快指针遍历的while判断条件我选用的是while(fast != null)，但是样例是[1,2,3,4,5],n=2时，输出一直是[1,2,3,4]，不是预期输出[1,2,3,5],看了答案写的是while(fast.next != null)，可以正确输出，所以有必要要细扣一下这个">
 <meta name="keywords" content="编程疑惑">
 <meta property="og:type" content="article">
-<meta property="og:title" content="for循环中的执行顺序">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;01&#x2F;22&#x2F;for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F&#x2F;index.html">
+<meta property="og:title" content="while(temp != null)还是while(temp.next != null)有什么区别？">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;02&#x2F;17&#x2F;while-temp-null-%E8%BF%98%E6%98%AFwhile-temp-next-null-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="以下列for循环语句为例：int i;for(i = 0; i&amp;lt;2; i++ ){    System.out.println(i);} 执行步骤：  i = 0 初始化数据 i &amp;lt; 2 (i = 0, i &amp;lt; 2 成立，进入循环) 打印出i(i=0) i++(i=1) i &amp;lt; 2(i = 1 &amp;lt; 2 成立，进入循环) 打印出i(i=1) i++(i = 2) i &amp;">
+<meta property="og:description" content="这个问题一直困扰了我很久，直到今天再写leetcode-19题:删除链表的倒数第n个节点时，用到“快慢指针”时，快指针遍历的while判断条件我选用的是while(fast != null)，但是样例是[1,2,3,4,5],n=2时，输出一直是[1,2,3,4]，不是预期输出[1,2,3,5],看了答案写的是while(fast.next != null)，可以正确输出，所以有必要要细扣一下这个">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-23T15:20:07.621Z">
+<meta property="og:updated_time" content="2020-02-17T15:25:26.569Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://www.fluffysponge.fun/2020/01/22/for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/index.html">
+  <link rel="canonical" href="https://www.fluffysponge.fun/2020/02/17/while-temp-null-%E8%BF%98%E6%98%AFwhile-temp-next-null-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/index.html">
   
     <link rel="alternate" href="/atom.xml" title="FluffySpoooooooonge !!!" type="application/atom+xml">
   
@@ -335,14 +335,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-for循环中的执行顺序" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-while-temp-null-还是while-temp-next-null-有什么区别？" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      for循环中的执行顺序
+      while(temp != null)还是while(temp.next != null)有什么区别？
     </h1>
   
 
@@ -350,8 +350,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/01/22/for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/" class="article-date">
-	  <time datetime="2020-01-22T15:25:37.000Z" itemprop="datePublished">2020-01-22</time>
+	<a href="/2020/02/17/while-temp-null-%E8%BF%98%E6%98%AFwhile-temp-next-null-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/" class="article-date">
+	  <time datetime="2020-02-17T15:18:53.000Z" itemprop="datePublished">2020-02-17</time>
 	</a>
 </span>
         
@@ -371,24 +371,13 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/22/for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/17/while-temp-null-%E8%BF%98%E6%98%AFwhile-temp-next-null-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>以下列for循环语句为例：<br>int i;<br>for(i = 0; i&lt;2; i++ ){<br>    System.out.println(i);<br>}</p>
-<p>执行步骤：</p>
-<ol>
-<li>i = 0 初始化数据</li>
-<li>i &lt; 2 (i = 0, i &lt; 2 成立，进入循环)</li>
-<li>打印出i(i=0)</li>
-<li>i++(i=1)</li>
-<li>i &lt; 2(i = 1 &lt; 2 成立，进入循环)</li>
-<li>打印出i(i=1)</li>
-<li>i++(i = 2)</li>
-<li>i &lt; 2(i = 2 &lt; 2 不成立，退出循环)</li>
-</ol>
+        <p>这个问题一直困扰了我很久，直到今天再写leetcode-19题:删除链表的倒数第n个节点时，用到“快慢指针”时，快指针遍历的while判断条件我选用的是while(fast != null)，但是样例是[1,2,3,4,5],n=2时，输出一直是[1,2,3,4]，不是预期输出[1,2,3,5],看了答案写的是while(fast.next != null)，可以正确输出，所以有必要要细扣一下这个问题。</p>
 
       
     </div>
@@ -398,7 +387,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://www.fluffysponge.fun/2020/01/22/for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/" title="for循环中的执行顺序" target="_blank" rel="external">https://www.fluffysponge.fun/2020/01/22/for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</a>
+      <a href="https://www.fluffysponge.fun/2020/02/17/while-temp-null-%E8%BF%98%E6%98%AFwhile-temp-next-null-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/" title="while(temp != null)还是while(temp.next != null)有什么区别？" target="_blank" rel="external">https://www.fluffysponge.fun/2020/02/17/while-temp-null-%E8%BF%98%E6%98%AFwhile-temp-next-null-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -444,13 +433,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/01/28/%E7%A8%8B%E5%BA%8F%E5%91%98%E6%94%B9%E6%8E%89%E4%BB%A5%E4%B8%8B%E9%99%8B%E4%B9%A0/" title="程序员改掉以下陋习"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/01/22/%E5%89%91%E6%8C%87-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/" title="剑指-数组中重复的数字"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/02/17/%E5%8A%9B%E6%89%A3-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E8%8A%82%E7%82%B9/" title="力扣-19.删除链表的倒数第n个节点"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
