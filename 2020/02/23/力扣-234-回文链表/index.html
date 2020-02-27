@@ -19,13 +19,14 @@
   
   <title>力扣-234.回文链表 | FluffySpoooooonge!!!</title>
   <meta name="description" content="题目：leetcode 234. Palindrome Linked ListGiven a singly linked list, determine if it is a palindrome(回文). Example 1:Input: 1-&amp;gt;2Output: falseExample 2: Input: 1-&amp;gt;2-&amp;gt;2-&amp;gt;1Output: trueFollow up:">
+<meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="力扣-234.回文链表">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;02&#x2F;23&#x2F;%E5%8A%9B%E6%89%A3-234-%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
 <meta property="og:description" content="题目：leetcode 234. Palindrome Linked ListGiven a singly linked list, determine if it is a palindrome(回文). Example 1:Input: 1-&amp;gt;2Output: falseExample 2: Input: 1-&amp;gt;2-&amp;gt;2-&amp;gt;1Output: trueFollow up:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-25T15:24:07.941Z">
+<meta property="og:updated_time" content="2020-02-27T06:00:28.960Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/02/23/%E5%8A%9B%E6%89%A3-234-%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/index.html">
@@ -215,7 +216,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%A8%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9E%8B%E7%9A%84%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">用开源框架搭建一个小型的广告系统.</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%A8%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%9E%8B%E7%9A%84%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">用开源框架搭建一个小型的广告系统.</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -355,6 +356,11 @@
 </span>
         
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a>
+  </span>
+
 
         
 	<span class="article-read hidden-xs">
@@ -375,7 +381,8 @@
 <p>Example 1:<br>Input: 1-&gt;2<br>Output: false<br>Example 2:</p>
 <p>Input: 1-&gt;2-&gt;2-&gt;1<br>Output: true<br>Follow up:<br>Could you do it in O(n) time and O(1) space?</p>
 <p><strong>题目大意：</strong><br>判断一个链表是否是回文链表。<br>进阶：用时间复杂度O(n)和空间复杂度O(1)解题</p>
-<p><strong>解题思路：</strong><br>这道题本质上也是考察反转链表的内容，属于反转链表的应用。<br>将链表均分成两半，把后一半反转，再判断相等即可，所以说<strong>翻转链表</strong>是一项很基础的工具算法，为很多其他的算法提供思路，须重点掌握。<br><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br><span class="line"></span><br><span class="line">public</span><br></pre></td></tr></table></figure></p>
+<p><strong>解题思路：</strong><br>这道题本质上也是考察反转链表的内容，属于反转链表的应用。<br>将链表均分成两半，把后一半反转，再判断相等即可，所以说<strong>翻转链表</strong>是一项很基础的工具算法，为很多其他的算法提供思路，须重点掌握。</p>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br><span class="line"></span><br><span class="line">public boolean isPalindrome(ListNode head)&#123;</span><br><span class="line">    if(head == null || head.next == null) return true;</span><br><span class="line">    ListNode slow = head,fast = head;</span><br><span class="line">    while(fast != null &amp;&amp; fast.next != null)&#123;   //fast每次走两步，slow每次走一步，所以fast走完(奇数或偶数)时，slow刚好到中点</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">        slow = slow.next;</span><br><span class="line">    &#125;</span><br><span class="line">    if(fast!= null) slow = slow.next;//偶数节点，slow指向下一个节点</span><br><span class="line">    cut(head,slow);</span><br><span class="line">    return isEqual(head,reverse(slow));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void cut(ListNode head,ListNode cutnode)&#123;</span><br><span class="line">    while(head.next != cutnode)&#123;     // !! head.next不等于cutnode,不是head不等于cutnode!!  ？？？ 为什么 ？？？</span><br><span class="line">        head = head.next;</span><br><span class="line">    &#125;</span><br><span class="line">    head.next = null;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private ListNode reverse(ListNode head)&#123;</span><br><span class="line">    ListNode newHead = null;</span><br><span class="line">    while(head != null)&#123;</span><br><span class="line">        ListNode nextnode = head.next;</span><br><span class="line">        head.next = newHead;</span><br><span class="line">        newHead = head;</span><br><span class="line">        head = nextnode;</span><br><span class="line">    &#125;</span><br><span class="line">    return newHead;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private boolean isEqual(ListNode l1,ListNode l2)&#123;</span><br><span class="line">    while(l1 != null &amp;&amp; l2 != null)&#123;</span><br><span class="line">        if(l1.val != l2.val) return false;</span><br><span class="line">        l1 = l1.next;</span><br><span class="line">        l2 = l2.next;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Python:</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
