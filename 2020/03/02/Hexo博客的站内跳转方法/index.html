@@ -18,15 +18,15 @@
   
   
   <title>Hexo博客的站内跳转方法 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="通过查询之后，发现站内跳转有一个用法： {% post_link 文章文件名(不要后缀) 文章标题(可选) %}如 文章名为Hello-World.md，则写法为： {% post_link Hello-World %}或 {% post_link Hello-World 你好世界 %}在哪里插入就直接写上面就行，不需要再加[]。 其实，我之前还想到了另外两个方法：1) 利用MarkDown语法，">
+  <meta name="description" content="通过查询之后，发现站内跳转有一个用法： {% post_link 文章文件名(不要后缀) 文章标题(可选) %}如 文章名为Hello-World.md，则写法为： {% post_link Hello-World %}或 {% post_link Hello-World 你好世界 %}在哪里插入就直接写上面就行，不需要再加[]。但是我没有找到类似像target=”_blank”这样可以弹出新窗口">
 <meta name="keywords" content="hexo使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo博客的站内跳转方法">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;02&#x2F;Hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AB%99%E5%86%85%E8%B7%B3%E8%BD%AC%E6%96%B9%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="通过查询之后，发现站内跳转有一个用法： {% post_link 文章文件名(不要后缀) 文章标题(可选) %}如 文章名为Hello-World.md，则写法为： {% post_link Hello-World %}或 {% post_link Hello-World 你好世界 %}在哪里插入就直接写上面就行，不需要再加[]。 其实，我之前还想到了另外两个方法：1) 利用MarkDown语法，">
+<meta property="og:description" content="通过查询之后，发现站内跳转有一个用法： {% post_link 文章文件名(不要后缀) 文章标题(可选) %}如 文章名为Hello-World.md，则写法为： {% post_link Hello-World %}或 {% post_link Hello-World 你好世界 %}在哪里插入就直接写上面就行，不需要再加[]。但是我没有找到类似像target=”_blank”这样可以弹出新窗口">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-02T15:32:35.417Z">
+<meta property="og:updated_time" content="2020-03-03T08:53:07.701Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/03/02/Hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AB%99%E5%86%85%E8%B7%B3%E8%BD%AC%E6%96%B9%E6%B3%95/index.html">
@@ -380,8 +380,8 @@
         <p>通过查询之后，发现站内跳转有一个用法：</p>
 <p><pre><code>{% post_link 文章文件名(不要后缀) 文章标题(可选) %}</code></pre><br>如 文章名为Hello-World.md，则写法为：</p>
 <p><pre><code>{% post_link Hello-World %}</code></pre><br>或</p>
-<p><pre><code>{% post_link Hello-World 你好世界 %}</code></pre><br>在哪里插入就直接写上面就行，不需要再加[]。</p>
-<p>其实，我之前还想到了另外<strong>两</strong>个方法：<br>1) 利用MarkDown语法，就是用<pre><code>[文字](地址)</code></pre>这种写法，后面地址写跳转网站的绝对地址，感觉这种好用但是比较憨憨的…<br>2) 还有一种跟上面比较像，也是<pre><code>[文字](地址)</code></pre>这种写法，但是后面写那个另一个跳转的md文章的名称，但是需要放在同一个文件夹中，并且这个网站的路径可能会不一样，因为有些网站生成用的是时间做层级路径，需要改_config.yml中permalink标签，这个比较麻烦，还是最上面那个最适合。</p>
+<p><pre><code>{% post_link Hello-World 你好世界 %}</code></pre><br>在哪里插入就直接写上面就行，不需要再加[]。<br>但是我没有找到类似像target=”_blank”这样可以弹出新窗口的方法..</p>
+<p>其实，我之前还想到了另外 <strong>两个方法</strong>：<br>1) 利用MarkDown语法，就是用<pre><code>[文字](地址)</code></pre>这种写法，后面地址写跳转网站的绝对地址，感觉这种好用但是比较憨憨的…<br>2) 还有一种跟上面比较像，也是<pre><code>[文字](地址)</code></pre>这种写法，但是后面写那个另一个跳转的md文章的名称，但是需要放在同一个文件夹中，并且这个网站的路径可能会不一样，因为有些网站生成用的是时间做层级路径，需要改_config.yml中permalink标签，这个比较麻烦，还是最上面那个最适合。</p>
 
       
     </div>
