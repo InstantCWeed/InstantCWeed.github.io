@@ -18,15 +18,15 @@
   
   
   <title>力扣-687-相同结点值的最大路径长度 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="题目：687. Longest Univalue Path(easy) 题目大意： 解题思路： 代码：1Java:">
+  <meta name="description" content="题目：687. Longest Univalue Path(easy)Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.The length of">
 <meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="力扣-687-相同结点值的最大路径长度">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;12&#x2F;%E5%8A%9B%E6%89%A3-687-%E7%9B%B8%E5%90%8C%E7%BB%93%E7%82%B9%E5%80%BC%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="题目：687. Longest Univalue Path(easy) 题目大意： 解题思路： 代码：1Java:">
+<meta property="og:description" content="题目：687. Longest Univalue Path(easy)Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.The length of">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-12T11:37:26.609Z">
+<meta property="og:updated_time" content="2020-03-12T15:07:01.790Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/03/12/%E5%8A%9B%E6%89%A3-687-%E7%9B%B8%E5%90%8C%E7%BB%93%E7%82%B9%E5%80%BC%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6/index.html">
@@ -377,9 +377,11 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/longest-univalue-path/" target="_blank" rel="noopener">687. Longest Univalue Path(easy)</a></p>
-<p><strong>题目大意：</strong></p>
-<p><strong>解题思路：</strong></p>
+        <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/longest-univalue-path/" target="_blank" rel="noopener">687. Longest Univalue Path(easy)</a><br>Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.<br>The length of path between two nodes is represented by the number of edges between them.</p>
+<p>Example 1:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line"></span><br><span class="line">              5</span><br><span class="line">             / \</span><br><span class="line">            4   5</span><br><span class="line">           / \   \</span><br><span class="line">          1   1   5</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure></p>
+<p>Example 2:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line"></span><br><span class="line">              1</span><br><span class="line">             / \</span><br><span class="line">            4   5</span><br><span class="line">           / \   \</span><br><span class="line">          4   4   5</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure><br>Note: The given binary tree has not more than 10000 nodes. The height of the tree is not more than 1000.</p>
+<p><strong>题目大意：</strong><br>最长同值路径。<br>在同一个二叉树中找到具有相同结点值之间的最长路径，并且这个路径可以不经过根节点。</p>
+<p><strong>解题思路：</strong><br>递归 + </p>
 <p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br></pre></td></tr></table></figure></p>
 
       

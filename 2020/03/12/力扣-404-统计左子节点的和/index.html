@@ -18,15 +18,15 @@
   
   
   <title>力扣-404-统计左子节点的和 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="题目：404. Sum of Left Leaves(easy) 题目大意： 解题思路： 代码：1Java:">
+  <meta name="description" content="题目：404. Sum of Left Leaves(easy)Find the sum of all left leaves in a given binary tree.Example:1234567    3   &#x2F; \  9  20    &#x2F;  \   15   7There are two left leaves in the binary tree, with values 9 and">
 <meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="力扣-404-统计左子节点的和">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;12&#x2F;%E5%8A%9B%E6%89%A3-404-%E7%BB%9F%E8%AE%A1%E5%B7%A6%E5%AD%90%E8%8A%82%E7%82%B9%E7%9A%84%E5%92%8C&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="题目：404. Sum of Left Leaves(easy) 题目大意： 解题思路： 代码：1Java:">
+<meta property="og:description" content="题目：404. Sum of Left Leaves(easy)Find the sum of all left leaves in a given binary tree.Example:1234567    3   &#x2F; \  9  20    &#x2F;  \   15   7There are two left leaves in the binary tree, with values 9 and">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-12T11:41:08.738Z">
+<meta property="og:updated_time" content="2020-03-12T15:00:55.386Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/03/12/%E5%8A%9B%E6%89%A3-404-%E7%BB%9F%E8%AE%A1%E5%B7%A6%E5%AD%90%E8%8A%82%E7%82%B9%E7%9A%84%E5%92%8C/index.html">
@@ -377,10 +377,10 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/sum-of-left-leaves/" target="_blank" rel="noopener">404. Sum of Left Leaves(easy)</a></p>
-<p><strong>题目大意：</strong></p>
-<p><strong>解题思路：</strong></p>
-<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br></pre></td></tr></table></figure></p>
+        <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/sum-of-left-leaves/" target="_blank" rel="noopener">404. Sum of Left Leaves(easy)</a><br>Find the sum of all left leaves in a given binary tree.<br>Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    3</span><br><span class="line">   / \</span><br><span class="line">  9  20</span><br><span class="line">    /  \</span><br><span class="line">   15   7</span><br><span class="line"></span><br><span class="line">There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.</span><br></pre></td></tr></table></figure></p>
+<p><strong>题目大意：</strong><br>求出给定二叉树的所有左叶子之和。</p>
+<p><strong>解题思路：</strong><br>递归 + 判断左叶子.<br>代码更易理解。</p>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br><span class="line">public int sumOfLeftLeaves(TreeNode root)&#123;</span><br><span class="line">  if(root == null) return 0;</span><br><span class="line">  if(isLeaf(root.left)) return root.left.val + sumOfLeftLeaves(root.right);</span><br><span class="line"></span><br><span class="line">  return sumOfLeftLeaves(root.left)  + sumOfLeftLeaves(root.right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private boolean isLeaf(TreeNode node)&#123;</span><br><span class="line">  if(node == null) return false;</span><br><span class="line">  return node.left == null &amp;&amp; node.right == null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
