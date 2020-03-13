@@ -18,15 +18,15 @@
   
   
   <title>力扣-337-间隔遍历 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="题目：337. House Robber III(medium)  题目大意：  解题思路：  代码：1Java:">
+  <meta name="description" content="题目：337. House Robber III(medium)The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and onl">
 <meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="力扣-337-间隔遍历">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;12&#x2F;%E5%8A%9B%E6%89%A3-337-%E9%97%B4%E9%9A%94%E9%81%8D%E5%8E%86&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="题目：337. House Robber III(medium)  题目大意：  解题思路：  代码：1Java:">
+<meta property="og:description" content="题目：337. House Robber III(medium)The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and onl">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-13T15:07:58.167Z">
+<meta property="og:updated_time" content="2020-03-13T16:15:32.565Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/03/12/%E5%8A%9B%E6%89%A3-337-%E9%97%B4%E9%9A%94%E9%81%8D%E5%8E%86/index.html">
@@ -377,13 +377,16 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/house-robber-iii/" target="_blank" rel="noopener">337. House Robber III(medium)</a></p>
+        <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/house-robber-iii/" target="_blank" rel="noopener">337. House Robber III(medium)</a><br>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that “all houses in this place forms a binary tree”. It will automatically contact the police if two directly-linked houses were broken into on the same night.</p>
+<p>Determine the maximum amount of money the thief can rob tonight without alerting the police.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Example 1:</span><br><span class="line">Input: [3,2,3,null,3,null,1]</span><br><span class="line"></span><br><span class="line">     3</span><br><span class="line">    / \</span><br><span class="line">   2   3</span><br><span class="line">    \   \ </span><br><span class="line">     3   1</span><br><span class="line"></span><br><span class="line">Output: 7 </span><br><span class="line">Explanation: Maximum amount of money the thief can rob = 3 + 3 + 1 = 7.</span><br><span class="line">Example 2:</span><br><span class="line"></span><br><span class="line">Input: [3,4,5,1,3,null,1]</span><br><span class="line"></span><br><span class="line">     3</span><br><span class="line">    / \</span><br><span class="line">   4   5</span><br><span class="line">  / \   \ </span><br><span class="line"> 1   3   1</span><br><span class="line"></span><br><span class="line">Output: 9</span><br><span class="line">Explanation: Maximum amount of money the thief can rob = 4 + 5 = 9.</span><br></pre></td></tr></table></figure>
 <hr>
-<p><strong>题目大意：</strong></p>
+<p><strong>题目大意：</strong><br>在上次打劫完一条街道之后和一圈房屋后，小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为“根”。 除了“根”之外，每栋房子有且只有一个“父“房子与之相连。一番侦察之后，聪明的小偷意识到“这个地方的所有房屋的排列类似于一棵二叉树”。 如果两个直接相连的房子在同一天晚上被打劫，房屋将自动报警。</p>
+<p>  计算在不触动警报的情况下，小偷一晚能够盗取的最高金额。</p>
 <hr>
-<p><strong>解题思路：</strong></p>
+<p><strong>解题思路：</strong><br>二叉树的最长路径的变形，这次是类似相隔层结点之间权值之和最大。因为两个直接相连的房子不能直接算，就是说父节点和对应子节点不能同时被访问。 或者说就是隔层路径结点之间的和，取奇数层或偶数层之间的最大和。<br>思路还是用递归进行深度优先遍历。</p>
 <hr>
-<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br></pre></td></tr></table></figure></p>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br><span class="line">public int rob(TreeNode root)&#123;</span><br><span class="line">    if(root == null) return 0;</span><br><span class="line">    int val1 = root.val;</span><br><span class="line">    if(root.left != null) val1 += rob(root.left.left) + rob(root.left.right);</span><br><span class="line">    if(root.right != null) val1 += rob(root.right.left) + rob(root.right.right);</span><br><span class="line">    int val2 = rob(root.left) + rob(root.right);</span><br><span class="line">    return Math.max(val1,val2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
