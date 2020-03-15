@@ -17,18 +17,19 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>剑指-反转链表 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="题目：NowCoder这个题目是Leetcode-206详见力扣-206.反转链表">
+  <title>力扣-167-有序数组的TwoSum | FluffySpoooooonge!!!</title>
+  <meta name="description" content="题目：167. Two Sum II - Input array is sorted(easy)Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.The function tw">
+<meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指-反转链表">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;02&#x2F;13&#x2F;%E5%89%91%E6%8C%87-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8&#x2F;index.html">
+<meta property="og:title" content="力扣-167-有序数组的TwoSum">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;15&#x2F;%E5%8A%9B%E6%89%A3-167-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84TwoSum&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="题目：NowCoder这个题目是Leetcode-206详见力扣-206.反转链表">
+<meta property="og:description" content="题目：167. Two Sum II - Input array is sorted(easy)Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.The function tw">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-13T11:27:45.545Z">
+<meta property="og:updated_time" content="2020-03-15T11:42:52.350Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://www.fluffysponge.fun/2020/02/13/%E5%89%91%E6%8C%87-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/index.html">
+  <link rel="canonical" href="https://www.fluffysponge.fun/2020/03/15/%E5%8A%9B%E6%89%A3-167-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84TwoSum/index.html">
   
     <link rel="alternate" href="/atom.xml" title="FluffySpoooooooonge !!!" type="application/atom+xml">
   
@@ -334,14 +335,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-剑指-反转链表" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-力扣-167-有序数组的TwoSum" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      剑指-反转链表
+      力扣-167-有序数组的TwoSum
     </h1>
   
 
@@ -349,12 +350,17 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/02/13/%E5%89%91%E6%8C%87-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" class="article-date">
-	  <time datetime="2020-02-13T10:47:26.000Z" itemprop="datePublished">2020-02-13</time>
+	<a href="/2020/03/15/%E5%8A%9B%E6%89%A3-167-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84TwoSum/" class="article-date">
+	  <time datetime="2020-03-15T10:53:43.000Z" itemprop="datePublished">2020-03-15</time>
 	</a>
 </span>
         
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a>
+  </span>
+
 
         
 	<span class="article-read hidden-xs">
@@ -365,13 +371,19 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/13/%E5%89%91%E6%8C%87-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/15/%E5%8A%9B%E6%89%A3-167-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84TwoSum/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>题目：<br><a href="https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca?tpId=13&amp;tqId=11168&amp;tPage=1&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">NowCoder</a><br>这个题目是<a href="https://leetcode-cn.com/problems/reverse-linked-list/" target="_blank" rel="noopener">Leetcode-206</a><br>详见<a href="https://www.fluffysponge.fun/2020/02/13/%E5%8A%9B%E6%89%A3-206-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">力扣-206.反转链表</a></p>
+        <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/" target="_blank" rel="noopener">167. Two Sum II - Input array is sorted(easy)</a><br>Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.<br>The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2.<br>Note:<br>Your returned answers (both index1 and index2) are not zero-based.<br>You may assume that each input would have exactly one solution and you may not use the same element twice.</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Example:</span><br><span class="line">Input: numbers = [2,7,11,15], target = 9</span><br><span class="line">Output: [1,2]</span><br><span class="line">Explanation: The sum of 2 and 7 is 9. Therefore index1 = 1, index2 = 2.</span><br></pre></td></tr></table></figure></h2><p><strong>题目大意：</strong><br>给定一个已按照升序排列 的有序数组，找到两个数使得它们相加之和等于目标数。<br>函数应该返回这两个下标值 index1 和 index2，其中 index1 必须小于 index2。</p>
+<p>说明:<br>返回的下标值（index1 和 index2）不是从零开始的。<br>你可以假设每个输入只对应唯一的答案，而且你不可以重复使用相同的元素。</p>
+<hr>
+<p><strong>解题思路：</strong><br>在有序数组中使用双指针，第一个指针指向值较小的数，第二个指针指向值较大的数。<br>第一个指针从前向后遍历，第二个指针从后向前遍历。</p>
+<hr>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br><span class="line">public int[] twoSum(int[] numbers,int target)&#123;</span><br><span class="line">    if(numbers == null) return null;</span><br><span class="line">    int i = 0,j = numbers.length - 1;</span><br><span class="line">    while(i &lt; j)&#123;</span><br><span class="line">        int sum = numbers[i] + numbers[j];</span><br><span class="line">        if(sum == target)&#123;</span><br><span class="line">            return new int[]&#123;i+1,j+1&#125;;</span><br><span class="line">        &#125;else if(sum &lt; target)&#123;</span><br><span class="line">            i ++;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            j --;</span><br><span class="line">        &#125;   </span><br><span class="line">    &#125;</span><br><span class="line">    return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -381,7 +393,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://www.fluffysponge.fun/2020/02/13/%E5%89%91%E6%8C%87-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" title="剑指-反转链表" target="_blank" rel="external">https://www.fluffysponge.fun/2020/02/13/%E5%89%91%E6%8C%87-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</a>
+      <a href="https://www.fluffysponge.fun/2020/03/15/%E5%8A%9B%E6%89%A3-167-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84TwoSum/" title="力扣-167-有序数组的TwoSum" target="_blank" rel="external">https://www.fluffysponge.fun/2020/03/15/%E5%8A%9B%E6%89%A3-167-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84TwoSum/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -427,13 +439,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/02/13/%E5%8A%9B%E6%89%A3-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/" title="力扣-21.合并两个有序链表"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/02/13/%E5%8A%9B%E6%89%A3-206-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" title="力扣-206.反转链表"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/03/12/%E5%8A%9B%E6%89%A3-671-%E6%89%BE%E5%87%BA%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%AC%AC%E4%BA%8C%E5%B0%8F%E7%9A%84%E7%BB%93%E7%82%B9/" title="力扣-671-找出二叉树中第二小的结点"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
