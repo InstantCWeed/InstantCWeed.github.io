@@ -18,16 +18,16 @@
   
   
   <title>hexo文章中插入图片 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="一开始我查到md语法中关于插入图片的语法是：![](图片名字.图片格式)，列如![](1.png)直接就行了，后来发现文章始终找不到图片的位置。">
+  <meta name="description" content="一开始我查到md语法中关于插入图片的语法是：![](图片名字.图片格式)，列如![](1.png)直接就行了，后来发现文章始终找不到图片的位置。后来在这个网站找到了最清晰的解决方案。 总的来说有4个步骤：1.更改配置文件：把hexo根目录下的_config.yml文件中的post_asset_folder:false改为true2.用npm包管理器下载插件：npm install https:&#x2F;&#x2F;">
 <meta name="keywords" content="hexo使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo文章中插入图片">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;21&#x2F;hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="一开始我查到md语法中关于插入图片的语法是：![](图片名字.图片格式)，列如![](1.png)直接就行了，后来发现文章始终找不到图片的位置。">
+<meta property="og:description" content="一开始我查到md语法中关于插入图片的语法是：![](图片名字.图片格式)，列如![](1.png)直接就行了，后来发现文章始终找不到图片的位置。后来在这个网站找到了最清晰的解决方案。 总的来说有4个步骤：1.更改配置文件：把hexo根目录下的_config.yml文件中的post_asset_folder:false改为true2.用npm包管理器下载插件：npm install https:&#x2F;&#x2F;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;21&#x2F;hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87&#x2F;test.JPG">
-<meta property="og:updated_time" content="2020-03-21T09:22:45.417Z">
+<meta property="og:updated_time" content="2020-03-21T14:15:48.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;21&#x2F;hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87&#x2F;test.JPG">
   <!-- Canonical links -->
@@ -379,8 +379,9 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>一开始我查到md语法中关于插入图片的语法是：<code>![](图片名字.图片格式)</code>，列如<code>![](1.png)</code>直接就行了，后来发现文章始终找不到图片的位置。</p>
-<p><img src="/2020/03/21/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/test.JPG" alt></p>
+        <p>一开始我查到md语法中关于插入图片的语法是：<code>![](图片名字.图片格式)</code>，列如<code>![](1.png)</code>直接就行了，后来发现文章始终找不到图片的位置。<br>后来在<a href="https://blog.csdn.net/Fitz1318/article/details/86548129" target="_blank" rel="noopener">这个网站</a>找到了最清晰的解决方案。</p>
+<p>总的来说有4个步骤：<br>1.<strong>更改配置文件：</strong>把<code>hexo</code>根目录下的<code>_config.yml</code>文件中的<code>post_asset_folder:false</code>改为<code>true</code><br>2.<strong>用npm包管理器下载插件：</strong><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code><br>3.<strong>新建hexo博客：</strong> <code>hexo n &quot;xxx&quot;</code>新建<code>xxx.md</code>博客时会在<code>/source/_posts</code>目录下生成同名的<code>xxx</code>文件夹，将需要在博客中插入的图片放入这个同名文件夹中<br>4.<strong>在需要的地方添加图片：</strong>在博客中需要的地方写入<code>![](图片名字.图片格式)</code></p>
+<p>全部设置完毕后，可以看到以下的展示效果：<br><img src="/2020/03/21/hexo%E6%96%87%E7%AB%A0%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/test.JPG" alt="以下就是展示的效果"></p>
 
       
     </div>
