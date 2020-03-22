@@ -26,8 +26,10 @@
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
 <meta property="og:description" content="题目：739. Daily Temperatures(Medium)  题目大意：根据每日 气温 列表，请重新生成一个列表，对应位置的输出是需要再等待多久温度才会升高超过该日的天数。如果之后都不会升高，请在该位置用 0 来代替。例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-21T14:23:37.282Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;20&#x2F;%E5%8A%9B%E6%89%A3-739-%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0%E4%B8%8E%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%AF%94%E5%AE%83%E5%A4%A7%E7%9A%84%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E7%9A%84%E8%B7%9D%E7%A6%BB&#x2F;739.jpg">
+<meta property="og:updated_time" content="2020-03-22T09:18:27.326Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;20&#x2F;%E5%8A%9B%E6%89%A3-739-%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0%E4%B8%8E%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%AF%94%E5%AE%83%E5%A4%A7%E7%9A%84%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E7%9A%84%E8%B7%9D%E7%A6%BB&#x2F;739.jpg">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/03/20/%E5%8A%9B%E6%89%A3-739-%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0%E4%B8%8E%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%AF%94%E5%AE%83%E5%A4%A7%E7%9A%84%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E7%9A%84%E8%B7%9D%E7%A6%BB/index.html">
   
@@ -383,7 +385,7 @@
 <p>提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的均为华氏度，都是在 [30, 100] 范围内的整数。</p>
 <hr>
 <p><strong>解题思路：</strong><br>这题就是找出数组中元素中下一个比它大的元素之间的距离。<br>遍历数组时用栈把数组中的数存起来，如果当前遍历的数比栈顶元素大，说明栈顶元素的下一个比它大的元素就是当前的元素。</p>
-<p>这个题需要把每个过程的图画出来，一目了然！<br>本题栈的使用非常巧妙，需要重点关注。<br><img src alt></p>
+<p>这个题需要把每个过程的图画出来，一目了然！<br>本题栈的使用非常巧妙，需要重点关注。<br><img src="/2020/03/20/%E5%8A%9B%E6%89%A3-739-%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0%E4%B8%8E%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%AF%94%E5%AE%83%E5%A4%A7%E7%9A%84%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E7%9A%84%E8%B7%9D%E7%A6%BB/739.jpg" alt="此处显示739题的过程"></p>
 <hr>
 <p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br><span class="line">public int[] dailyTemperatures(int[] T)&#123;</span><br><span class="line">    int length = T.length;</span><br><span class="line">    int[] dist = new int[length]; //数组存的是所需的距离</span><br><span class="line">    Stack&lt;Integer&gt; index = new Stack&lt;&gt;(); // 栈记住的是数组的下标</span><br><span class="line">    for(int cur = 0; cur &lt; length ; cur++)&#123;</span><br><span class="line">        while(!index.isEmpty() &amp;&amp; T[cur] &gt; T[index.peek()])&#123;</span><br><span class="line">            int pre = index.pop();</span><br><span class="line">            dist[pre] = cur - pre;</span><br><span class="line">        &#125;</span><br><span class="line">        index.add(cur);</span><br><span class="line">    &#125;</span><br><span class="line">    return dist;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
