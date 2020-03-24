@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
 <meta property="og:description" content="新建文件:1.touch语　　法：touch [-acfm][-d &amp;lt;日期时间&amp;gt;][-r &amp;lt;参考文件或目 录&amp;gt;][-t &amp;lt;日期时间&amp;gt;] [--help][--version][文件或目录...]或touch [-acfm][--help][--version][日期时 间][文件或目录...]补充说明：使用touch指令可更改文件或目录的日期时间，包括存取时间和">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-24T10:10:12.942Z">
+<meta property="og:updated_time" content="2020-03-24T13:11:03.927Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/03/23/linux%E4%B8%AA%E4%BA%BA%E6%9C%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/index.html">
@@ -384,6 +384,9 @@
 <h3 id="删除文件-文件夹："><a href="#删除文件-文件夹：" class="headerlink" title="删除文件/文件夹："></a>删除文件/文件夹：</h3><p><strong>rm</strong><br><code>语　　法：rm [-dfirv][--help][--version][文件或目录...]</code><br>补充说明：执行rm指令可删除文件或目录，如欲删除目录必须加上参数”-r”，否则预设仅会删除文件。<br>参　　数：<br>　-d或–directory 　直接把欲删除的目录的硬连接数据删成0，删除该目录。<br>　-f或–force 　强制删除文件或目录。<br>　-i或–interactive 　删除既有文件或目录之前先询问用户。<br>　-r或-R或–recursive 　递归处理，将指定目录下的所有文件及子目录一并处理。<br>　-v或–verbose 　显示指令执行过程<br>需要提醒的是：使用这个rm -rf的时候一定要格外小心，linux没有回收站。</p>
 <p>例：rm -f fileName<br>    rm -rf fileDir</p>
 <h3 id="清屏："><a href="#清屏：" class="headerlink" title="清屏："></a>清屏：</h3><p><strong>clear/ ctrl+l(小写l)</strong><br>这个命令会刷新屏幕，本质上只是终端显示向后翻了一页，不清除history历史命令，<code>`ctrl+l</code>是前面命令的快捷键。<br>或者可以利用<code>别名</code>的办法，来和windows中清屏命令相同：<code>alias = cls</code></p>
+<h3 id="关机-重启："><a href="#关机-重启：" class="headerlink" title="关机/重启："></a>关机/重启：</h3><p>重启命令：<br>1、reboot<br>2、shutdown -r now 立刻重启(root用户使用)<br>3、shutdown -r 10 过10分钟自动重启(root用户使用)<br>4、shutdown -r 20:35 在时间为20:35时候重启(root用户使用)<br>如果是通过shutdown命令设置重启的话，可以用shutdown -c命令取消重启</p>
+<p>关机命令：<br>1、halt   立刻关机<br>2、poweroff  立刻关机<br>3、shutdown -h now 立刻关机(root用户使用)<br>4、shutdown -h 10 10分钟后自动关机<br>如果是通过shutdown命令设置关机的话，可以用shutdown -c命令取消重启</p>
+<h3 id="grep-文本搜索工具："><a href="#grep-文本搜索工具：" class="headerlink" title="grep/文本搜索工具："></a>grep/文本搜索工具：</h3><p><a href="https://www.cnblogs.com/peida/archive/2012/12/17/2821195.html" target="_blank" rel="noopener">https://www.cnblogs.com/peida/archive/2012/12/17/2821195.html</a></p>
 
       
     </div>
