@@ -2,37 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.fluffysponge.fun/2020/03/23/linux%E4%B8%AA%E4%BA%BA%E6%9C%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://www.fluffysponge.fun/2020/03/24/win10%E7%8E%AF%E5%A2%83%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BAspark%E6%A1%86%E6%9E%B6/</loc>
     
-    <lastmod>2020-03-23T17:05:43.461Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.fluffysponge.fun/2020/03/24/hadoop%E8%BF%9B%E8%A1%8Cnamenode%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%97%B6ERROR-conf-Configuration-error-parsing-conf-xxx-xml%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
-    
-    <lastmod>2020-03-23T17:04:11.279Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.fluffysponge.fun/2020/03/23/%E5%9C%A8%E5%AE%89%E8%A3%85hadoop%E6%97%B6-slave%E7%BB%93%E7%82%B9jps%E5%91%BD%E4%BB%A4%E5%90%8E%E6%B2%A1%E6%9C%89DataNode%E5%92%8CNodeManager%E8%BF%9B%E7%A8%8B/</loc>
-    
-    <lastmod>2020-03-23T15:35:57.207Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.fluffysponge.fun/2020/03/23/%E4%BD%BF%E7%94%A8root%E6%9D%83%E9%99%90%E5%90%AF%E5%8A%A8hadoop%E6%97%B6%E5%87%BA%E7%8E%B0Attempting-to-operate-on-hdfs-namenode-as-root-%E6%8A%A5%E9%94%99/</loc>
-    
-    <lastmod>2020-03-23T15:35:57.207Z</lastmod>
+    <lastmod>2020-03-24T08:27:05.673Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.fluffysponge.fun/2020/02/25/Win10%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8Fhadoop%E7%8E%AF%E5%A2%83/</loc>
     
-    <lastmod>2020-03-23T03:00:32.809Z</lastmod>
+    <lastmod>2020-03-24T08:26:44.448Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.fluffysponge.fun/2020/03/23/linux%E4%B8%AA%E4%BA%BA%E6%9C%80%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2020-03-24T04:14:13.516Z</lastmod>
     
   </url>
   
