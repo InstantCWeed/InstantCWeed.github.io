@@ -93,7 +93,11 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;泛型类.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;泛型方法.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;泛型接口.png">
-<meta property="og:updated_time" content="2020-04-04T14:57:23.849Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;类型通配符.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;类型通配符举例.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;可变参数.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;可变参数的用法.png">
+<meta property="og:updated_time" content="2020-04-04T15:58:35.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;成员变量和局部变量.png">
   <!-- Canonical links -->
@@ -507,14 +511,20 @@
 <h4 id="HashSet集合保证元素唯一性源码分析"><a href="#HashSet集合保证元素唯一性源码分析" class="headerlink" title="HashSet集合保证元素唯一性源码分析"></a>HashSet集合保证元素唯一性源码分析</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/HashSet集合保证元素唯一性源码分析.png" alt></p>
 <h4 id="LinkedHashSet集合概述和特点"><a href="#LinkedHashSet集合概述和特点" class="headerlink" title="LinkedHashSet集合概述和特点"></a>LinkedHashSet集合概述和特点</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/LinkedHashSet集合概述和特点.png" alt></p>
 <h4 id="TreeSet集合概述和特点"><a href="#TreeSet集合概述和特点" class="headerlink" title="TreeSet集合概述和特点"></a>TreeSet集合概述和特点</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/TreeSet集合概述和特点.png" alt></p>
+<hr>
 <h4 id="自然排序Comparable的使用"><a href="#自然排序Comparable的使用" class="headerlink" title="自然排序Comparable的使用"></a>自然排序Comparable的使用</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/自然排序Comparable的使用.png" alt><br>Comparable接口中的comparteTo 方法中,<br>返回值为正数时，表示this对象比其他对象大，所以放在后面，就是<strong>升序</strong>；<br>返回0时，表示一样大，不存储；<br>返回负数时，表示this对象比其他对象小，所以放在前面，就是<strong>降序</strong>。</p>
+<hr>
 <h4 id="比较器排序Comparator的使用"><a href="#比较器排序Comparator的使用" class="headerlink" title="比较器排序Comparator的使用"></a>比较器排序Comparator的使用</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/比较器排序Comparator的使用.png" alt><br>Comparator接口中的compare方法中，两个参数o1和o2，o1可以类比为Comparable接口中compareTo方法里的this对象，o2可类比为其他对象。<br>o1 - o2 &gt; 0表示o1元素大，放在后面，升序；<br>= 0表示一样大，不存储；<br>&lt; 0表示o1元素小，放在前面，降序。<br>可以理解返回公式中，<br>return为o1 - o2, o1出现在前，从低到高，升序；<br>return为o2 - o1, o2出现在前，从高到低，降序；</p>
+<hr>
 <h4 id="1-20不重复的随机数"><a href="#1-20不重复的随机数" class="headerlink" title="1-20不重复的随机数"></a>1-20不重复的随机数</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/1-20不重复的随机数.png" alt><br>HashSet<strong>不能</strong>保证随机数存储有序<br>TreeSet<strong>能</strong>保证随机数存储有序</p>
 <hr>
 <h4 id="泛型概述和好处"><a href="#泛型概述和好处" class="headerlink" title="泛型概述和好处"></a>泛型概述和好处</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/泛型概述和好处.png" alt></p>
 <h4 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/泛型类.png" alt></p>
 <h4 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/泛型方法.png" alt></p>
 <h4 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/泛型接口.png" alt></p>
+<h4 id="类型通配符"><a href="#类型通配符" class="headerlink" title="类型通配符"></a>类型通配符</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/类型通配符.png" alt><br><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/类型通配符举例.png" alt></p>
+<h4 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/可变参数.png" alt></p>
+<h4 id="可变参数的用法"><a href="#可变参数的用法" class="headerlink" title="可变参数的用法"></a>可变参数的用法</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/可变参数的用法.png" alt></p>
 
       
     </div>
