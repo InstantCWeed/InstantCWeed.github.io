@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.fluffysponge.fun/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/</loc>
+    <loc>https://www.fluffysponge.fun/2020/04/13/Java-%E5%BC%95%E7%94%A8%E7%B1%BB%E6%96%B9%E6%B3%95%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E3%80%81%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E3%80%81%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E7%BB%83%E4%B9%A0/</loc>
+    <lastmod>2020-04-13</lastmod>
+  </url>  <url>
+    <loc>https://www.fluffysponge.fun/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    <lastmod>2020-04-13</lastmod>
+  </url>  <url>
+    <loc>https://www.fluffysponge.fun/2020/03/27/java%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/</loc>
     <lastmod>2020-04-13</lastmod>
   </url>  <url>
     <loc>https://www.fluffysponge.fun/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/</loc>
@@ -26,9 +32,6 @@
     <lastmod>2020-04-13</lastmod>
   </url>  <url>
     <loc>https://www.fluffysponge.fun/2020/04/10/JavaSE-String-StringBuilder-StringBuffer/</loc>
-    <lastmod>2020-04-13</lastmod>
-  </url>  <url>
-    <loc>https://www.fluffysponge.fun/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
     <lastmod>2020-04-13</lastmod>
   </url>  <url>
     <loc>https://www.fluffysponge.fun/2020/04/10/JavaSE-%E5%8F%8D%E5%B0%84/</loc>

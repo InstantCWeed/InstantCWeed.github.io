@@ -18,13 +18,13 @@
   
   
   <title>JavaSE-函数式编程和Lamda表达式 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="函数式编程思想概述 Lambda表达式的标准格式 Lambda表达式的练习1Java-Lambda表达式的练习 Lambda表达式的省略模式 Lambda表达式的注意事项 Lambda表达式和匿名内部类的区别  体验方法引用 方法引用符 引用类方法   #">
+  <meta name="description" content="函数式编程思想概述 Lambda表达式的标准格式 Lambda表达式的练习1Java-Lambda表达式的练习 Lambda表达式的省略模式 Lambda表达式的注意事项 Lambda表达式和匿名内部类的区别  体验方法引用 方法引用符 引用类方法 引用对象的实例方法 引用类的实例方法 引用构造器Java-引用类方法、对象的实例方法、类的实例方法、构造器的练习">
 <meta name="keywords" content="基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaSE-函数式编程和Lamda表达式">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="函数式编程思想概述 Lambda表达式的标准格式 Lambda表达式的练习1Java-Lambda表达式的练习 Lambda表达式的省略模式 Lambda表达式的注意事项 Lambda表达式和匿名内部类的区别  体验方法引用 方法引用符 引用类方法   #">
+<meta property="og:description" content="函数式编程思想概述 Lambda表达式的标准格式 Lambda表达式的练习1Java-Lambda表达式的练习 Lambda表达式的省略模式 Lambda表达式的注意事项 Lambda表达式和匿名内部类的区别  体验方法引用 方法引用符 引用类方法 引用对象的实例方法 引用类的实例方法 引用构造器Java-引用类方法、对象的实例方法、类的实例方法、构造器的练习">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;函数式编程思想概述.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;Lambda表达式的标准格式1.png">
@@ -38,7 +38,10 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;体验方法引用.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;方法引用符.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;引用类方法.png">
-<meta property="og:updated_time" content="2020-04-13T01:15:03.449Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;引用对象的实例方法.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;引用类的实例方法.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;引用构造器.png">
+<meta property="og:updated_time" content="2020-04-13T07:00:03.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;函数式编程思想概述.png">
   <!-- Canonical links -->
@@ -229,7 +232,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaSE%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">JavaSE内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">48</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">Java内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">48</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -239,7 +242,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/JavaSE%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" style="font-size: 13px;">JavaSE内容索引</a> <a href="/tags/hadoop/" style="font-size: 13.6px;">hadoop</a> <a href="/tags/hexo%E4%BD%BF%E7%94%A8/" style="font-size: 13.6px;">hexo使用</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 14px;">刷题</a> <a href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" style="font-size: 13.2px;">刷题目录</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 13.8px;">基础</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 13.2px;">工具使用</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" style="font-size: 13.2px;">工具学习</a> <a href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" style="font-size: 13px;">广告系统</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" style="font-size: 13.2px;">编程疑惑</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 13.2px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 13.4px;">读书</a>
+      <a href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" style="font-size: 13px;">Java内容索引</a> <a href="/tags/hadoop/" style="font-size: 13.6px;">hadoop</a> <a href="/tags/hexo%E4%BD%BF%E7%94%A8/" style="font-size: 13.6px;">hexo使用</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 14px;">刷题</a> <a href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" style="font-size: 13.2px;">刷题目录</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 13.8px;">基础</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 13.2px;">工具使用</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" style="font-size: 13.2px;">工具学习</a> <a href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" style="font-size: 13px;">广告系统</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" style="font-size: 13.2px;">编程疑惑</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 13.2px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 13.4px;">读书</a>
     </div>
   </div>
 
@@ -248,7 +251,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">44</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">28</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">44</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -260,6 +263,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/04/13/Java-%E5%BC%95%E7%94%A8%E7%B1%BB%E6%96%B9%E6%B3%95%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E3%80%81%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E3%80%81%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E7%BB%83%E4%B9%A0/" class="title">Java-引用类方法、对象的实例方法、类的实例方法、构造器的练习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-04-13T06:46:15.000Z" itemprop="datePublished">2020-04-13</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -316,21 +334,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2020-04-10T15:05:31.000Z" itemprop="datePublished">2020-04-10</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/04/10/JavaSE-%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="title">JavaSE-多线程</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-04-10T15:05:21.000Z" itemprop="datePublished">2020-04-10</time>
               </p>
             </div>
           </li>
@@ -400,8 +403,10 @@
 <h4 id="体验方法引用"><a href="#体验方法引用" class="headerlink" title="体验方法引用"></a>体验方法引用</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/体验方法引用.png" alt></p>
 <h4 id="方法引用符"><a href="#方法引用符" class="headerlink" title="方法引用符"></a>方法引用符</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/方法引用符.png" alt></p>
 <h4 id="引用类方法"><a href="#引用类方法" class="headerlink" title="引用类方法"></a>引用类方法</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/引用类方法.png" alt></p>
-<h4 id><a href="#" class="headerlink" title=" "></a> </h4><p><img src alt></p>
-<h3 id="-1"><a href="#-1" class="headerlink" title="#"></a>#</h3>
+<h4 id="引用对象的实例方法"><a href="#引用对象的实例方法" class="headerlink" title="引用对象的实例方法"></a>引用对象的实例方法</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/引用对象的实例方法.png" alt></p>
+<h4 id="引用类的实例方法"><a href="#引用类的实例方法" class="headerlink" title="引用类的实例方法"></a>引用类的实例方法</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/引用类的实例方法.png" alt></p>
+<h4 id="引用构造器"><a href="#引用构造器" class="headerlink" title="引用构造器"></a>引用构造器</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/引用构造器.png" alt><br><a href="/2020/04/13/Java-%E5%BC%95%E7%94%A8%E7%B1%BB%E6%96%B9%E6%B3%95%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E3%80%81%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E3%80%81%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E7%BB%83%E4%B9%A0/" title="Java-引用类方法、对象的实例方法、类的实例方法、构造器的练习">Java-引用类方法、对象的实例方法、类的实例方法、构造器的练习</a></p>
+
       
     </div>
     <div class="article-footer">
