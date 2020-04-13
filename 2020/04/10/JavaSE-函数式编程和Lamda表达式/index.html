@@ -18,13 +18,13 @@
   
   
   <title>JavaSE-函数式编程和Lamda表达式 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="函数式编程思想概述 Lambda表达式的标准格式 Lambda表达式的练习1Java-Lambda表达式的练习 Lambda表达式的省略模式 Lambda表达式的注意事项 Lambda表达式和匿名内部类的区别  体验方法引用 方法引用符 引用类方法 引用对象的实例方法 引用类的实例方法 引用构造器Java-引用类方法、对象的实例方法、类的实例方法、构造器的练习">
+  <meta name="description" content="函数式编程思想概述 Lambda表达式的标准格式 Lambda表达式的练习1Java-Lambda表达式的练习 Lambda表达式的省略模式 Lambda表达式的注意事项 Lambda表达式和匿名内部类的区别  体验方法引用 方法引用符 引用类方法 引用对象的实例方法 引用类的实例方法 引用构造器Java-引用类方法、对象的实例方法、类的实例方法、构造器的练习  函数式接口 函数式接口作为方法的参">
 <meta name="keywords" content="基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaSE-函数式编程和Lamda表达式">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="函数式编程思想概述 Lambda表达式的标准格式 Lambda表达式的练习1Java-Lambda表达式的练习 Lambda表达式的省略模式 Lambda表达式的注意事项 Lambda表达式和匿名内部类的区别  体验方法引用 方法引用符 引用类方法 引用对象的实例方法 引用类的实例方法 引用构造器Java-引用类方法、对象的实例方法、类的实例方法、构造器的练习">
+<meta property="og:description" content="函数式编程思想概述 Lambda表达式的标准格式 Lambda表达式的练习1Java-Lambda表达式的练习 Lambda表达式的省略模式 Lambda表达式的注意事项 Lambda表达式和匿名内部类的区别  体验方法引用 方法引用符 引用类方法 引用对象的实例方法 引用类的实例方法 引用构造器Java-引用类方法、对象的实例方法、类的实例方法、构造器的练习  函数式接口 函数式接口作为方法的参">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;函数式编程思想概述.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;Lambda表达式的标准格式1.png">
@@ -41,7 +41,12 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;引用对象的实例方法.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;引用类的实例方法.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;引用构造器.png">
-<meta property="og:updated_time" content="2020-04-13T07:00:03.850Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;函数式接口.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;函数式接口作为方法的参数.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;函数式接口作为方法的返回值.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;常用的函数式接口.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;常用函数式接口之Supplier介绍和练习.png">
+<meta property="og:updated_time" content="2020-04-13T15:25:51.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;函数式编程思想概述.png">
   <!-- Canonical links -->
@@ -251,7 +256,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">28</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">44</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">44</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -263,6 +268,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/04/13/Java-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3%E7%BB%83%E4%B9%A0/" class="title">Java-常用函数式接口练习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-04-13T15:27:32.000Z" itemprop="datePublished">2020-04-13</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -319,21 +339,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2020-04-10T15:06:01.000Z" itemprop="datePublished">2020-04-10</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/04/10/JavaSE-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="title">JavaSE-网络编程</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-04-10T15:05:31.000Z" itemprop="datePublished">2020-04-10</time>
               </p>
             </div>
           </li>
@@ -406,6 +411,12 @@
 <h4 id="引用对象的实例方法"><a href="#引用对象的实例方法" class="headerlink" title="引用对象的实例方法"></a>引用对象的实例方法</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/引用对象的实例方法.png" alt></p>
 <h4 id="引用类的实例方法"><a href="#引用类的实例方法" class="headerlink" title="引用类的实例方法"></a>引用类的实例方法</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/引用类的实例方法.png" alt></p>
 <h4 id="引用构造器"><a href="#引用构造器" class="headerlink" title="引用构造器"></a>引用构造器</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/引用构造器.png" alt><br><a href="/2020/04/13/Java-%E5%BC%95%E7%94%A8%E7%B1%BB%E6%96%B9%E6%B3%95%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E3%80%81%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E3%80%81%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E7%BB%83%E4%B9%A0/" title="Java-引用类方法、对象的实例方法、类的实例方法、构造器的练习">Java-引用类方法、对象的实例方法、类的实例方法、构造器的练习</a></p>
+<hr>
+<h4 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/函数式接口.png" alt></p>
+<h4 id="函数式接口作为方法的参数"><a href="#函数式接口作为方法的参数" class="headerlink" title="函数式接口作为方法的参数"></a>函数式接口作为方法的参数</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/函数式接口作为方法的参数.png" alt></p>
+<h4 id="函数式接口作为方法的返回值"><a href="#函数式接口作为方法的返回值" class="headerlink" title="函数式接口作为方法的返回值"></a>函数式接口作为方法的返回值</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/函数式接口作为方法的返回值.png" alt></p>
+<h4 id="常用的函数式接口"><a href="#常用的函数式接口" class="headerlink" title="常用的函数式接口"></a>常用的函数式接口</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/常用的函数式接口.png" alt></p>
+<h4 id="常用函数式接口之Supplier介绍和练习"><a href="#常用函数式接口之Supplier介绍和练习" class="headerlink" title="常用函数式接口之Supplier介绍和练习"></a>常用函数式接口之Supplier介绍和练习</h4><p><img src="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/常用函数式接口之Supplier介绍和练习.png" alt></p>
 
       
     </div>
