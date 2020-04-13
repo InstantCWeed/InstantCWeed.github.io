@@ -18,30 +18,14 @@
   
   
   <title>javaSE查缺补漏 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="继承Thread类的方式实现多线程 设置和获取线程名称 线程优先级 线程控制 线程生命周期 实现Runnable接口的方式实现多线程 多线程实现卖票 卖票案例的思考 同步代码块解决数据安全问题 同步方法解决数据安全问题Java-多线程实现卖票 线程安全的类关于Vector和HashTable在线程安全情况下的替代类，最常用的是如Collections.synchronizedL">
+  <meta name="description" content="JavaSE-面向对象特征 JavaSE-常用API和异常 JavaSE-集合类和泛型 JavaSE-文件操作和IO流  JavaSE-多线程 JavaSE-网络编程 JavaSE-函数式编程和Lamda表达式 JavaSE-反射  网络编程三要素 IP地址 InetAddress的使用 端口和协议 UDP通信原理 UDP发送数据 UDP接收数据 UDP通信程序练习Java-UDP通信程序练习 T">
 <meta name="keywords" content="JavaSE内容索引">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javaSE查缺补漏">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="继承Thread类的方式实现多线程 设置和获取线程名称 线程优先级 线程控制 线程生命周期 实现Runnable接口的方式实现多线程 多线程实现卖票 卖票案例的思考 同步代码块解决数据安全问题 同步方法解决数据安全问题Java-多线程实现卖票 线程安全的类关于Vector和HashTable在线程安全情况下的替代类，最常用的是如Collections.synchronizedL">
+<meta property="og:description" content="JavaSE-面向对象特征 JavaSE-常用API和异常 JavaSE-集合类和泛型 JavaSE-文件操作和IO流  JavaSE-多线程 JavaSE-网络编程 JavaSE-函数式编程和Lamda表达式 JavaSE-反射  网络编程三要素 IP地址 InetAddress的使用 端口和协议 UDP通信原理 UDP发送数据 UDP接收数据 UDP通信程序练习Java-UDP通信程序练习 T">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;继承Thread类的方式实现多线程.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;设置和获取线程名称.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;线程优先级.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;线程控制.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;线程生命周期.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;实现Runnable接口的方式实现多线程.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;多线程实现卖票.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;卖票案例的思考.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;同步代码块解决数据安全问题.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;同步代码块解决数据安全问题1.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;同步方法解决数据安全问题.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;线程安全的类.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;线程安全的类代码.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;生产者和消费者模式概述1.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;生产者和消费者模式概述2.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;生产者和消费者案例.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;网络编程三要素.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;IP地址.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;IP地址1.png">
@@ -58,9 +42,9 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;TCP发送数据.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;TCP通信程序练习3.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;TCP通信程序练习6.png">
-<meta property="og:updated_time" content="2020-04-13T01:45:41.433Z">
+<meta property="og:updated_time" content="2020-04-13T02:19:16.226Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;继承Thread类的方式实现多线程.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;27&#x2F;javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F&#x2F;网络编程三要素.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/index.html">
   
@@ -249,7 +233,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaSE%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">JavaSE内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">48</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaSE%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">JavaSE内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">48</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -410,29 +394,15 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        
+        <a href="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/" title="JavaSE-面向对象特征">JavaSE-面向对象特征</a>
+<a href="/2020/04/10/JavaSE-%E5%B8%B8%E7%94%A8API%E5%92%8C%E5%BC%82%E5%B8%B8/" title="JavaSE-常用API和异常">JavaSE-常用API和异常</a>
+<a href="/2020/04/10/JavaSE-%E9%9B%86%E5%90%88%E7%B1%BB%E5%92%8C%E6%B3%9B%E5%9E%8B/" title="JavaSE-集合类和泛型">JavaSE-集合类和泛型</a>
+<a href="/2020/04/10/JavaSE-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%92%8CIO%E6%B5%81/" title="JavaSE-文件操作和IO流">JavaSE-文件操作和IO流</a>
 
-
-
-
-
-
-
-
-<hr>
-<h4 id="继承Thread类的方式实现多线程"><a href="#继承Thread类的方式实现多线程" class="headerlink" title="继承Thread类的方式实现多线程"></a>继承Thread类的方式实现多线程</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/继承Thread类的方式实现多线程.png" alt></p>
-<h4 id="设置和获取线程名称"><a href="#设置和获取线程名称" class="headerlink" title="设置和获取线程名称"></a>设置和获取线程名称</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/设置和获取线程名称.png" alt></p>
-<h4 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/线程优先级.png" alt></p>
-<h4 id="线程控制"><a href="#线程控制" class="headerlink" title="线程控制"></a>线程控制</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/线程控制.png" alt></p>
-<h4 id="线程生命周期"><a href="#线程生命周期" class="headerlink" title="线程生命周期"></a>线程生命周期</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/线程生命周期.png" alt></p>
-<h4 id="实现Runnable接口的方式实现多线程"><a href="#实现Runnable接口的方式实现多线程" class="headerlink" title="实现Runnable接口的方式实现多线程"></a>实现Runnable接口的方式实现多线程</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/实现Runnable接口的方式实现多线程.png" alt></p>
-<h4 id="多线程实现卖票"><a href="#多线程实现卖票" class="headerlink" title="多线程实现卖票"></a>多线程实现卖票</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/多线程实现卖票.png" alt></p>
-<h4 id="卖票案例的思考"><a href="#卖票案例的思考" class="headerlink" title="卖票案例的思考"></a>卖票案例的思考</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/卖票案例的思考.png" alt></p>
-<h4 id="同步代码块解决数据安全问题"><a href="#同步代码块解决数据安全问题" class="headerlink" title="同步代码块解决数据安全问题"></a>同步代码块解决数据安全问题</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/同步代码块解决数据安全问题.png" alt><br><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/同步代码块解决数据安全问题1.png" alt></p>
-<h4 id="同步方法解决数据安全问题"><a href="#同步方法解决数据安全问题" class="headerlink" title="同步方法解决数据安全问题"></a>同步方法解决数据安全问题</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/同步方法解决数据安全问题.png" alt><br><a href="/2020/04/09/Java-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E5%8D%96%E7%A5%A8/" title="Java-多线程实现卖票">Java-多线程实现卖票</a></p>
-<h4 id="线程安全的类"><a href="#线程安全的类" class="headerlink" title="线程安全的类"></a>线程安全的类</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/线程安全的类.png" alt><br><strong>关于Vector和HashTable在线程安全情况下的替代类，最常用的是如Collections.synchronizedList(new ArrayList<E>());这样的写法,Map同理</E></strong><br><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/线程安全的类代码.png" alt></p>
-<h4 id="生产者和消费者模式概述"><a href="#生产者和消费者模式概述" class="headerlink" title="生产者和消费者模式概述"></a>生产者和消费者模式概述</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/生产者和消费者模式概述1.png" alt><br><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/生产者和消费者模式概述2.png" alt></p>
-<h4 id="生产者和消费者案例"><a href="#生产者和消费者案例" class="headerlink" title="生产者和消费者案例"></a>生产者和消费者案例</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/生产者和消费者案例.png" alt><br><a href="/2020/04/09/Java-%E7%94%9F%E4%BA%A7%E8%80%85%E5%92%8C%E6%B6%88%E8%B4%B9%E8%80%85%E6%A1%88%E5%88%97/" title="Java-生产者和消费者案列">Java-生产者和消费者案列</a></p>
+<a href="/2020/04/10/JavaSE-%E5%A4%9A%E7%BA%BF%E7%A8%8B/" title="JavaSE-多线程">JavaSE-多线程</a>
+<a href="/2020/04/10/JavaSE-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" title="JavaSE-网络编程">JavaSE-网络编程</a>
+<a href="/2020/04/10/JavaSE-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8CLamda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="JavaSE-函数式编程和Lamda表达式">JavaSE-函数式编程和Lamda表达式</a>
+<a href="/2020/04/10/JavaSE-%E5%8F%8D%E5%B0%84/" title="JavaSE-反射">JavaSE-反射</a>
 <hr>
 <h4 id="网络编程三要素"><a href="#网络编程三要素" class="headerlink" title="网络编程三要素"></a>网络编程三要素</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/网络编程三要素.png" alt></p>
 <h4 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h4><p><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/IP地址.png" alt><br><img src="/2020/03/27/javaSE%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/IP地址1.png" alt></p>
