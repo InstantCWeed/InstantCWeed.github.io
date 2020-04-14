@@ -17,19 +17,19 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>hexo博客每次部署更新时，githubPage中的CustomDomain配置项总被清空 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="问题：每次hexo g he hexo d -g命令成功执行之后，托管的github仓库的github page的custom domain配置项都被清空，须每次手动进入Settings重新配置好域名然后再save，才能有效。 解决方法:在source文件夹下新建一个CNAME文件(无任何后缀名)，将解析的网站名写在里面，每次和部署的网站文件一起更新。">
-<meta name="keywords" content="hexo使用">
+  <title>快速排序笔记 | FluffySpoooooonge!!!</title>
+  <meta name="description" content="算法思想：基于分治的思想，是冒泡排序的改进型。首先在数组中选择一个基准点（该基准点的选取可能影响快速排序的效率，后面讲解选取的方法），然后分别从数组的两端扫描数组，设两个指示标志（lo指向起始位置，hi指向末尾)，首先从后半部分开始，如果发现有元素比该基准点的值小，就交换lo和hi位置的值，然后从前半部分开始扫秒，发现有元素大于基准点的值，就交换lo和hi位置的值，如此往复循环，直到lo&amp;gt;=">
+<meta name="keywords" content="基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo博客每次部署更新时，githubPage中的CustomDomain配置项总被清空">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;01&#x2F;14&#x2F;hexo%E5%8D%9A%E5%AE%A2%E6%AF%8F%E6%AC%A1%E9%83%A8%E7%BD%B2%E6%9B%B4%E6%96%B0%E6%97%B6%EF%BC%8CgithubPage%E4%B8%AD%E7%9A%84CustomDomain%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%80%BB%E8%A2%AB%E6%B8%85%E7%A9%BA&#x2F;index.html">
+<meta property="og:title" content="快速排序笔记">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;14&#x2F;%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="问题：每次hexo g he hexo d -g命令成功执行之后，托管的github仓库的github page的custom domain配置项都被清空，须每次手动进入Settings重新配置好域名然后再save，才能有效。 解决方法:在source文件夹下新建一个CNAME文件(无任何后缀名)，将解析的网站名写在里面，每次和部署的网站文件一起更新。">
+<meta property="og:description" content="算法思想：基于分治的思想，是冒泡排序的改进型。首先在数组中选择一个基准点（该基准点的选取可能影响快速排序的效率，后面讲解选取的方法），然后分别从数组的两端扫描数组，设两个指示标志（lo指向起始位置，hi指向末尾)，首先从后半部分开始，如果发现有元素比该基准点的值小，就交换lo和hi位置的值，然后从前半部分开始扫秒，发现有元素大于基准点的值，就交换lo和hi位置的值，如此往复循环，直到lo&amp;gt;=">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-21T08:59:31.037Z">
+<meta property="og:updated_time" content="2020-04-14T11:51:04.681Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://www.fluffysponge.fun/2020/01/14/hexo%E5%8D%9A%E5%AE%A2%E6%AF%8F%E6%AC%A1%E9%83%A8%E7%BD%B2%E6%9B%B4%E6%96%B0%E6%97%B6%EF%BC%8CgithubPage%E4%B8%AD%E7%9A%84CustomDomain%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%80%BB%E8%A2%AB%E6%B8%85%E7%A9%BA/index.html">
+  <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/14/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AC%94%E8%AE%B0/index.html">
   
     <link rel="alternate" href="/atom.xml" title="FluffySpoooooooonge !!!" type="application/atom+xml">
   
@@ -335,14 +335,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-hexo博客每次部署更新时，githubPage中的CustomDomain配置项总被清空" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-快速排序笔记" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      hexo博客每次部署更新时，githubPage中的CustomDomain配置项总被清空
+      快速排序笔记
     </h1>
   
 
@@ -350,15 +350,15 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/01/14/hexo%E5%8D%9A%E5%AE%A2%E6%AF%8F%E6%AC%A1%E9%83%A8%E7%BD%B2%E6%9B%B4%E6%96%B0%E6%97%B6%EF%BC%8CgithubPage%E4%B8%AD%E7%9A%84CustomDomain%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%80%BB%E8%A2%AB%E6%B8%85%E7%A9%BA/" class="article-date">
-	  <time datetime="2020-01-14T13:42:38.000Z" itemprop="datePublished">2020-01-14</time>
+	<a href="/2020/04/14/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AC%94%E8%AE%B0/" class="article-date">
+	  <time datetime="2020-04-14T11:45:37.000Z" itemprop="datePublished">2020-04-14</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a>
+	<a class="article-tag-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a>
   </span>
 
 
@@ -371,14 +371,16 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/14/hexo%E5%8D%9A%E5%AE%A2%E6%AF%8F%E6%AC%A1%E9%83%A8%E7%BD%B2%E6%9B%B4%E6%96%B0%E6%97%B6%EF%BC%8CgithubPage%E4%B8%AD%E7%9A%84CustomDomain%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%80%BB%E8%A2%AB%E6%B8%85%E7%A9%BA/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/04/14/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>问题：<br>每次hexo g he hexo d -g命令成功执行之后，托管的github仓库的github page的custom domain配置项都被清空，须每次手动进入Settings重新配置好域名然后再save，才能有效。</p>
-<p>解决方法:<br>在source文件夹下新建一个CNAME文件(无任何后缀名)，将解析的网站名写在里面，每次和部署的网站文件一起更新。</p>
+        <p><strong>算法思想：</strong><br>基于分治的思想，是冒泡排序的改进型。首先在数组中选择一个基准点（该基准点的选取可能影响快速排序的效率，后面讲解选取的方法），然后分别从数组的两端扫描数组，设两个指示标志（lo指向起始位置，hi指向末尾)，首先从后半部分开始，如果发现有元素比该基准点的值小，就交换lo和hi位置的值，然后从前半部分开始扫秒，发现有元素大于基准点的值，就交换lo和hi位置的值，如此往复循环，直到lo&gt;=hi,然后把基准点的值放到hi这个位置。一次排序就完成了。以后采用递归的方式分别对前半部分和后半部分排序，当前半部分和后半部分均有序时该数组就自然有序了。</p>
+<hr>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.HashSet;</span><br><span class="line">import java.util.Random;</span><br><span class="line">import java.util.Set;</span><br><span class="line"></span><br><span class="line">public class QuickSort &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //自定义int数组</span><br><span class="line">        //int[] array = &#123;6,3,7,4,1&#125;;</span><br><span class="line">        //&#123;15,7,10,8,16&#125;;</span><br><span class="line">        //&#123;6,3,7,4,1&#125;</span><br><span class="line"></span><br><span class="line">//        //随机产生int数组</span><br><span class="line">//        Random r = new Random(System.currentTimeMillis());</span><br><span class="line">//        int[] array = new int[10];</span><br><span class="line">//        int i = 0;</span><br><span class="line">//        while (i &lt; 10) &#123;</span><br><span class="line">//            array[i++] = r.nextInt(20);</span><br><span class="line">//        &#125;</span><br><span class="line"></span><br><span class="line">        //随机产生不重复的随机数组</span><br><span class="line">        HashSet&lt;Integer&gt; set = new HashSet&lt;&gt;();</span><br><span class="line">        randomSet(10, 40, 10, set);</span><br><span class="line">        int[] array = new int[10];</span><br><span class="line">        int i = 0;</span><br><span class="line">        for (int y : set) &#123;</span><br><span class="line">            array[i++] = y;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;排序前的数组：&quot;);</span><br><span class="line">        printArray(array);</span><br><span class="line"></span><br><span class="line">        quickSort(array, 0, array.length - 1);</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;排序后的数组：&quot;);</span><br><span class="line">        printArray(array);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static int partition(int[] array, int low, int high) &#123;</span><br><span class="line">        int key = array[low];</span><br><span class="line">        while (low &lt; high) &#123;</span><br><span class="line">            //先从右往左</span><br><span class="line">            while (array[high] &gt;= key &amp;&amp; low &lt; high) &#123;</span><br><span class="line">                high--;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(array, low, high);</span><br><span class="line">            //再从左往右</span><br><span class="line">            while (array[low] &lt;= key &amp;&amp; low &lt; high) &#123;</span><br><span class="line">                low++;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(array, low, high);</span><br><span class="line">        &#125;</span><br><span class="line">        //array[low] = key;//array[high] = key;</span><br><span class="line">        return low;//return high;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static void quickSort(int[] array, int low, int high) &#123;</span><br><span class="line">        if (low &gt;= high) return;</span><br><span class="line">        int index = partition(array, low, high);</span><br><span class="line">        quickSort(array, low, index - 1);</span><br><span class="line">        quickSort(array, index + 1, high);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static void swap(int[] nums, int i, int j) &#123;</span><br><span class="line">        int t = nums[i];</span><br><span class="line">        nums[i] = nums[j];</span><br><span class="line">        nums[j] = t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static void printArray(int[] array) &#123;</span><br><span class="line">        for (int x : array)</span><br><span class="line">            System.out.print(x + &quot; &quot;);</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static void randomSet(int min, int max, int n, HashSet&lt;Integer&gt; set) &#123;</span><br><span class="line">        if (n &gt; (max - min + 1) || max &lt; min) return;</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">            //int num = (int) (Math.random() * (max - min)) + min;</span><br><span class="line">            int num = new Random().nextInt(max - min) + min  ;</span><br><span class="line">            set.add(num);</span><br><span class="line">        &#125;</span><br><span class="line">        int setSize = set.size();</span><br><span class="line">        if (setSize &lt; n)</span><br><span class="line">            randomSet(min, max, n - setSize, set);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>参考网站：</strong><br><a href="https://www.cnblogs.com/coderising/p/5708801.html" target="_blank" rel="noopener">快速排序和基准点的三数取中</a></p>
 
       
     </div>
@@ -388,7 +390,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://www.fluffysponge.fun/2020/01/14/hexo%E5%8D%9A%E5%AE%A2%E6%AF%8F%E6%AC%A1%E9%83%A8%E7%BD%B2%E6%9B%B4%E6%96%B0%E6%97%B6%EF%BC%8CgithubPage%E4%B8%AD%E7%9A%84CustomDomain%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%80%BB%E8%A2%AB%E6%B8%85%E7%A9%BA/" title="hexo博客每次部署更新时，githubPage中的CustomDomain配置项总被清空" target="_blank" rel="external">https://www.fluffysponge.fun/2020/01/14/hexo%E5%8D%9A%E5%AE%A2%E6%AF%8F%E6%AC%A1%E9%83%A8%E7%BD%B2%E6%9B%B4%E6%96%B0%E6%97%B6%EF%BC%8CgithubPage%E4%B8%AD%E7%9A%84CustomDomain%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%80%BB%E8%A2%AB%E6%B8%85%E7%A9%BA/</a>
+      <a href="https://www.fluffysponge.fun/2020/04/14/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AC%94%E8%AE%B0/" title="快速排序笔记" target="_blank" rel="external">https://www.fluffysponge.fun/2020/04/14/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AC%94%E8%AE%B0/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -434,13 +436,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/01/14/MarkDown%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/" title="MarkDown语言常用语法"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/01/14/hexo%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%9C%80%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" title="hexo的个人最常用操作"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/04/14/%E5%8A%9B%E6%89%A3-581-%E6%9C%80%E7%9F%AD%E6%97%A0%E5%BA%8F%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84/" title="力扣-581-最短无序连续子数组"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
