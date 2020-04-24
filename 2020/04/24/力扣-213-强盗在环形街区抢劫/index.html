@@ -18,15 +18,15 @@
   
   
   <title>力扣-213-强盗在环形街区抢劫 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="题目：213. House Robber II(medium)  解题思路：  代码：1234Java:public int rob(int[] nums)&amp;#123;    &amp;#125;">
+  <meta name="description" content="题目：213. House Robber II(medium)  解题思路：这个题是leetcode198那个题的升级版，在不能盗窃相邻房屋的约束上，多加了一条：最后一个房屋和第一个房屋也是紧挨着的，所以也不能同时盗窃。所以，盗窃范围有两个可选范围：编号0到n-2号，编号1到n-1号。这两个过程互不影响，应该取其中结果更大的，取个max。单个过程就是典型的dp的过程，状态转移方程还是：dp[i]">
 <meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="力扣-213-强盗在环形街区抢劫">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;24&#x2F;%E5%8A%9B%E6%89%A3-213-%E5%BC%BA%E7%9B%97%E5%9C%A8%E7%8E%AF%E5%BD%A2%E8%A1%97%E5%8C%BA%E6%8A%A2%E5%8A%AB&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="题目：213. House Robber II(medium)  解题思路：  代码：1234Java:public int rob(int[] nums)&amp;#123;    &amp;#125;">
+<meta property="og:description" content="题目：213. House Robber II(medium)  解题思路：这个题是leetcode198那个题的升级版，在不能盗窃相邻房屋的约束上，多加了一条：最后一个房屋和第一个房屋也是紧挨着的，所以也不能同时盗窃。所以，盗窃范围有两个可选范围：编号0到n-2号，编号1到n-1号。这两个过程互不影响，应该取其中结果更大的，取个max。单个过程就是典型的dp的过程，状态转移方程还是：dp[i]">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-24T15:41:04.965Z">
+<meta property="og:updated_time" content="2020-04-24T16:07:10.583Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/24/%E5%8A%9B%E6%89%A3-213-%E5%BC%BA%E7%9B%97%E5%9C%A8%E7%8E%AF%E5%BD%A2%E8%A1%97%E5%8C%BA%E6%8A%A2%E5%8A%AB/index.html">
@@ -379,9 +379,9 @@
       
         <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/house-robber-ii/" target="_blank" rel="noopener">213. House Robber II(medium)</a></p>
 <hr>
-<p><strong>解题思路：</strong></p>
+<p><strong>解题思路：</strong><br>这个题是<code>leetcode198</code>那个题的升级版，在不能盗窃相邻房屋的约束上，多加了一条：最后一个房屋和第一个房屋也是紧挨着的，所以也不能同时盗窃。所以，盗窃范围有两个可选范围：编号0到n-2号，编号1到n-1号。这两个过程互不影响，应该取其中结果更大的，取个<code>max</code>。单个过程就是典型的dp的过程，状态转移方程还是：<br><code>dp[i] = max(dp[i-2]+nums[i],dp[i-1]),dp[i]为抢劫到第i个房屋时的最大收益</code></p>
 <hr>
-<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br><span class="line">public int rob(int[] nums)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br><span class="line">public int rob(int[] nums) &#123;</span><br><span class="line">    if(nums == null || nums.length == 0)   return 0;</span><br><span class="line">    int n = nums.length;</span><br><span class="line">    if(n == 1)  return nums[0];</span><br><span class="line">    return Math.max(rob(nums,0,n-2),rob(nums,1,n-1));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private int rob(int[] nums,int first,int last)&#123;</span><br><span class="line">    int pre2 = 0,pre1 = 0;</span><br><span class="line">    for(int i = first;i &lt;= last;++i)&#123;</span><br><span class="line">        int cur = Math.max(pre1,pre2+nums[i]);</span><br><span class="line">        pre2 = pre1;</span><br><span class="line">        pre1 = cur;</span><br><span class="line">    &#125;</span><br><span class="line">    return pre1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
