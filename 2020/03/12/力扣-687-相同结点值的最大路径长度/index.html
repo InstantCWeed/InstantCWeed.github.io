@@ -18,15 +18,15 @@
   
   
   <title>力扣-687-相同结点值的最大路径长度 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="题目：687. Longest Univalue Path(easy)Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.The length of">
+  <meta name="description" content="题目：687. Longest Univalue Path(easy)  题目大意：最长同值路径。在同一个二叉树中找到具有相同结点值之间的最长路径，并且这个路径可以不经过根节点。  解题思路：递归求高度的变形，有点像543.二叉树的直径那道题。两道题的思路非常相近，但是这里要求路径的长度必须是相同元素构成的。注意遇到相同的元素时+1，不同的元素是返回0，而不是返回最大值。  代码：12345678">
 <meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="力扣-687-相同结点值的最大路径长度">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;03&#x2F;12&#x2F;%E5%8A%9B%E6%89%A3-687-%E7%9B%B8%E5%90%8C%E7%BB%93%E7%82%B9%E5%80%BC%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="题目：687. Longest Univalue Path(easy)Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.The length of">
+<meta property="og:description" content="题目：687. Longest Univalue Path(easy)  题目大意：最长同值路径。在同一个二叉树中找到具有相同结点值之间的最长路径，并且这个路径可以不经过根节点。  解题思路：递归求高度的变形，有点像543.二叉树的直径那道题。两道题的思路非常相近，但是这里要求路径的长度必须是相同元素构成的。注意遇到相同的元素时+1，不同的元素是返回0，而不是返回最大值。  代码：12345678">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-01T16:52:51.386Z">
+<meta property="og:updated_time" content="2020-04-28T05:15:39.405Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/03/12/%E5%8A%9B%E6%89%A3-687-%E7%9B%B8%E5%90%8C%E7%BB%93%E7%82%B9%E5%80%BC%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6/index.html">
@@ -216,7 +216,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">Java内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">57</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">Java内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">58</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -235,7 +235,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">46</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">44</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">47</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">44</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -247,6 +247,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/04/28/%E5%8A%9B%E6%89%A3-141-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/" class="title">力扣-141-环形链表</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-04-28T05:36:25.000Z" itemprop="datePublished">2020-04-28</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -307,21 +322,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/04/24/%E5%8A%9B%E6%89%A3-213-%E5%BC%BA%E7%9B%97%E5%9C%A8%E7%8E%AF%E5%BD%A2%E8%A1%97%E5%8C%BA%E6%8A%A2%E5%8A%AB/" class="title">力扣-213-强盗在环形街区抢劫</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-04-24T15:36:51.000Z" itemprop="datePublished">2020-04-24</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -377,15 +377,13 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/longest-univalue-path/" target="_blank" rel="noopener">687. Longest Univalue Path(easy)</a><br>Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.<br>The length of path between two nodes is represented by the number of edges between them.</p>
-<p>Example 1:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line"></span><br><span class="line">              5</span><br><span class="line">             / \</span><br><span class="line">            4   5</span><br><span class="line">           / \   \</span><br><span class="line">          1   1   5</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure></p>
-<p>Example 2:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line"></span><br><span class="line">              1</span><br><span class="line">             / \</span><br><span class="line">            4   5</span><br><span class="line">           / \   \</span><br><span class="line">          4   4   5</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure><br>Note: The given binary tree has not more than 10000 nodes. The height of the tree is not more than 1000.</p>
+        <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/longest-univalue-path/" target="_blank" rel="noopener">687. Longest Univalue Path(easy)</a></p>
 <hr>
 <p><strong>题目大意：</strong><br>最长同值路径。<br>在同一个二叉树中找到具有相同结点值之间的最长路径，并且这个路径可以不经过根节点。</p>
 <hr>
 <p><strong>解题思路：</strong><br>递归求高度的变形，有点像<a href="/2020/03/07/%E5%8A%9B%E6%89%A3-543-%E4%B8%A4%E8%8A%82%E7%82%B9%E7%9A%84%E6%9C%80%E9%95%BF%E8%B7%AF%E5%BE%84/" title="543.二叉树的直径">543.二叉树的直径</a>那道题。两道题的思路非常相近，但是这里要求路径的长度必须是相同元素构成的。<br>注意遇到相同的元素时+1，不同的元素是返回0，而不是返回最大值。</p>
 <hr>
-<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br><span class="line">public int longestUnivaluePath(TreeNode root)&#123;</span><br><span class="line">    if(root == null) return 0;</span><br><span class="line">    int[] path = new int[1];</span><br><span class="line">    /* 这里不能用int path = 0;因为形参和实参的区别。</span><br><span class="line">      详见这个网址 https://zhidao.baidu.com/question/1547035486282498107.html</span><br><span class="line">     */</span><br><span class="line">    longestUnivaluePath(root,path);</span><br><span class="line">    return path[0]; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//再写一个可以用来递归，来求得最大的函数重载形式</span><br><span class="line">private int longestUnivaluePath(TreeNode node,int[] path)&#123;</span><br><span class="line">    if(node == null) return 0;</span><br><span class="line">    int left = longestUnivaluePath(node.left,path);</span><br><span class="line">    int right = longestUnivaluePath(node.right,path);</span><br><span class="line">    int leftPath = 0, rightPath = 0;</span><br><span class="line">    if(node.left != null &amp;&amp; node.left.val == node.val)&#123;</span><br><span class="line">        leftPath += left + 1;</span><br><span class="line">    &#125;</span><br><span class="line">    if(node.left != null &amp;&amp; node.left.val == node.val)&#123;</span><br><span class="line">        rightPath += right + 1;</span><br><span class="line">    &#125;</span><br><span class="line">    path[0] = Math.max(path[0],leftPath + rightPath);</span><br><span class="line">    return Math.max(leftPath,rightPath);</span><br><span class="line">    //注意这里不是什么时候都加1，只有满足情况的时候才加1，而且加1的操作已经在上面leftPath和rightPath两步做了。</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Python:</span><br></pre></td></tr></table></figure></p>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br><span class="line">public int longestUnivaluePath(TreeNode root)&#123;</span><br><span class="line">    if(root == null) return 0;</span><br><span class="line">    int[] path = new int[1];</span><br><span class="line">    /* 这里不能用int path = 0;因为形参和实参的区别。</span><br><span class="line">      详见这个网址 https://zhidao.baidu.com/question/1547035486282498107.html</span><br><span class="line">     */</span><br><span class="line">    longestUnivaluePath(root,path);</span><br><span class="line">    return path[0]; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//再写一个可以用来递归，来求得最大的函数重载形式</span><br><span class="line">private int longestUnivaluePath(TreeNode node,int[] path)&#123;</span><br><span class="line">    if(node == null) return 0;</span><br><span class="line">    int left = longestUnivaluePath(node.left,path);</span><br><span class="line">    int right = longestUnivaluePath(node.right,path);</span><br><span class="line">    int leftPath = 0, rightPath = 0;</span><br><span class="line">    if(node.left != null &amp;&amp; node.left.val == node.val)&#123;</span><br><span class="line">        leftPath += left + 1;</span><br><span class="line">    &#125;</span><br><span class="line">    if(node.right != null &amp;&amp; node.right.val == node.val)&#123;</span><br><span class="line">        rightPath += right + 1;</span><br><span class="line">    &#125;</span><br><span class="line">    path[0] = Math.max(path[0],leftPath + rightPath);</span><br><span class="line">    return Math.max(leftPath,rightPath);</span><br><span class="line">    //注意这里不是什么时候都加1，只有满足情况的时候才加1，而且加1的操作已经在上面leftPath和rightPath两步做了。</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Python:</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
