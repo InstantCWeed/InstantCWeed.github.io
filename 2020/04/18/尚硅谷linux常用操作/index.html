@@ -18,15 +18,15 @@
   
   
   <title>尚硅谷linux常用操作 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="vim&#x2F;vim常用快捷键：正常模式下:1.拷贝当前行：yy; 拷贝当前行向下2行：2yy; 粘贴:p2.删除当前行：dd; 删除当前行向下2行：2dd3.光标定位到最首行：gg ; 光标定位到最末行：G;4.撤销保存前输入内容：u5.定位到指定行：数字, shift + g:如定位到第2行，则输入2 , shift + g 命令行模式下(:)：1.查找某些内容： &#x2F;内容 回车查找，按n光标查找到下">
+  <meta name="description" content="Linux目录：  vim&#x2F;vim常用快捷键：正常模式下:1.拷贝当前行：yy; 拷贝当前行向下2行：2yy; 粘贴:p2.删除当前行：dd; 删除当前行向下2行：2dd3.光标定位到最首行：gg ; 光标定位到最末行：G;4.撤销保存前输入内容：u5.定位到指定行：数字, shift + g:如定位到第2行，则输入2 , shift + g 命令行模式下(:)：1.查找某些内容： &#x2F;内容 回车查">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="尚硅谷linux常用操作">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;18&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="vim&#x2F;vim常用快捷键：正常模式下:1.拷贝当前行：yy; 拷贝当前行向下2行：2yy; 粘贴:p2.删除当前行：dd; 删除当前行向下2行：2dd3.光标定位到最首行：gg ; 光标定位到最末行：G;4.撤销保存前输入内容：u5.定位到指定行：数字, shift + g:如定位到第2行，则输入2 , shift + g 命令行模式下(:)：1.查找某些内容： &#x2F;内容 回车查找，按n光标查找到下">
+<meta property="og:description" content="Linux目录：  vim&#x2F;vim常用快捷键：正常模式下:1.拷贝当前行：yy; 拷贝当前行向下2行：2yy; 粘贴:p2.删除当前行：dd; 删除当前行向下2行：2dd3.光标定位到最首行：gg ; 光标定位到最末行：G;4.撤销保存前输入内容：u5.定位到指定行：数字, shift + g:如定位到第2行，则输入2 , shift + g 命令行模式下(:)：1.查找某些内容： &#x2F;内容 回车查">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-27T08:38:17.971Z">
+<meta property="og:updated_time" content="2020-04-28T15:50:46.228Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/18/%E5%B0%9A%E7%A1%85%E8%B0%B7linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
@@ -377,10 +377,12 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>vim/vim常用快捷键：</strong><br>正常模式下:<br>1.拷贝当前行：<code>yy</code>; 拷贝当前行向下2行：<code>2yy</code>; 粘贴:<code>p</code><br>2.删除当前行：<code>dd</code>; 删除当前行向下2行：<code>2dd</code><br>3.光标定位到最首行：<code>gg</code> ; 光标定位到最末行：<code>G</code>;<br>4.撤销保存前输入内容：<code>u</code><br>5.定位到指定行：<code>数字, shift + g</code>:如定位到第2行，则输入<code>2 , shift + g</code></p>
+        <p><strong>Linux目录：</strong></p>
+<hr>
+<p><strong>vim/vim常用快捷键：</strong><br>正常模式下:<br>1.拷贝当前行：<code>yy</code>; 拷贝当前行向下2行：<code>2yy</code>; 粘贴:<code>p</code><br>2.删除当前行：<code>dd</code>; 删除当前行向下2行：<code>2dd</code><br>3.光标定位到最首行：<code>gg</code> ; 光标定位到最末行：<code>G</code>;<br>4.撤销保存前输入内容：<code>u</code><br>5.定位到指定行：<code>数字, shift + g</code>:如定位到第2行，则输入<code>2 , shift + g</code></p>
 <p>命令行模式下(:)：<br>1.查找某些内容： <code>/内容</code> 回车查找，按<code>n</code>光标查找到下一个<br>2.设置文件行号：<code>set nu</code><br>3.取消文件行号：<code>set nonu</code></p>
 <hr>
-<p><strong>开机、重启、用户登录和注销：</strong><br>shutdown -h now:立即关机<br>shutdown -h 1: 1分钟后关机<br>shutdown -r now:现在重启<br>halt : 直接关机<br>reboot: 现在直接重启<br>sync: 把内存的数据同步到磁盘<br>  注：建议不管重启还是关机，首先运行sync命令，及时把内存数据写到磁盘上<br>su -用户名：<br>logout/exit: 注销当前用户(图形运行级别无效)</p>
+<p><strong>开机、重启、用户登录和注销：</strong><br><code>shutdown -h now</code>:立即关机<br><code>shutdown -h 1</code>: 1分钟后关机<br><code>shutdown -r now</code>:现在重启<br><code>halt</code>: 直接关机<br><code>reboot</code>: 现在直接重启<br><code>sync</code>: 把内存的数据同步到磁盘<br>  注：建议不管重启还是关机，首先运行sync命令，及时把内存数据写到磁盘上<br><code>su -用户名</code>： 更换用户<br><code>logout/exit</code>: 注销当前用户(图形运行级别无效)</p>
 <hr>
 <p><strong>用户管理：</strong><br>1.添加用户：<code>useradd [选项] 用户名</code><br>  当用户创建成功后，会自动创建一个同名的home目录，在/home下<br>  也可以通过<code>useradd -d 指定目录 新的用户名</code>，给新创建的用户指定家目录，注意指定目录之前要不存在<br>2.用户指定/修改密码：<code>passwd 用户名</code><br>3.删除用户：<code>userdel 用户名</code>：只删除用户，保留家目录<br>            <code>userdel -r 用户名</code>:同时删除用户和家目录<br>  注意：开发中，删除用户时，一般不会将家目录删除<br>4.查询用户信息：<code>id 用户名</code>，返回用户id,组id，组名称<br>    若没有用户，控制台返回“无此用户”<br>5.切换用户：<code>su - 切换用户名</code><br>  注：返回原来用户：<code>exit</code>指令<br>6.查看当前用户/登录用户：<code>whoami</code></p>
 <p>用户组：测试组 or 研发组<br>1.增加组：<code>groupadd 组名</code><br>2.删除组：<code>groupdel 组名</code><br>3.增加用户时直接加上组：<code>useradd -g 用户组 用户名</code><br>4.修改用户的组：<code>usermod -g 用户组 用户名</code></p>
@@ -389,6 +391,12 @@
 <p>/etc/group文件：组配置文件，记录linux包含的组信息<br>每行含义：组名：口令：组标识：组内用户列表</p>
 <hr>
 <p><strong>实用指令：</strong><br>运行级别：<br>0：关机； 1：单用户【找回丢失密码】；2：多用户无网络；3：多用户有网络【常用】；4：保留；5：图形界面；6：重启<br>常用运行级别为3和5；<br>修改默认的运行级别可修改配置文件：/etc/inittab的id:5:initdefault:这行数字<br>命令：<code>init[012356]</code></p>
+<p>面试题：找回root密码<br>思路：进入单用户模式，然后修改root密码。因为单用户模式，root不需要密码就可以登录。<br>操作：在引导时修改进入内核选项，进入1.单用户模式</p>
+<p>帮助指令：<code>man [命令或配置文件]</code> 或者 <code>help [命令]</code></p>
+<hr>
+<p>文件目录类：<br>显示当前目录的绝对路径：<code>pwd</code><br>显示当前目录或文件的信息：<code>ls [选项] [目录或文件]</code><br>  选项：<br>    -a：显示全部文件目录或文件，包括隐藏的<br>    -l: 列表方式显示信息<br>切换目录：<code>cd [目录]</code><br>  <code>cd ~ 或 cd</code>:回到用户home目录<br>  <code>cd ..</code>:回到上级目录</p>
+<p>创建目录：<code>mkdir [选项] 要创建的目录</code><br>  选项：<br>    -p:创建多级目录<br>删除空目录：<code>rmdir [选项] 要删除的目录</code><br>删除非空目录：<code>rm -rf 要删除的非空目录</code></p>
+<p>创建空文件：<code>touch 文件名称</code><br>拷贝文件到指定目录:<code>cp [选项] source文件 dest目录</code><br>  选项：<br>    -r:递归拷贝整个文件<br>  <em>注意：强制覆盖原先文件: \cp</em></p>
 
       
     </div>
