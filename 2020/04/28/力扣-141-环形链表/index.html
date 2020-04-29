@@ -18,15 +18,15 @@
   
   
   <title>力扣-141-环形链表 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="题目：141. Linked List Cycle(easy)  解题思路：  代码：``Java: ``">
+  <meta name="description" content="题目：141. Linked List Cycle(easy)  解题思路：题目要求在O(1)的空间复杂度解决此问题。这个题目是典型的双指针问题。使用具有 不同速度 的快、慢两个指针遍历链表，空间复杂度可以被降低至O(1)。慢指针每次移动一步，而快指针每次移动两步。如果列表中不存在环，最终快指针将会最先到达尾部，此时我们可以返回false。否则两个指针总会相遇。  代码：代码写法上有两种：第一种:">
 <meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="力扣-141-环形链表">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;28&#x2F;%E5%8A%9B%E6%89%A3-141-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="题目：141. Linked List Cycle(easy)  解题思路：  代码：``Java: ``">
+<meta property="og:description" content="题目：141. Linked List Cycle(easy)  解题思路：题目要求在O(1)的空间复杂度解决此问题。这个题目是典型的双指针问题。使用具有 不同速度 的快、慢两个指针遍历链表，空间复杂度可以被降低至O(1)。慢指针每次移动一步，而快指针每次移动两步。如果列表中不存在环，最终快指针将会最先到达尾部，此时我们可以返回false。否则两个指针总会相遇。  代码：代码写法上有两种：第一种:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-28T05:39:27.164Z">
+<meta property="og:updated_time" content="2020-04-29T10:31:56.243Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/28/%E5%8A%9B%E6%89%A3-141-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/index.html">
@@ -379,10 +379,19 @@
       
         <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/linked-list-cycle/" target="_blank" rel="noopener">141. Linked List Cycle(easy)</a></p>
 <hr>
-<p><strong>解题思路：</strong></p>
+<p><strong>解题思路：</strong><br>题目要求在O(1)的空间复杂度解决此问题。<br>这个题目是典型的<strong>双指针</strong>问题。<br>使用具有 不同速度 的快、慢两个指针遍历链表，空间复杂度可以被降低至O(1)。慢指针每次移动一步，而快指针每次移动两步。如果列表中不存在环，最终快指针将会最先到达尾部，此时我们可以返回false。否则两个指针总会相遇。</p>
 <hr>
-<p><strong>代码：</strong><br>``<br>Java:</p>
-<p>``</p>
+<p><strong>代码：</strong><br>代码写法上有两种：<br>第一种:将慢指针看作不动得参考系，快指针的速度就从2视为1，当快指针走完一圈之后，就一定会于慢指针相遇。<br><code>public boolean hasCycle(ListNode head) {
+        if(head == null || head.next == null)      return false;
+        ListNode slow = head;
+        ListNode fast = head;
+        while(fast != null &amp;&amp; fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast)   return true;
+        }
+        return false;
+    }</code><br>第二种：快指针先走一个，有环的话从后面追击慢指针<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public boolean hasCycle(ListNode head)&#123;</span><br><span class="line">    if(head == null || head.next == null) return false;</span><br><span class="line">    ListNode slow = head,fast = head.next;//快指针先走一个</span><br><span class="line">    while(slow != fast)&#123;</span><br><span class="line">        if(fast == null || fast.next == null)</span><br><span class="line">            return false;//走到最后也没找到</span><br><span class="line">        slow = slow.next;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
