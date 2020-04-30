@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
 <meta property="og:description" content="Linux目录 vim&#x2F;vim常用快捷键正常模式下:1.拷贝当前行：yy; 拷贝当前行向下2行：2yy; 粘贴:p2.删除当前行：dd; 删除当前行向下2行：2dd3.光标定位到最首行：gg ; 光标定位到最末行：G;4.撤销保存前输入内容：u5.定位到指定行：数字, shift + g:如定位到第2行，则输入2 , shift + g 命令行模式下(:)：1.查找某些内容： &#x2F;内容 回车查找，按">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-30T07:34:37.603Z">
+<meta property="og:updated_time" content="2020-04-30T15:32:11.345Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/18/%E5%B0%9A%E7%A1%85%E8%B0%B7linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
@@ -404,7 +404,9 @@
 <p>输出内容到控制台：<code>echo [选项] [输出内容]</code><br>显示文件开头部分内容：<code>head 文件</code>：默认显示文件前10行<br><code>head -n 5 文件</code>：显示文件头5行内容<br>显示文件尾部部分内容：<code>tail 文件</code>：默认显示文件后10行<br><code>tail -n 5 文件</code>：显示文件后5行内容<br><code>tail -f 文件</code>：实时追踪文件的所有更新，<strong>工作经常使用</strong></p>
 <p>软链接，类似windows的快捷方式：<code>ln -s [原文件或目录] [软链接名]</code>：给原文件创建一个软链接<br>注：1)删除软链接 <code>rm -rf 软链接名</code>，不带/;<br>    2)进入软链接<code>pwd</code>显示的还是软连接的目录</p>
 <p>查看执行过的历史命令：<code>history [数字]</code><br>还可以再执行历史命令history之后，使用<code>!编号</code>执行历史命令</p>
-<p><strong>时间日期类</strong>：</p>
+<p><strong>时间日期类</strong>：<br>显示当前日期：<code>date</code><br>显示当前年份：<code>date + %Y</code><br>显示当前月份：<code>date + %m</code><br>显示当前日期：<code>date + %d</code><br>显示年月日时分秒：<code>date + &quot;%Y-%m-%d %H:%M:%S&quot;</code><br>设置日期：<code>date -s 字符串时间(%Y-%m-%d %H:%M:%S格式)</code></p>
+<p>查看日历信息：<code>cal [年份]</code>：不加选项显示当前日期</p>
+<p><strong>搜索查找类</strong>：<br><code>find</code>指令从指定目录向下递归地遍历其各个子目录，将满足条件的<em>文件或者目录</em>显示在终端<br><code>find [搜索范围] [选项]</code></p>
 
       
     </div>
