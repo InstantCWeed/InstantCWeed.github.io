@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
 <meta property="og:description" content="Linux目录 vim&#x2F;vim常用快捷键正常模式下:1.拷贝当前行：yy; 拷贝当前行向下2行：2yy; 粘贴:p2.删除当前行：dd; 删除当前行向下2行：2dd3.光标定位到最首行：gg ; 光标定位到最末行：G;4.撤销保存前输入内容：u5.定位到指定行：数字, shift + g:如定位到第2行，则输入2 , shift + g 命令行模式下(:)：1.查找某些内容： &#x2F;内容 回车查找，按">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-30T15:32:11.345Z">
+<meta property="og:updated_time" content="2020-05-01T14:35:22.184Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/18/%E5%B0%9A%E7%A1%85%E8%B0%B7linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
@@ -406,8 +406,27 @@
 <p>查看执行过的历史命令：<code>history [数字]</code><br>还可以再执行历史命令history之后，使用<code>!编号</code>执行历史命令</p>
 <p><strong>时间日期类</strong>：<br>显示当前日期：<code>date</code><br>显示当前年份：<code>date + %Y</code><br>显示当前月份：<code>date + %m</code><br>显示当前日期：<code>date + %d</code><br>显示年月日时分秒：<code>date + &quot;%Y-%m-%d %H:%M:%S&quot;</code><br>设置日期：<code>date -s 字符串时间(%Y-%m-%d %H:%M:%S格式)</code></p>
 <p>查看日历信息：<code>cal [年份]</code>：不加选项显示当前日期</p>
-<p><strong>搜索查找类</strong>：<br><code>find</code>指令从指定目录向下递归地遍历其各个子目录，将满足条件的<em>文件或者目录</em>显示在终端<br><code>find [搜索范围] [选项]</code></p>
-
+<p><strong>搜索查找类</strong>：<br><code>find</code>指令从指定目录向下递归地遍历其各个子目录，将满足条件的<em>文件或者目录</em>显示在终端<br><code>find [搜索范围] [选项]</code><br>  搜索范围：通常是目录<br>  选项：</p>
+<pre><code>  - name:按照文件名名字查找
+  - user:按照用户名查找
+  - size:按照文件大小查找 (+n大于 -n小于 n等于)
+</code></pre><p>样例：查找<code>/</code>目录下所有.txt的文件：<code>find / -name *.txt</code></p>
+<p><code>locate</code>指令快速定位文件路径。利用locate数据库实现快速定位<br><code>locate 搜索文件</code><br><strong>特别说明：由于locate指令基于数据库进行查询，所以第一次运行前，必须使用updatedb指令创建locate数据库</strong><br>样例：使用locate指令快速定位hello.txt文件:<br>  updatedb<br>  locate hello.txt</p>
+<p><code>grep指令和管道符号 |</code>:<br>grep过滤查找，管道符 |表示：将前一个命令的处理结果输出传递给后面的命令处理<br><code>grep [选项] 查找内容 源文件</code><br>  选项：</p>
+<pre><code>- n:显示匹配行号
+- i:忽略字母大小写
+</code></pre><p>样例：在hello.txt文件中，查找”yes/Yes”所在行，并显示行号：<code>cat hello.txt | grep -ni yes</code></p>
+<p><strong>压缩和解压缩</strong><br><code>gzip/gunzip指令</code><br>gizp用于压缩文件，gunzip用于解压文件<br><code>gizp 文件</code>：压缩文件，只能压缩成.gz格式，源文件不保留<br><code>gunzip 文件.gz</code>：解压文件</p>
+<p><code>zip/unzip指令</code><br>zip用于压缩文件，unzip解压，<strong>在工作中打包发布很有用</strong><br><code>zip [选项] xxx.zip 将要压缩的内容</code>：压缩文件和目录的命令<br>  选项：-r   递归压缩，即压缩目录<br><code>unzip [选项] xxx.zip</code>：解压缩文件<br>  选项：-d&lt;目录&gt;  指定解压后文件的存放目录  </p>
+<p><code>tar指令</code>：打包指令，最后打包后的文件是.tar.gz<br><code>tar [选项] xxx.tar.gz 要打包的内容</code><br>  选项：</p>
+<pre><code>  - c 产生tar打包文件
+  - v 显示详细信息
+  - f 指定压缩后的文件名
+  - z 打包同时压缩
+  - x 解包tar文件
+</code></pre><p><code>tar -zcvf myFile.tar.gz a.txt b.txt</code>:将当前目录下的a.txt和b.txt打包为myFile.tar.gz<br><code>tar -zcvf myHomeFile.tar.gz /home/</code>:将/home目录下全部文件打包为myHomeFile.tar.gz<br><code>tar -zxvf myFile.tar.gz -C /usr/tmp</code>:将myFile.tar.gz解压到指定/usr/tmp目录</p>
+<hr>
+<h4 id="组管理和权限管理"><a href="#组管理和权限管理" class="headerlink" title="组管理和权限管理"></a>组管理和权限管理</h4>
       
     </div>
     <div class="article-footer">
