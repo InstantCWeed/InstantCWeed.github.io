@@ -18,14 +18,18 @@
   
   
   <title>尚硅谷hadoop笔记 | FluffySpoooooonge!!!</title>
-  <meta name="keywords" content="学习笔记">
+  <meta name="description" content="Hadoop概述：Hadoop: Apache基金会的分布式基础架构解决海量数据存储 和 分析计算 问题 MySQL处理极限数据量在百万级别数据查询，大概1TB量Hadoop:存：HDFS; 算：MapReduce hadoop的组成：1.x:MapReduce:  计算 + 资源调度HDFS: 数据存储 2.x:  解耦，实现计算模块可插拔MapReduce: 计算Yarn: 资源调度HDFS：">
+<meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="尚硅谷hadoop笔记">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
+<meta property="og:description" content="Hadoop概述：Hadoop: Apache基金会的分布式基础架构解决海量数据存储 和 分析计算 问题 MySQL处理极限数据量在百万级别数据查询，大概1TB量Hadoop:存：HDFS; 算：MapReduce hadoop的组成：1.x:MapReduce:  计算 + 资源调度HDFS: 数据存储 2.x:  解耦，实现计算模块可插拔MapReduce: 计算Yarn: 资源调度HDFS：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-01T15:42:57.286Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
+<meta property="og:updated_time" content="2020-05-02T08:54:11.617Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/index.html">
   
@@ -214,7 +218,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">Java内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">58</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">Java内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">58</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -224,7 +228,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" style="font-size: 13px;">Java内容索引</a> <a href="/tags/hadoop/" style="font-size: 13.6px;">hadoop</a> <a href="/tags/hexo%E4%BD%BF%E7%94%A8/" style="font-size: 13.6px;">hexo使用</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 14px;">刷题</a> <a href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" style="font-size: 13.2px;">刷题目录</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 13.8px;">基础</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 13.2px;">学习笔记</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 13.2px;">工具使用</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" style="font-size: 13.2px;">工具学习</a> <a href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" style="font-size: 13px;">广告系统</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" style="font-size: 13.2px;">编程疑惑</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 13.4px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 13.4px;">读书</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.4px;">面试</a>
+      <a href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" style="font-size: 13px;">Java内容索引</a> <a href="/tags/hadoop/" style="font-size: 13.6px;">hadoop</a> <a href="/tags/hexo%E4%BD%BF%E7%94%A8/" style="font-size: 13.6px;">hexo使用</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 14px;">刷题</a> <a href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" style="font-size: 13.2px;">刷题目录</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 13.8px;">基础</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 13.4px;">学习笔记</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 13.2px;">工具使用</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" style="font-size: 13.2px;">工具学习</a> <a href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" style="font-size: 13px;">广告系统</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" style="font-size: 13.2px;">编程疑惑</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 13.4px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 13.4px;">读书</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.4px;">面试</a>
     </div>
   </div>
 
@@ -233,7 +237,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">49</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">44</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">49</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">44</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -245,6 +249,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7Zookeeper%E7%AC%94%E8%AE%B0/" class="title">尚硅谷Zookeeper笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-01T15:58:51.000Z" itemprop="datePublished">2020-05-01</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -305,21 +324,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/04/27/%E9%98%BF%E9%87%8C4-27%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E8%AF%95%E5%86%85%E5%AE%B9%E8%AE%B0%E5%BD%95/" class="title">阿里4.27实习生面试内容记录</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-04-27T10:57:29.000Z" itemprop="datePublished">2020-04-27</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -375,7 +379,19 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        
+        <h3 id="Hadoop概述："><a href="#Hadoop概述：" class="headerlink" title="Hadoop概述："></a>Hadoop概述：</h3><p>Hadoop: Apache基金会的分布式基础架构<br>解决<strong>海量数据存储</strong> 和 <strong>分析计算</strong> 问题</p>
+<p>MySQL处理极限数据量在百万级别数据查询，大概1TB量<br>Hadoop:存：HDFS; 算：MapReduce</p>
+<p>hadoop的组成：<br>1.x:<br>MapReduce:  计算 + 资源调度<br>HDFS: 数据存储</p>
+<p>2.x:  解耦，实现计算模块可插拔<br>MapReduce: 计算<br>Yarn: 资源调度<br>HDFS：数据存储</p>
+<h4 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h4><p>1)NameNode(nn)：目录索引，整个系统只有一份<br>存储文件的元数据，如文件名，文件目录结构，文件属性，以及每个文件的块列表和块所在的DataNode等</p>
+<p>2)DataNode(dn)：移动硬盘们<br>在本地文件系统存储文件块数据，以及块数据校验和</p>
+<p>3)Secondary NameNode(2nn)：是nn的助手<br>用来监控HDFS状态的辅助后台程序</p>
+<h4 id="Yarn"><a href="#Yarn" class="headerlink" title="Yarn"></a>Yarn</h4><p>1)ResourceManager(RM)： 集群中只有一个，代表所有资源，组长<br>（1）处理客户端请求job submission<br>（2）监控NodeManager<br>（3）启动或监控ApplicationMaster<br>（4）资源分配与调度</p>
+<p>2)NodeManager(NM):  组员<br>（1）管理单个节点上的资源<br>（2）处理来自ResourceManager的命令<br>（3）处理来自ApplicationMaster的命令</p>
+<p>3)ApplicationMaster(AM):  临时负责人，不是常驻进程，有一个job就有一个AM<br>（1）负责数据切分<br>（2）为应用程序申请资源并分配给内部的任务<br>（3）任务的监控与容错</p>
+<p>4)Container:  运行所有任务的容器，NM通过生成/关闭容器来调配资源，是资源分配的单元<br>  Yarn中资源的抽象，封装某节点多维度资源，如内存、CPU、磁盘、网络等<br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/Yarn架构.png" alt></p>
+<h4 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h4><hr>
+
       
     </div>
     <div class="article-footer">
@@ -429,6 +445,10 @@
   <div class="bar-inner">
   
   <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7Zookeeper%E7%AC%94%E8%AE%B0/" title="尚硅谷Zookeeper笔记"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
     
     
     <li class="next">
