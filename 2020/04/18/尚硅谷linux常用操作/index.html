@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
 <meta property="og:description" content="Linux目录 vim&#x2F;vim常用快捷键正常模式下:1.拷贝当前行：yy; 拷贝当前行向下2行：2yy; 粘贴:p2.删除当前行：dd; 删除当前行向下2行：2dd3.光标定位到最首行：gg ; 光标定位到最末行：G;4.撤销保存前输入内容：u5.定位到指定行：数字, shift + g:如定位到第2行，则输入2 , shift + g 命令行模式下(:)：1.查找某些内容： &#x2F;内容 回车查找，按">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-02T04:17:34.329Z">
+<meta property="og:updated_time" content="2020-05-02T11:14:08.566Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/18/%E5%B0%9A%E7%A1%85%E8%B0%B7linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
@@ -426,15 +426,18 @@
 <hr>
 <h3 id="组管理和权限管理"><a href="#组管理和权限管理" class="headerlink" title="组管理和权限管理"></a>组管理和权限管理</h3><p>Linux中每个用户都必须属于特定的组<br>Linux中每个文件都有所有者、所在组、其他组的概念</p>
 <h4 id="查看文件-目录所有者和所在组"><a href="#查看文件-目录所有者和所在组" class="headerlink" title="查看文件/目录所有者和所在组"></a>查看文件/目录所有者和所在组</h4><p>指令：<strong>ls -ahl</strong>:以列表形式和human形式将全部文件名列出</p>
-<h4 id="修改文件所有者"><a href="#修改文件所有者" class="headerlink" title="修改文件所有者"></a>修改文件所有者</h4><p>指令：<strong>chown 用户名 文件名</strong></p>
+<h4 id="修改文件所有者"><a href="#修改文件所有者" class="headerlink" title="修改文件所有者"></a>修改文件所有者</h4><p>指令：<strong>chown [ -R ] 用户名 文件名</strong></p>
 <h4 id="组的创建"><a href="#组的创建" class="headerlink" title="组的创建"></a>组的创建</h4><p>指令：<strong>groupadd 组名</strong></p>
-<h4 id="修改文件所在组"><a href="#修改文件所在组" class="headerlink" title="修改文件所在组"></a>修改文件所在组</h4><p>指令：<strong>chgrp 组名 文件名</strong></p>
+<h4 id="修改文件所在组"><a href="#修改文件所在组" class="headerlink" title="修改文件所在组"></a>修改文件所在组</h4><p>指令：<strong>chgrp [ -R ]组名 文件名</strong></p>
 <h4 id="改变用户所在组"><a href="#改变用户所在组" class="headerlink" title="改变用户所在组"></a>改变用户所在组</h4><p>指令：<strong>usermod -g 组名 用户名</strong><br>      <strong>usermod -d 目录名 用户名</strong>：改变该用户登录的初始目录</p>
 <h4 id="权限简介"><a href="#权限简介" class="headerlink" title="权限简介"></a>权限简介</h4><p>ls指令后文件<br>第0位：文件类型5种: -普通文件 d目录 l软链接 c字符设备(键盘、鼠标) b块文件(硬盘)<br>第1-3位：文件所有者权限：r读 w写 x执行<br>第4-6位：文件所在组用户权限：r读 w写 x执行<br>第7-9位：文件其他组的用户权限：r读 w写 x执行<br>第10位：是文件表示硬链接个数；是目录表示子目录个数<br>第11位：用户所有者<br>第12位：用户所在组<br>第13位：文件大小，目录则默认为4096<br>第14位：文件最近修改时间<br>第15位 文件名</p>
 <h4 id="rwx权限"><a href="#rwx权限" class="headerlink" title="rwx权限"></a>rwx权限</h4><p>rwx权限作用在文件和目录上的含义不完全相同。<br><strong>权限可用数字表示: r = 4 w = 2 x = 1</strong></p>
 <p><strong>作用在文件</strong>上，要求要多一些，尤其是w写权限<br>r代表文件可读可查看；<br>w代表文件可修改，但不能删除。删除文件的前提条件是对该文件所在目录有写权限，才能删除；<br>x代表可执行文件</p>
 <p><strong>作用上目录</strong>上，要求低一些，好理解一些<br>r表示可读目录<br>w表示可写可修改目录，在目录内可创建、删除、重命名目录<br>x表示可执行，可进入该目录</p>
-<h4 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h4>
+<h4 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h4><p>chmod指令可以修改文件或者目录权限<br><strong>第一种方式：+、-、=变更权限</strong><br>u:所有者 g:所有组 o:其他人 a:所有人(u,g,o的总和)<br>1) <code>chmod u=rwx,g=rx,o=x 文件目录名</code> ：赋值权限<br>2) <code>chmod o+w  文件目录名</code> ：增加权限<br>3) <code>chmod a-x  文件目录名</code> ：减少权限</p>
+<p><strong>第二种方式：通过数字变更权限</strong><br>规则：r=4 w=2 x=1 ; rwx=4+2+1=7<br><code>chmod u=rwx,g=rx,o=x  文件目录名</code><br>  相当于 <code>chmod 751  文件目录名</code></p>
+<h4 id="修改文件所有者-拓展-："><a href="#修改文件所有者-拓展-：" class="headerlink" title="修改文件所有者(拓展)："></a>修改文件所有者(拓展)：</h4><p><code>chown [选项] newowner file</code>：改变文件的所有者<br><code>chown [选项] newowner:newgroup file</code>：改变文件的所有者和所在组<br>  选项：<br>    -R 如果是目录，则使其下所有子文件或者目录递归生效</p>
+
       
     </div>
     <div class="article-footer">
