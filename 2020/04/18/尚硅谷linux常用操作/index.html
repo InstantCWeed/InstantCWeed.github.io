@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
 <meta property="og:description" content="应当明确的Linux目录功能 vim&#x2F;vim常用快捷键正常模式下:1.拷贝当前行：yy; 拷贝当前行向下2行：2yy; 粘贴:p2.删除当前行：dd; 删除当前行向下2行：2dd3.光标定位到最首行：gg ; 光标定位到最末行：G;4.撤销保存前输入内容：u5.定位到指定行：数字, shift + g:如定位到第2行，则输入2 , shift + g 命令行模式下(:)：1.查找某些内容： &#x2F;内容">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-03T05:42:04.576Z">
+<meta property="og:updated_time" content="2020-05-04T16:30:49.426Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/18/%E5%B0%9A%E7%A1%85%E8%B0%B7linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
@@ -452,7 +452,49 @@
 <h4 id="应用案例："><a href="#应用案例：" class="headerlink" title="应用案例："></a>应用案例：</h4><p>每天凌晨2：00将mysql数据库testdb,备份到文件中mydb.bak。<br>1)先编写一个文件 /home/mytask3.sh<br>  /usr/local/mysql/bin/mysqldump -u root-p root testdb &gt; /tmp/mydb.bak<br>2)给mytask3.sh一个可执行权限<br>  chmod 744 /home/mytask3.sh<br>3)crontab -e<br>4)0 2 <em> </em> * /home/mytask3.sh<br>5)成功</p>
 <h4 id="crond相关指令"><a href="#crond相关指令" class="headerlink" title="crond相关指令"></a>crond相关指令</h4><p><code>crontab -r</code>: 终止任务调度<br><code>crontab -l</code>: 列出当前有哪些任务调度<br><code>service crond restart</code>：重启任务调度</p>
 <hr>
-<h3 id="磁盘分区、挂载"><a href="#磁盘分区、挂载" class="headerlink" title="磁盘分区、挂载"></a>磁盘分区、挂载</h3>
+<h3 id="磁盘分区、挂载"><a href="#磁盘分区、挂载" class="headerlink" title="磁盘分区、挂载"></a>磁盘分区、挂载</h3><p>分区类型有mbr分区和gtp分区，由于分区和容量问题，现多常用gtp分区。</p>
+<h4 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h4><p>Linux中只有一个根目录，是独立且唯一的文件结构，Linux中每个分区都是用来组成整个文件系统的一部分。<br>Linux采用一种叫“载入”的处理方法，它的整个文件系统中包含了一整套文件和目录，且将一个分区和一个目录联系起来，此时载入的分区就能在存储空间下的一个目录下获得。</p>
+<h4 id="硬盘说明"><a href="#硬盘说明" class="headerlink" title="硬盘说明"></a>硬盘说明</h4><p>Linux硬盘分为IDE硬盘和SCSI硬盘，目前基本上是SCSI硬盘</p>
+<p>IDE:“hdx~”<br>其中<br>x为盘号，a为基本盘，b为基本从属盘，c为辅助主盘，d为辅助从属盘<br>~代表分区，前四个分区用数字1到4表示，是主分区或扩展分区，从5开始就是逻辑分区<br>例：hda3:第一个IDE硬盘上第三个主分区或扩展分区</p>
+<p>SCSI:“sdx~”   x和~表示含义与IDE硬盘一样</p>
+<h4 id="查看系统分区和挂载情况"><a href="#查看系统分区和挂载情况" class="headerlink" title="查看系统分区和挂载情况"></a>查看系统分区和挂载情况</h4><p><code>lsblk -f</code> “老师不离开”</p>
+<h4 id="挂载经典样例-虚拟机中增加硬盘"><a href="#挂载经典样例-虚拟机中增加硬盘" class="headerlink" title="挂载经典样例-虚拟机中增加硬盘"></a>挂载经典样例-虚拟机中增加硬盘</h4><p>1)VM虚拟机中新加硬盘,重启系统，显示新增<br>2)分区  <code>fdisk /dev/sdb</code><br>3)格式化  <code>mkfs -t ext4 /dev/sdb1</code><br>4)挂载  先创建一个 /home/newdisk，挂载<code>mount /dev/sdb1 /home/newdisk</code><br>  取消挂载 <code>umount /dev/sdb1</code> 或者 <code>umount /home/newdisk</code><br>5)设置自动挂载(永久挂载，重启系统后挂载仍然存在)<br><code>vim /etc/fstab</code></p>
+<h4 id="磁盘情况查询"><a href="#磁盘情况查询" class="headerlink" title="磁盘情况查询"></a>磁盘情况查询</h4><p><code>df -lh</code>:查询系统整体磁盘使用情况<br><code>du [选项] /目录</code>：查询指定目录的磁盘占用情况<br>  选项：<br>    -s 指定目录占用大小汇总<br>    -h 带计量单位<br>    -a 含文件<br>    —max-depth=1 子目录深度<br>    -c  列出明细的同时，增加汇总值<br>样例：查询/opt目录的磁盘占用情况，深度为1<br>  <code>du -ach --max-depth=1 /opt</code>  </p>
+<h4 id="磁盘情况-工作实用指令"><a href="#磁盘情况-工作实用指令" class="headerlink" title="磁盘情况-工作实用指令"></a>磁盘情况-工作实用指令</h4><p>1)统计/home文件夹下文件个数<br><code>ls -l /home | grep &quot;^-&quot; | wc -l</code><br>2)统计/home文件夹下目录个数<br><code>ls -l /home | grep &quot;^d&quot; | wc -l</code><br>3)统计/home文件夹下文件的个数，包括子文件夹里的<br><code>ls -lR /home | grep &quot;^-&quot; | wc -l</code><br>4)统计文件夹下目录的个数，包括子文件夹里的<br><code>ls -lR /home | grep &quot;^d&quot; | wc -l</code><br>5)以树状显示目录结构<br><code>yum install tree</code><br><code>tree</code></p>
+<hr>
+<h3 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h3><p>网络的配置文件在：<code>/etc/sysconfig/network-scripts/ifcfg-eth0</code><br>具体修改具体分析</p>
+<p>修改完之后，要重启服务：<code>service network restart</code>或<code>reboot</code></p>
+<hr>
+<h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h3><h4 id="显示系统执行的进程"><a href="#显示系统执行的进程" class="headerlink" title="显示系统执行的进程"></a>显示系统执行的进程</h4><p><code>ps [选项]</code><br>  选项：</p>
+<pre><code>- a:显示当前终端的所有进程信息
+- u:以用户的格式显示进程信息
+- x:显示后台进程运行的参数
+</code></pre><p>一般来说使用的参数是 <code>ps -aux | more</code>或者<code>ps -aux | grep xxx</code></p>
+<p>ps指令详解：<br>  USER:用户名称<br>  PID:进程号<br>  <strong>%CPU:进程占用CPU的百分比</strong><br>  <strong>%MEM:进程占用物理内存的百分比</strong><br>  <strong>VSZ:进程占用的虚拟内存大小（KB）</strong><br>  <strong>RSS:进程占用的物理内存大小（KB)</strong><br>  TTY:终端名称，缩写<br>  STAT:进程状态。<br>    S-休眠，s-会话的先导进程，N-拥有比普通优先级更低的优先级，R-正在运行，D-短期等待，Z-僵尸进程，T-被跟踪或者被停止<br>  STARTED:进程的启动时间<br>  TIME:CPU时间，即进程使用CPU的总时间<br>  COMMAND:启动进程所用的命令和参数</p>
+<p><code>ps -ef</code>:以全格式显示当前所有进程和父进程<br>  -e:显示所有进程<br>  -f:全格式<br>常用格式：<code>ps -ef | grep xxx</code>,是BSD风格<br>  UID:用户ID<br>  PID:进程ID<br>  PPID:父进程ID<br>  C:CPU用于计算执行优先级的因子。<br>    数值越大，表明该进程是CPU密集型运算，执行优先级会降低；数值越小，表明进程是IO密集型运算，执行优先级会提高<br>  STIME:进程启动时间<br>  TTY:完整的终端名称<br>  TIME:CPU时间<br>  CMD:启动进程所用的命令和参数</p>
+<h4 id="终止进程"><a href="#终止进程" class="headerlink" title="终止进程"></a>终止进程</h4><p><code>kill</code>和<code>killall</code><br><code>kill [选项] 进程号</code>：通过进程号杀死进程<br>  选项：<br>    -9：表示强迫进程立即停止<br><code>killall 进程名称</code>：通过进程名称杀死进程，也支持通配符，这在系统因负载过大而变得很慢时很有用</p>
+<p>样例：<br>1)踢掉某个非法登录用户<br>  <code>ps -aux | grep sshd</code><br>  <code>kill 进程id(用户名@pts)</code><br>2)终止远程登录服务sshd,在适当时候再次重启sshd服务<br>  <code>ps -aux | grep sshd</code><br>  <code>kill 进程id(usr/sbin/sshd)</code><br>3)终止多个gedit编辑器(killall，通过进程名称来终止进程)<br>  <code>killall gedit</code><br>4)强制杀掉一个终端(/bin/bash)<br>  <code>ps -aux | grep bash</code><br>  <code>kill -9 进程id</code></p>
+<h4 id="查看进程树"><a href="#查看进程树" class="headerlink" title="查看进程树"></a>查看进程树</h4><p><code>pstree [选项]</code><br>  选项：<br>    -p:显示进程PID<br>    -u:显示进程的所属用户</p>
+<h4 id="服务-service-管理"><a href="#服务-service-管理" class="headerlink" title="服务(service)管理"></a>服务(service)管理</h4><p>服务(service)本质就是进程，但是是运行在后台的，通常都会监听某个端口，等待其他程序的请求。比如mysqld,ssh,防火墙等，因此我们又称为守护进程，是Linux中非常重要的知识点。</p>
+<p><strong>service管理指令：</strong><br><code>service 服务名 start | stop | restart | reload | status</code><br>CentOS7.0后，不再使用<code>service</code>,而是<code>systemcl</code></p>
+<p>使用案例：<br>  查看当前防火墙的状况，关闭防火墙和重启防火墙<br><code>service iptables status</code><br><code>service iptables start</code><br><code>service iptables stop</code></p>
+<p>CentOS7以后：<code>systemctl status firewalld</code><br><code>systemctl start firewalld</code><br><code>systemctl stop firewalld</code></p>
+<p>细节讨论：<br>1.关闭或者启动防火墙后，立即生效(windows下可以用<code>telnet</code>测试某个端口是否可用)<br>2.这种方式只是临时生效，重启系统后，还是回归以前对服务的设置<br>3.若希望设置某个服务自启动或者永久关闭生效，要使用<code>chkconfig指令</code></p>
+<h4 id="查看服务名"><a href="#查看服务名" class="headerlink" title="查看服务名"></a>查看服务名</h4><p>方式1：<code>setup中的 系统服务</code><br>方式2：<code>ls -l /etc/init.d/</code></p>
+<h4 id="服务的运行级别"><a href="#服务的运行级别" class="headerlink" title="服务的运行级别"></a>服务的运行级别</h4><p>查看或者修改默认级别：<code>vim /etc/inittab</code><br>总共7种级别(0-6)<br>详见上面笔记</p>
+<h4 id="开机的流程说明"><a href="#开机的流程说明" class="headerlink" title="开机的流程说明"></a>开机的流程说明</h4><p><code>开机 —— BIOS —— /boot —— init进程1 —— 运行级别 ——运行级别对应的服务</code></p>
+<h4 id="设置每个服务的各个运行级别设置自启动-关闭-限CentOS"><a href="#设置每个服务的各个运行级别设置自启动-关闭-限CentOS" class="headerlink" title="设置每个服务的各个运行级别设置自启动/关闭(限CentOS)"></a>设置每个服务的各个运行级别设置自启动/关闭(限CentOS)</h4><p>基本语法：<br>1)<code>chkconfig --list | grep xxx</code><br>2)<code>chkcongfig 服务名 --list</code><br>3)<code>chkconfig --level 5 服务名 on/off</code>:在运行级别5时，服务要不要自启动<br>  <code>chkconfig 服务名 on/off</code>:在所有运行级别中，服务要不要启动</p>
+<p>centOS7.x后：<br><code>systemctl list-unit-files</code></p>
+<h4 id="动态监控进程"><a href="#动态监控进程" class="headerlink" title="动态监控进程"></a>动态监控进程</h4><p>top与ps命令很相似，他们都用来显示正在执行的进程。top与ps最大的不同之处在于top在执行一段时间可以更新正在运行的进程。</p>
+<p>基本语法：<br>  <code>top [选项]</code><br>  选项：</p>
+<pre><code>- d 秒数：指定top命令每隔几秒更新，默认是3秒在top命令的交互模式当中可以执行的命令
+- i:使top不显示任何闲置或者僵尸进程
+- p:通过指定监控进程ID来仅仅监控某个进程的状态
+</code></pre><p>交互操作说明：<br>操作   功能<br>P      以CPU使用率排序，默认为此选项<br>M      以内存的使用率排序<br>N      以PID排序<br>q      退出top</p>
+<p>样例：<br>1.监视特定用户：<br>  输入<code>top命令</code>，按回车键，查看执行进程<br>  再输入<code>u</code>，按回车键，再输入<code>用户名</code>即可</p>
+<p>2.终止指定进程：<br>  输入<code>top命令</code>，按回车键，查看执行进程<br>  再输入<code>k</code>，按回车键，再输入要结束的<code>进程ID号</code>即可</p>
+<p>3.指定系统状态更新的时间(每隔10秒自动更新)</p>
+
       
     </div>
     <div class="article-footer">
