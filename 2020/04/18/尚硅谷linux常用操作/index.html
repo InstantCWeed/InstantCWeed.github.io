@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
 <meta property="og:description" content="应当明确的Linux目录功能 vim&#x2F;vim常用快捷键正常模式下:1.拷贝当前行：yy; 拷贝当前行向下2行：2yy; 粘贴:p2.删除当前行：dd; 删除当前行向下2行：2dd3.光标定位到最首行：gg ; 光标定位到最末行：G;4.撤销保存前输入内容：u5.定位到指定行：数字, shift + g:如定位到第2行，则输入2 , shift + g 命令行模式下(:)：1.查找某些内容： &#x2F;内容">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-04T16:30:49.426Z">
+<meta property="og:updated_time" content="2020-05-05T05:43:07.559Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/18/%E5%B0%9A%E7%A1%85%E8%B0%B7linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
@@ -493,8 +493,15 @@
 </code></pre><p>交互操作说明：<br>操作   功能<br>P      以CPU使用率排序，默认为此选项<br>M      以内存的使用率排序<br>N      以PID排序<br>q      退出top</p>
 <p>样例：<br>1.监视特定用户：<br>  输入<code>top命令</code>，按回车键，查看执行进程<br>  再输入<code>u</code>，按回车键，再输入<code>用户名</code>即可</p>
 <p>2.终止指定进程：<br>  输入<code>top命令</code>，按回车键，查看执行进程<br>  再输入<code>k</code>，按回车键，再输入要结束的<code>进程ID号</code>即可</p>
-<p>3.指定系统状态更新的时间(每隔10秒自动更新)</p>
-
+<p>3.指定系统状态更新的时间(每隔10秒自动更新，默认是3秒)<br>  输入<code>top -d 10</code></p>
+<p>4.交互操作<br>  在输入<code>top命令</code>后，按<code>M</code>等上述操作</p>
+<h4 id="查看系统网络情况（重要）"><a href="#查看系统网络情况（重要）" class="headerlink" title="查看系统网络情况（重要）"></a>查看系统网络情况（重要）</h4><p>基本语法：<br>  <code>netstat [选项]</code>，常用操作：<code>netstat -anp</code><br>  选项：</p>
+<pre><code>- an:按一定顺序排列输出
+- p:显示哪个进程在调用
+</code></pre><p>  样例：<br>  1)查看所有网络服务信息<br>  <code>netstat -anp | more</code></p>
+<p>  2)请查看服务名为sshd的服务信息<br>  <code>netstat -anp | grep sshd</code></p>
+<hr>
+<h3 id="包管理器"><a href="#包管理器" class="headerlink" title="包管理器"></a>包管理器</h3><h4 id="RPM包管理"><a href="#RPM包管理" class="headerlink" title="RPM包管理"></a>RPM包管理</h4><h4 id="YUM包管理"><a href="#YUM包管理" class="headerlink" title="YUM包管理"></a>YUM包管理</h4>
       
     </div>
     <div class="article-footer">
