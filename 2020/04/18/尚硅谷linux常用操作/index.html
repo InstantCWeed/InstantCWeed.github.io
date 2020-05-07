@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
 <meta property="og:description" content="应当明确的Linux目录功能 vim&#x2F;vim常用快捷键正常模式下:1.拷贝当前行：yy; 拷贝当前行向下2行：2yy; 粘贴:p2.删除当前行：dd; 删除当前行向下2行：2dd3.光标定位到最首行：gg ; 光标定位到最末行：G;4.撤销保存前输入内容：u5.定位到指定行：数字, shift + g:如定位到第2行，则输入2 , shift + g 命令行模式下(:)：1.查找某些内容： &#x2F;内容">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-05T05:43:07.559Z">
+<meta property="og:updated_time" content="2020-05-07T14:22:51.321Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/18/%E5%B0%9A%E7%A1%85%E8%B0%B7linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
@@ -501,7 +501,13 @@
 </code></pre><p>  样例：<br>  1)查看所有网络服务信息<br>  <code>netstat -anp | more</code></p>
 <p>  2)请查看服务名为sshd的服务信息<br>  <code>netstat -anp | grep sshd</code></p>
 <hr>
-<h3 id="包管理器"><a href="#包管理器" class="headerlink" title="包管理器"></a>包管理器</h3><h4 id="RPM包管理"><a href="#RPM包管理" class="headerlink" title="RPM包管理"></a>RPM包管理</h4><h4 id="YUM包管理"><a href="#YUM包管理" class="headerlink" title="YUM包管理"></a>YUM包管理</h4>
+<h3 id="包管理器"><a href="#包管理器" class="headerlink" title="包管理器"></a>包管理器</h3><h4 id="RPM包管理"><a href="#RPM包管理" class="headerlink" title="RPM包管理"></a>RPM包管理</h4><p>RPM:RedHat Package Manager 红帽 包管理器</p>
+<p>以火狐(firefox)为例：<br>查询具体的安装软件包信息：<code>rpm -qa | grep firefox</code><br>  其中，noarch所有平台表示通用<br>查询所有安装的软件包：<code>rpm -qa | more</code><br>查询软件包详细信息：<code>rpm -qi | grep firefox</code><br>查询软件包中安装了哪些文件：<code>rpm -ql firefox</code><br>查询文件属于哪个软件包:<code>rpm -qf /etc/passwd</code></p>
+<p>卸载软件包：<code>rpm -e firefox</code><br>注：删除包时可能会出现破坏依赖性的情况，若一定要删除，需要强制删除<code>rpm -e --nodeps firefox</code></p>
+<p>安装软件包：<code>rpm -ivh firefox</code><br>  -i:install 安装<br>  -v:verbose 提示<br>  -h:hash 进度条<br>样例：安装firefox浏览器<br>  1.首先找到firefox安装rpm包，需要挂载安装centos的iso文件，然后在/media/下找firefox<br>  2.cp firefox-xx.x.x-el6.centos.x86_64.rpm /opt/<br>  3.rpm -ivh firefox</p>
+<h4 id="YUM包管理"><a href="#YUM包管理" class="headerlink" title="YUM包管理"></a>YUM包管理</h4><p>yum是shell前端软件包管理器，基于rpm包管理，能够从指定服务器自动下载rpm包并安装，可以自动处理依赖关系，一次安装所有依赖的软件包</p>
+<p>yum的基本指令：<br>以火狐(firefox)为例：<br>查询yum服务器是否有需要安装的软件：<code>yum list | grep firefox</code><br>安装指定的yum包:<code>yum install firefox</code> </p>
+
       
     </div>
     <div class="article-footer">
