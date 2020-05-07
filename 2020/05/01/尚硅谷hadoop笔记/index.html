@@ -27,8 +27,9 @@
 <meta property="og:description" content="Hadoop概述：Hadoop: Apache基金会的分布式基础架构解决海量数据存储 和 分析计算 问题 MySQL处理极限数据量在百万级别数据查询，大概1TB量Hadoop:存：HDFS; 算：MapReduce hadoop的组成：1.x:MapReduce:  计算 + 资源调度HDFS: 数据存储 2.x:  解耦，实现计算模块可插拔MapReduce: 计算Yarn: 资源调度HDFS：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce大概意思.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;大数据技术生态体系.png">
-<meta property="og:updated_time" content="2020-05-02T10:38:31.561Z">
+<meta property="og:updated_time" content="2020-05-07T15:54:57.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
   <!-- Canonical links -->
@@ -386,14 +387,14 @@
 <p>2.x:  解耦，实现计算模块可插拔<br>MapReduce: 计算<br>Yarn: 资源调度<br>HDFS：数据存储</p>
 <h4 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h4><p>1)NameNode(nn)：目录索引，整个系统只有一份<br>存储文件的元数据，如文件名，文件目录结构，文件属性，以及每个文件的块列表和块所在的DataNode等</p>
 <p>2)DataNode(dn)：移动硬盘们<br>在本地文件系统存储文件块数据，以及块数据校验和</p>
-<p>3)Secondary NameNode(2nn)：是nn的助手<br>用来监控HDFS状态的辅助后台程序</p>
+<p>3)Secondary NameNode(2nn)：是nn的助手，<strong>不是单纯的热备！！</strong>一般和nn不在一个节点上。<br>用来监控HDFS状态的辅助后台程序<br>目的是帮助nn合并编辑日志，减少nn的启动时间</p>
 <h4 id="Yarn"><a href="#Yarn" class="headerlink" title="Yarn"></a>Yarn</h4><p>1)ResourceManager(RM)： 集群中只有一个，代表所有资源，组长<br>（1）处理客户端请求job submission<br>（2）监控NodeManager<br>（3）启动或监控ApplicationMaster<br>（4）资源分配与调度</p>
 <p>2)NodeManager(NM):  组员<br>（1）管理单个节点上的资源<br>（2）处理来自ResourceManager的命令<br>（3）处理来自ApplicationMaster的命令</p>
 <p>3)ApplicationMaster(AM):  临时负责人，不是常驻进程，有一个job就有一个AM<br>（1）负责数据切分<br>（2）为应用程序申请资源并分配给内部的任务<br>（3）任务的监控与容错</p>
 <p>4)Container:  运行所有任务的容器，NM通过生成/关闭容器来调配资源，是资源分配的单元，不是常驻进程<br>  Yarn中资源的抽象，封装某节点多维度资源，如内存、CPU、磁盘、网络等</p>
 <p><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/Yarn架构.png" alt></p>
-<h4 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h4><p>分为两个阶段：Map阶段并行处理输入数据；Reduce阶段对Map结果进行汇总</p>
-<p><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/大数据技术生态体系.png" alt></p>
+<h4 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h4><p>分为两个阶段：Map阶段并行处理输入数据；Reduce阶段对Map结果进行汇总<br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce大概意思.png" alt></p>
+<h4 id="大数据技术生态体系"><a href="#大数据技术生态体系" class="headerlink" title="大数据技术生态体系"></a>大数据技术生态体系</h4><p><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/大数据技术生态体系.png" alt></p>
 <hr>
 
       
