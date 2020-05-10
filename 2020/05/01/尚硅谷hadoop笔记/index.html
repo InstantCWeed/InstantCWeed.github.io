@@ -29,7 +29,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce大概意思.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;大数据技术生态体系.png">
-<meta property="og:updated_time" content="2020-05-09T15:39:23.501Z">
+<meta property="og:updated_time" content="2020-05-10T15:21:16.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
   <!-- Canonical links -->
@@ -395,10 +395,13 @@
 <p><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/Yarn架构.png" alt></p>
 <h4 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h4><p>分为两个阶段：Map阶段并行处理输入数据；Reduce阶段对Map结果进行汇总<br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce大概意思.png" alt></p>
 <h4 id="大数据技术生态体系"><a href="#大数据技术生态体系" class="headerlink" title="大数据技术生态体系"></a>大数据技术生态体系</h4><p><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/大数据技术生态体系.png" alt></p>
-<h4 id="快照"><a href="#快照" class="headerlink" title="快照"></a>快照</h4><p>快照类似游戏存档<br>快照一定要关机时候拍快照，这样只能保存硬盘的状态。<br>一般不照开机时的快照，因为会保存内存的内容，保存的内容很大，很占空间，而且没法由此克隆虚拟机。</p>
-<h3 id="卸载JDK命令"><a href="#卸载JDK命令" class="headerlink" title="卸载JDK命令"></a>卸载JDK命令</h3><p><code>rpm -qa | grep java | xargs sudo rpm -e --nodeps</code></p>
 <hr>
-
+<h3 id="搭集群"><a href="#搭集群" class="headerlink" title="搭集群"></a>搭集群</h3><h4 id="快照"><a href="#快照" class="headerlink" title="快照"></a>快照</h4><p>快照类似游戏存档<br>快照一定要关机时候拍快照，这样只能保存硬盘的状态。<br>一般不照开机时的快照，因为会保存内存的内容，保存的内容很大，很占空间，而且没法由此克隆虚拟机。</p>
+<h3 id="卸载JDK命令"><a href="#卸载JDK命令" class="headerlink" title="卸载JDK命令"></a>卸载JDK命令</h3><p><code>rpm -qa | grep java | xargs sudo rpm -e --nodeps</code></p>
+<h3 id="hadoop目录注意"><a href="#hadoop目录注意" class="headerlink" title="hadoop目录注意"></a>hadoop目录注意</h3><p>hadoop 全部内容、本体基本都放在hadoop目录下的share文件夹，hadoop的jar包基本上也都放在share文件夹，而hadoop目录下的lib文件夹中有个native文件夹，存放的是本地库文件，用于hadoop编译，运行时依赖于这些本地库，速度更快。找不到时才会使用java的内建版本，但运行慢。</p>
+<h3 id="hadoop-运行模式"><a href="#hadoop-运行模式" class="headerlink" title="hadoop 运行模式"></a>hadoop 运行模式</h3><p>本地模式(Standalone Operation)：用于debug,测试用<br>伪分布式(Pseudo-Distributed Operation):只有一个节点的分布式，<br>完全分布式()</p>
+<hr>
+<h3 id><a href="#" class="headerlink" title=" "></a> </h3>
       
     </div>
     <div class="article-footer">
