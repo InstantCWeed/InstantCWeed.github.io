@@ -29,7 +29,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce大概意思.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;大数据技术生态体系.png">
-<meta property="og:updated_time" content="2020-05-10T15:21:16.870Z">
+<meta property="og:updated_time" content="2020-05-11T15:40:06.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
   <!-- Canonical links -->
@@ -400,6 +400,7 @@
 <h3 id="卸载JDK命令"><a href="#卸载JDK命令" class="headerlink" title="卸载JDK命令"></a>卸载JDK命令</h3><p><code>rpm -qa | grep java | xargs sudo rpm -e --nodeps</code></p>
 <h3 id="hadoop目录注意"><a href="#hadoop目录注意" class="headerlink" title="hadoop目录注意"></a>hadoop目录注意</h3><p>hadoop 全部内容、本体基本都放在hadoop目录下的share文件夹，hadoop的jar包基本上也都放在share文件夹，而hadoop目录下的lib文件夹中有个native文件夹，存放的是本地库文件，用于hadoop编译，运行时依赖于这些本地库，速度更快。找不到时才会使用java的内建版本，但运行慢。</p>
 <h3 id="hadoop-运行模式"><a href="#hadoop-运行模式" class="headerlink" title="hadoop 运行模式"></a>hadoop 运行模式</h3><p>本地模式(Standalone Operation)：用于debug,测试用<br>伪分布式(Pseudo-Distributed Operation):只有一个节点的分布式，<br>完全分布式()</p>
+<h3 id="etc-profile-和-etc-bashrc的区别"><a href="#etc-profile-和-etc-bashrc的区别" class="headerlink" title="/etc/profile 和/etc/bashrc的区别"></a>/etc/profile 和/etc/bashrc的区别</h3><p><a href="https://www.cnblogs.com/yuanqiangfei/p/10232148.html" target="_blank" rel="noopener">https://www.cnblogs.com/yuanqiangfei/p/10232148.html</a></p>
 <hr>
 <h3 id><a href="#" class="headerlink" title=" "></a> </h3>
       
