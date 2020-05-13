@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
 <meta property="og:description" content="目录应当明确的Linux目录功能vim&#x2F;vim常用快捷键开机、重启、用户登录和注销  应当明确的Linux目录功能&#x2F;bin(&#x2F;usr&#x2F;bin、&#x2F;usr&#x2F;local&#x2F;bin)：重点。存放最常用的命令&#x2F;sbin(usr&#x2F;sbin、&#x2F;usr&#x2F;local&#x2F;sbin):存放系统管理员使用的系统管理程序&#x2F;home:重点。存放普通用户的主目录。&#x2F;root:重点。系统管理员，也称超级权限者的用户主目录。&#x2F;lib：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-13T08:26:48.732Z">
+<meta property="og:updated_time" content="2020-05-13T15:02:46.120Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/18/%E5%B0%9A%E7%A1%85%E8%B0%B7linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
@@ -404,7 +404,7 @@
 <p><strong>以全屏方式按页显示文本文件内容</strong>：<code>more 要查看文件</code><br>more指令内置若干快捷键，如：<br>  空格：向下翻一页<br>  回车：向下翻一行<br>  q：立即离开，不再显示文件内容<br>  Ctrl+F：向下滚动一屏<br>  Ctrl+B：返回上一屏<br>  =：输出当前行号<br>  :f：输出文件名和当前行号</p>
 <p><strong>以分屏形式查看文件内容</strong>：<code>less 要查看文件</code><br>比more指令更加强大，并不是一次将整个文件加载后才显示，而是根据需要加载内容，<strong>对于显示大型文件具有较高的效率</strong><br>less指令内置快捷键，如：<br>  空格：向下翻一页<br>  pagedown:向下翻一页<br>  pageup:向上翻一页<br>  /字串：向下搜索[ 字串 ]的功能；n:向下查找 N:向上查找<br>  ?字串：向上搜索[ 字串 ]的功能；n:向上查找 N:向下查找<br>  q：离开</p>
 <p><strong>输出重定向</strong><code>&gt;</code>和<strong>追加</strong><code>&gt;&gt;</code><br>基本语法：<br>1)<code>ls -l &gt; a.txt</code>：列表的内容写入文件a.txt(文件不存在就创建，覆盖写)<br>2)<code>ls -al &gt;&gt; a.txt</code>:列表内容追加到文件a.txt的末尾<br>3)<code>cat 文件1 &gt; 文件2</code>：将文件1的内容覆盖到文件2<br>4)<code>echo &quot;内容&quot; &gt;&gt; 文件</code>：把内容写入文件</p>
-<p><strong>输出内容到控制台</strong>：<code>echo [选项] [输出内容]</code><br><strong>显示文件开头部分内容</strong>：<code>head 文件</code>：默认显示文件前10行<br><code>head -n 5 文件</code>：显示文件头5行内容<br><strong>显示文件尾部部分内容</strong>：<code>tail 文件</code>：默认显示文件后10行<br><code>tail -n 5 文件</code>：显示文件后5行内容<br><code>tail -f 文件</code>：实时追踪文件的所有更新，<strong>工作经常使用</strong></p>
+<p><strong>输出内容到控制台</strong>：<code>echo [选项] [输出内容]</code><br><strong>显示文件开头部分内容</strong>：<code>head 文件</code>：默认显示文件前10行<br><code>head -n 5 文件</code>：显示文件头5行内容<br><strong>显示文件尾部部分内容</strong>：<code>tail 文件</code>：默认显示文件后10行<br><code>tail -n 5 文件</code>：显示文件后5行内容<br><code>tail -f 文件</code>：实时追踪文件的所有更新，<strong>工作经常使用!!</strong></p>
 <p><strong>软链接，类似windows的快捷方式</strong>：<code>ln -s [原文件或目录] [软链接名]</code>：给原文件创建一个软链接<br>注：1)删除软链接 <code>rm -rf 软链接名</code>，不带/;<br>    2)进入软链接<code>pwd</code>显示的还是软连接的目录</p>
 <p><strong>查看执行过的历史命令</strong>：<code>history [数字]</code><br>还可以再执行历史命令history之后，使用<code>!编号</code>执行历史命令</p>
 <h4 id="时间日期类："><a href="#时间日期类：" class="headerlink" title="时间日期类："></a>时间日期类：</h4><p>显示当前日期：<code>date</code><br>显示当前年份：<code>date +%Y</code><br>显示当前月份：<code>date +%m</code><br>显示当前日期：<code>date +%d</code><br>显示年月日时分秒：<code>date  &quot;+%Y-%m-%d %H:%M:%S&quot;</code><br>设置日期：<code>date -s 字符串时间(%Y-%m-%d %H:%M:%S格式)</code></p>
@@ -464,7 +464,7 @@
 <p>SCSI:“sdx~”   x和~表示含义与IDE硬盘一样</p>
 <h4 id="查看系统分区和挂载情况"><a href="#查看系统分区和挂载情况" class="headerlink" title="查看系统分区和挂载情况"></a>查看系统分区和挂载情况</h4><p><code>lsblk -f</code> “老师不离开”</p>
 <h4 id="挂载经典样例-虚拟机中增加硬盘"><a href="#挂载经典样例-虚拟机中增加硬盘" class="headerlink" title="挂载经典样例-虚拟机中增加硬盘"></a>挂载经典样例-虚拟机中增加硬盘</h4><p>1)VM虚拟机中新加硬盘,重启系统，显示新增<br>2)分区  <code>fdisk /dev/sdb</code><br>3)格式化  <code>mkfs -t ext4 /dev/sdb1</code><br>4)挂载  先创建一个 /home/newdisk，挂载<code>mount /dev/sdb1 /home/newdisk</code><br>  取消挂载 <code>umount /dev/sdb1</code> 或者 <code>umount /home/newdisk</code><br>5)设置自动挂载(永久挂载，重启系统后挂载仍然存在)<br><code>vim /etc/fstab</code></p>
-<h4 id="磁盘情况查询"><a href="#磁盘情况查询" class="headerlink" title="磁盘情况查询"></a>磁盘情况查询</h4><p><code>df -lh</code>:查询系统整体磁盘使用情况<br><code>du [选项] /目录</code>：查询指定目录的磁盘占用情况<br>  选项：<br>    -s 指定目录占用大小汇总<br>    -h 带计量单位<br>    -a 含文件<br>    —max-depth=1 子目录深度<br>    -c  列出明细的同时，增加汇总值<br>样例：查询/opt目录的磁盘占用情况，深度为1<br>  <code>du -ach --max-depth=1 /opt</code>  </p>
+<h4 id="磁盘情况查询"><a href="#磁盘情况查询" class="headerlink" title="磁盘情况查询"></a>磁盘情况查询</h4><p><code>df -lh</code>(disk free):查询系统整体磁盘使用情况<br><code>du [选项] /目录</code>(disk usage)：查询指定目录的磁盘占用情况<br>  选项：<br>    -s 指定目录占用大小汇总<br>    -h 带计量单位<br>    -a 含文件<br>    —max-depth=1 子目录深度<br>    -c  列出明细的同时，增加汇总值<br>样例：查询/opt目录的磁盘占用情况，深度为1<br>  <code>du -ach --max-depth=1 /opt</code>  </p>
 <h4 id="磁盘情况-工作实用指令"><a href="#磁盘情况-工作实用指令" class="headerlink" title="磁盘情况-工作实用指令"></a>磁盘情况-工作实用指令</h4><p>1)统计/home文件夹下文件个数<br><code>ls -l /home | grep &quot;^-&quot; | wc -l</code><br>2)统计/home文件夹下目录个数<br><code>ls -l /home | grep &quot;^d&quot; | wc -l</code><br>3)统计/home文件夹下文件的个数，包括子文件夹里的<br><code>ls -lR /home | grep &quot;^-&quot; | wc -l</code><br>4)统计文件夹下目录的个数，包括子文件夹里的<br><code>ls -lR /home | grep &quot;^d&quot; | wc -l</code><br>5)以树状显示目录结构<br><code>yum install tree</code><br><code>tree</code></p>
 <hr>
 <h3 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h3><p>网络的配置文件在：<code>/etc/sysconfig/network-scripts/ifcfg-eth0</code><br>具体修改具体分析</p>
