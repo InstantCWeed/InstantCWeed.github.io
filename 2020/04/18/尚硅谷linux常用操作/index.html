@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
 <meta property="og:description" content="目录应当明确的Linux目录功能vim&#x2F;vim常用快捷键开机、重启、用户登录和注销  应当明确的Linux目录功能&#x2F;bin(&#x2F;usr&#x2F;bin、&#x2F;usr&#x2F;local&#x2F;bin)：重点。存放最常用的命令&#x2F;sbin(usr&#x2F;sbin、&#x2F;usr&#x2F;local&#x2F;sbin):存放系统管理员使用的系统管理程序&#x2F;home:重点。存放普通用户的主目录。&#x2F;root:重点。系统管理员，也称超级权限者的用户主目录。&#x2F;lib：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-08T15:46:31.839Z">
+<meta property="og:updated_time" content="2020-05-13T08:26:48.732Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/18/%E5%B0%9A%E7%A1%85%E8%B0%B7linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
@@ -490,6 +490,7 @@
 <h4 id="开机的流程说明"><a href="#开机的流程说明" class="headerlink" title="开机的流程说明"></a>开机的流程说明</h4><p><code>开机 —— BIOS —— /boot —— init进程1 —— 运行级别 ——运行级别对应的服务</code></p>
 <h4 id="设置每个服务的各个运行级别设置自启动-关闭-限CentOS"><a href="#设置每个服务的各个运行级别设置自启动-关闭-限CentOS" class="headerlink" title="设置每个服务的各个运行级别设置自启动/关闭(限CentOS)"></a>设置每个服务的各个运行级别设置自启动/关闭(限CentOS)</h4><p>基本语法：<br>1)<code>chkconfig --list | grep xxx</code><br>2)<code>chkcongfig 服务名 --list</code><br>3)<code>chkconfig --level 5 服务名 on/off</code>:在运行级别5时，服务要不要自启动<br>  <code>chkconfig 服务名 on/off</code>:在所有运行级别中，服务要不要启动</p>
 <p>centOS7.x后：<br><code>systemctl list-unit-files</code></p>
+<p><a href="https://www.cnblogs.com/yadongliang/p/12561541.html" target="_blank" rel="noopener">entOS 7.x 开始 systemctl 与 chkconfig</a></p>
 <h4 id="动态监控进程"><a href="#动态监控进程" class="headerlink" title="动态监控进程"></a>动态监控进程</h4><p>top与ps命令很相似，他们都用来显示正在执行的进程。top与ps最大的不同之处在于top在执行一段时间可以更新正在运行的进程。</p>
 <p>基本语法：<br>  <code>top [选项]</code><br>  选项：</p>
 <pre><code>- d 秒数：指定top命令每隔几秒更新，默认是3秒在top命令的交互模式当中可以执行的命令
