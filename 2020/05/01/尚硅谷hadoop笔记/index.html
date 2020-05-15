@@ -29,7 +29,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce大概意思.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;大数据技术生态体系.png">
-<meta property="og:updated_time" content="2020-05-15T15:40:49.115Z">
+<meta property="og:updated_time" content="2020-05-15T16:19:50.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
   <!-- Canonical links -->
@@ -424,24 +424,24 @@
 <p>另：ssh文件夹下（~/.ssh）的文件功能解释<br><code>known_hosts</code>记录ssh访问过计算机的公钥(public key)<br><code>id_rsa</code>生成的私钥<br><code>id_rsa.pub</code>生成的公钥<br><code>authorized_keys</code>存放授权过得无密登录服务器公钥</p>
 <h4 id="etc-profile-和-etc-bashrc的区别"><a href="#etc-profile-和-etc-bashrc的区别" class="headerlink" title="/etc/profile 和/etc/bashrc的区别"></a>/etc/profile 和/etc/bashrc的区别</h4><p><a href="https://www.cnblogs.com/yuanqiangfei/p/10232148.html" target="_blank" rel="noopener">linux中bashrc与profile的区别</a></p>
 <hr>
-<h3 id="群起集群"><a href="#群起集群" class="headerlink" title="群起集群"></a>群起集群</h3><p>（1）配置slaves文件<br>hadoop101的slaves:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop101</span><br><span class="line">hadoop102</span><br><span class="line">hadoop103</span><br></pre></td></tr></table></figure></p>
+<h3 id="群起集群"><a href="#群起集群" class="headerlink" title="群起集群"></a>群起集群</h3><h4 id="（1）配置slaves文件"><a href="#（1）配置slaves文件" class="headerlink" title="（1）配置slaves文件"></a>（1）配置slaves文件</h4><p>hadoop101的slaves:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop101</span><br><span class="line">hadoop102</span><br><span class="line">hadoop103</span><br></pre></td></tr></table></figure></p>
 <font color="red">注意：该文件中添加的内容结尾不允许有空格，文件中不允许有空行。</font>
 同步所有节点配置文件
-[hadoop@hadoop101 hadoop]$ xsync slaves
+`[hadoop@hadoop101 hadoop]$ xsync slaves`
 
-（2）启动集群
-1)如果集群是第一次启动，需要格式化NameNode<font color="red">（注意格式化之前，一定要先停止上次启动的所有namenode和datanode进程，然后再删除data和log数据）</font>
+#### （2）启动集群
+1. 如果集群是第一次启动，需要格式化NameNode<font color="red">（注意格式化之前，一定要先停止上次启动的所有namenode和datanode进程，然后再删除data和log数据）</font>
 `[hadoop@hadoop101 hadoop-2.7.2]$ bin/hdfs namenode -format`
-2)启动HDFS
+2. 启动HDFS
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop101 hadoop-2.7.2]$ sbin/start-dfs.sh</span><br><span class="line">[hadoop@hadoop101 hadoop-2.7.2]$ jps</span><br><span class="line">4166 NameNode</span><br><span class="line">4482 Jps</span><br><span class="line">4263 DataNode</span><br><span class="line">[hadoop@hadoop102 hadoop-2.7.2]$ jps</span><br><span class="line">3218 DataNode</span><br><span class="line">3288 Jps</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop103 hadoop-2.7.2]$ jps</span><br><span class="line">3221 DataNode</span><br><span class="line">3283 SecondaryNameNode</span><br><span class="line">3364 Jps</span><br></pre></td></tr></table></figure>
-3)启动YARN
+3. 启动YARN
 `[hadoop@hadoop102 hadoop-2.7.2]$ sbin/start-yarn.sh`
 <font color="red">注意：NameNode和ResourceManger如果不是同一台机器，不能在NameNode上启动 YARN，应该在ResouceManager所在的机器上启动YARN。</font>
-4)Web端查看SecondaryNameNode
-（a）浏览器中输入：http://hadoop103:50090/status.html
-（b）查看SecondaryNameNode信息
+4. Web端查看SecondaryNameNode
+   （a）浏览器中输入：http://hadoop103:50090/status.html
+   （b）查看SecondaryNameNode信息
 
-（3）各个服务组件逐一启动/停止
+#### （3）各个服务组件逐一启动/停止
 分别启动/停止HDFS组件
 `hadoop-daemon.sh  start / stop  namenode / datanode / secondarynamenode`
 启动/停止YARN
@@ -574,7 +574,8 @@ HDFS的使用场景：适合一次写入、多次读出的场景，且不支持�
 <p>小技巧：<a href="https://www.cnblogs.com/zhongjianlong/archive/2013/09/17/linux.html" target="_blank" rel="noopener">cat &lt;&lt; EOF &gt;&gt;1.txt创建文件</a></p>
 <hr>
 <h3 id="IDEA环境设置"><a href="#IDEA环境设置" class="headerlink" title="IDEA环境设置"></a>IDEA环境设置</h3><p><a href="https://blog.csdn.net/qq_39929929/article/details/103753905" target="_blank" rel="noopener">在Intelij IDEA中修改maven源为国内（阿里）镜像</a></p>
-<h3 id="Maven简要介绍"><a href="#Maven简要介绍" class="headerlink" title="Maven简要介绍"></a>Maven简要介绍</h3><p><a href="https://www.bilibili.com/video/BV164411Z7cR?p=24" target="_blank" rel="noopener">B站Mvn回顾</a></p>
+<h3 id="Maven简要介绍"><a href="#Maven简要介绍" class="headerlink" title="Maven简要介绍"></a>Maven简要介绍</h3><p><strong>Maven是用来管理项目的工具</strong><br><a href="https://www.bilibili.com/video/BV164411Z7cR?p=24" target="_blank" rel="noopener">B站Mvn回顾</a></p>
+<p>有一个专门搜Maven依赖的网站<br><a href="https://mvnrepository.com/" target="_blank" rel="noopener">MVNRepository</a></p>
 <hr>
 <h3 id="HDFS客户端开发（IDEA）"><a href="#HDFS客户端开发（IDEA）" class="headerlink" title="HDFS客户端开发（IDEA）"></a>HDFS客户端开发（IDEA）</h3><p>HDFS的Shell和客户端是开发的重点，须多加练习<br><strong>客户端操作本质上就是封装了shell语句的java程序，实现和逻辑都是shell</strong><br><a href="/2020/05/15/HDFS%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%BB%83%E4%B9%A0/" title="HDFS客户端练习">HDFS客户端练习</a></p>
 <hr>
