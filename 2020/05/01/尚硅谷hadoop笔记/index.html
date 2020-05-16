@@ -29,7 +29,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce大概意思.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;大数据技术生态体系.png">
-<meta property="og:updated_time" content="2020-05-16T14:11:37.240Z">
+<meta property="og:updated_time" content="2020-05-16T15:31:58.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
   <!-- Canonical links -->
@@ -493,8 +493,15 @@
 <h4 id="NN和2NN工作机制-面试开发重点"><a href="#NN和2NN工作机制-面试开发重点" class="headerlink" title="NN和2NN工作机制(面试开发重点)"></a>NN和2NN工作机制(面试开发重点)</h4><p><strong>需要应对内存中的数据的持久化问题</strong><br>NameNode的内存大小一般在64G到128G之间</p>
 <p>如此大块数据的持久化，有样例：Redis的持久化，有两个策略：<br>RDB：内存镜像放在磁盘上，类似存档；<br>    特点：    持久化慢，占空间偏小；<br>            （加载高效，生成较慢）<br>            安全性低；</p>
 <p>AOF：命令操作流程记录在AOF文件中，类似命令小纸条<br>    特点：持久化快，占空间偏大；<br>            （加载慢，生成较快）<br>            安全性高；</p>
-<h4 id="NN和2NN关系类比-老板和秘书"><a href="#NN和2NN关系类比-老板和秘书" class="headerlink" title="NN和2NN关系类比(老板和秘书)"></a>NN和2NN关系类比(老板和秘书)</h4><p>NN和Redis策略相似，有Fsimage(类RDB)和edits.log(类AOF)<br>Fsimage类似旧存档，edits.log类似旧存档之后还没保存的操作<br>2NN定期将Fsimage和edits.log整合成一个新的存档Fsimage_chkpoint，返回给NN恢复内存状态<br>    定期(条件满足一个即可)：<br>        1.定时，通常每隔1小时2NN执行一次<br>        2.edits满，通常1分钟2NN检查一次，当操作次数达到1百万时，2NN执行一次<br>        3.NN刚启动时2NN也会执行一次<br><a href="https://www.bilibili.com/video/BV164411Z7cR?p=25" target="_blank" rel="noopener">B站视频详细讲解 从25:23开始</a></p>
-<h4 id="Fsimage和Edits解析"><a href="#Fsimage和Edits解析" class="headerlink" title="Fsimage和Edits解析"></a>Fsimage和Edits解析</h4><p>查看Fsimage命令：<code>查拉吗Edits命令：</code></p>
+<h4 id="NN和2NN关系类比-老板和秘书"><a href="#NN和2NN关系类比-老板和秘书" class="headerlink" title="NN和2NN关系类比(老板和秘书)"></a>NN和2NN关系类比(老板和秘书)</h4><p>NN和Redis策略相似，有Fsimage(类RDB)和edits.log(类AOF)<br>Fsimage类似旧存档，edits.log类似旧存档之后还没保存的操作<br>2NN定期将Fsimage和edits.log整合成一个新的存档Fsimage_chkpoint，返回给NN恢复内存状态<br>    定期(条件满足一个即可)：<br>        1.定时，通常每隔1小时2NN执行一次<br>        2.edits满，通常1分钟2NN检查一次，当操作次数达到1百万时，2NN执行一次<br>        3.NN刚启动时2NN也会执行一次<br><a href="https://www.bilibili.com/video/BV164411Z7cR?p=25" target="_blank" rel="noopener">B站详细讲解NN和2NN 从25:23开始</a></p>
+<h4 id="Fsimage和Edits解析"><a href="#Fsimage和Edits解析" class="headerlink" title="Fsimage和Edits解析"></a>Fsimage和Edits解析</h4><p>Fsimage和Edits文件在<code>/opt/module/hadoop-2.7.2/data/tmp/dfs/name/current/</code><br>Fsimage只保留一个最新的和第二新的，Edits都保留</p>
+<p>查看Fsimage命令：<code>hdfs oiv -p XML -i fsimage_xxx -o /opt/module/hadoop/fsimage.xml</code><br>查看Edits命令：<code>hdfs oev -p XML -i edits_xxx -o /opt/module/hadoop/edits.xml</code></p>
+<p>可以再使用<code>sz命令</code>拷贝到宿主机win10上查看</p>
+<hr>
+<h3 id="DN工作机制-面试开发重点"><a href="#DN工作机制-面试开发重点" class="headerlink" title="DN工作机制(面试开发重点)"></a>DN工作机制(面试开发重点)</h3><p>DN上的块在<code>/opt/module/hadoop-2.7.2/data/tmp/dfs/name/current/</code><br>其中不仅有块数据，还有块对应元数据meta文件(数据长度、校验和、时间戳)</p>
+<p>1.DN向NN注册<br>2.DN注册成功<br>3.DN除在最开始，而且每周期(1h)上报所有块信息<br>4.每3秒一次心跳(last contact)，心跳返回的结果带有NN给DN的命令<br>5.默认超过(10分钟+30秒)没有DN的心跳，则认为该节点不可用</p>
+<p><strong>掉线时限参数设置：</strong><br><code>TimeOut = 2 * dfs.namenode.heartbeat.recheck-interval(5min) + 10 * dfs.heartbeat.interval(3s)</code><br>可以修改上面两个参数</p>
+<p><strong>数据校验算法：</strong>保证数据完整性<br>    crc(散列值：32bit)：HDFS传输一般数据<br>    md5(128bit)：HDFS传输元数据<br>    sha1(160bit)：安全性高，算一次消耗cpu多，传输代价高<br><a href="https://www.bilibili.com/video/BV164411Z7cR?p=26" target="_blank" rel="noopener">B站详解DN</a></p>
 
       
     </div>
