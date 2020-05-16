@@ -29,7 +29,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce大概意思.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;大数据技术生态体系.png">
-<meta property="og:updated_time" content="2020-05-15T16:19:50.583Z">
+<meta property="og:updated_time" content="2020-05-16T11:38:29.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
   <!-- Canonical links -->
@@ -426,144 +426,51 @@
 <hr>
 <h3 id="群起集群"><a href="#群起集群" class="headerlink" title="群起集群"></a>群起集群</h3><h4 id="（1）配置slaves文件"><a href="#（1）配置slaves文件" class="headerlink" title="（1）配置slaves文件"></a>（1）配置slaves文件</h4><p>hadoop101的slaves:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop101</span><br><span class="line">hadoop102</span><br><span class="line">hadoop103</span><br></pre></td></tr></table></figure></p>
 <font color="red">注意：该文件中添加的内容结尾不允许有空格，文件中不允许有空行。</font>
-同步所有节点配置文件
-`[hadoop@hadoop101 hadoop]$ xsync slaves`
 
-#### （2）启动集群
-1. 如果集群是第一次启动，需要格式化NameNode<font color="red">（注意格式化之前，一定要先停止上次启动的所有namenode和datanode进程，然后再删除data和log数据）</font>
-`[hadoop@hadoop101 hadoop-2.7.2]$ bin/hdfs namenode -format`
-2. 启动HDFS
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop101 hadoop-2.7.2]$ sbin/start-dfs.sh</span><br><span class="line">[hadoop@hadoop101 hadoop-2.7.2]$ jps</span><br><span class="line">4166 NameNode</span><br><span class="line">4482 Jps</span><br><span class="line">4263 DataNode</span><br><span class="line">[hadoop@hadoop102 hadoop-2.7.2]$ jps</span><br><span class="line">3218 DataNode</span><br><span class="line">3288 Jps</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop103 hadoop-2.7.2]$ jps</span><br><span class="line">3221 DataNode</span><br><span class="line">3283 SecondaryNameNode</span><br><span class="line">3364 Jps</span><br></pre></td></tr></table></figure>
-3. 启动YARN
-`[hadoop@hadoop102 hadoop-2.7.2]$ sbin/start-yarn.sh`
+<p>同步所有节点配置文件<br><code>[hadoop@hadoop101 hadoop]$ xsync slaves</code></p>
+<h4 id="（2）启动集群"><a href="#（2）启动集群" class="headerlink" title="（2）启动集群"></a>（2）启动集群</h4><ol>
+<li>如果集群是第一次启动，需要格式化NameNode<font color="red">（注意格式化之前，一定要先停止上次启动的所有namenode和datanode进程，然后再删除data和log数据）</font></li>
+</ol>
+<p><code>[hadoop@hadoop101 hadoop-2.7.2]$ bin/hdfs namenode -format</code></p>
+<ol>
+<li>启动HDFS<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop101 hadoop-2.7.2]$ sbin/start-dfs.sh</span><br><span class="line">[hadoop@hadoop101 hadoop-2.7.2]$ jps</span><br><span class="line">4166 NameNode</span><br><span class="line">4482 Jps</span><br><span class="line">4263 DataNode</span><br><span class="line">[hadoop@hadoop102 hadoop-2.7.2]$ jps</span><br><span class="line">3218 DataNode</span><br><span class="line">3288 Jps</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop103 hadoop-2.7.2]$ jps</span><br><span class="line">3221 DataNode</span><br><span class="line">3283 SecondaryNameNode</span><br><span class="line">3364 Jps</span><br></pre></td></tr></table></figure></li>
+<li><p>启动YARN<br><code>[hadoop@hadoop102 hadoop-2.7.2]$ sbin/start-yarn.sh</code></p>
 <font color="red">注意：NameNode和ResourceManger如果不是同一台机器，不能在NameNode上启动 YARN，应该在ResouceManager所在的机器上启动YARN。</font>
-4. Web端查看SecondaryNameNode
-   （a）浏览器中输入：http://hadoop103:50090/status.html
-   （b）查看SecondaryNameNode信息
-
-#### （3）各个服务组件逐一启动/停止
-分别启动/停止HDFS组件
-`hadoop-daemon.sh  start / stop  namenode / datanode / secondarynamenode`
-启动/停止YARN
-`yarn-daemon.sh  start / stop  resourcemanager / nodemanager`
-
-各个模块分开启动/停止（配置ssh是前提）常用
-整体启动/停止HDFS
-`start-dfs.sh   /  stop-dfs.sh`
-整体启动/停止YARN
-`start-yarn.sh  /  stop-yarn.sh`
-
----
-### 配置历史服务器和日志聚集功能
-mapred-site.xml:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 历史服务器端地址 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;hadoop103:10020&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 历史服务器web端地址 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;hadoop103:19888&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br></pre></td></tr></table></figure>
-
-yarn-site.xml:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 日志聚集功能使能 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.log-aggregation-enable&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;true&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	</span><br><span class="line">&lt;!-- 日志保留时间设置7天 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.log-aggregation.retain-seconds&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;604800&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br></pre></td></tr></table></figure>
-启动日志服务器命令：
-在日志服务器端(hadoop103)
-`mr-jobhistory-daemon.sh start historyserver`
-关闭日志服务器命令：
-`mr-jobhistory-daemon.sh stop historyserver`
-
-**“出错不要慌张，先冷静，然后去log目录下看.log文件定位错误！”**
-**“读日志是一项很重要的技能！”**
-
----
-### 时间同步服务
-#### 时间服务器配置（hadoop101、必须root用户）
-（1）检查ntp是否安装(使用root用户)
-`rpm -qa | grep ntp`
-出现`ntp-4.2.6p5-10.el6.centos.x86_64` 和 `ntpdate-4.2.6p5-10.el6.centos.x86_64`类似文件就证明已安装
-
-（2）检查ntp运行状态
-`service ntp status`
-若正在运行则停止：`service ntp stop`
-取消服务自启动：`chkconfig ntpd off`
-查看服务状态：`chkconfig --list ntpd`
-上面两条在centos7.x以后分别是：
-`systemctl disable ntpd.service`
-`systemctl status ntpd.service`
-
-（3）修改有关的配置文件
-首先进入/etc/ntp.config文件：
-`sudo vim /etc/ntp.conf`
-a）修改1（授权192.168.1.0-192.168.1.255网段上的所有机器可以从这台机器上查询和同步时间）
-#restrict 192.168.1.0 mask 255.255.255.0 nomodify notrap为
-restrict 192.168.1.0 mask 255.255.255.0 nomodify notrap
-b）修改2（集群在局域网中，不使用其他互联网上的时间）
-server 0.centos.pool.ntp.org iburst
-server 1.centos.pool.ntp.org iburst
-server 2.centos.pool.ntp.org iburst
-server 3.centos.pool.ntp.org iburst为
-#server 0.centos.pool.ntp.org iburst
-#server 1.centos.pool.ntp.org iburst
-#server 2.centos.pool.ntp.org iburst
-#server 3.centos.pool.ntp.org iburst
-c）添加3（当该节点丢失网络连接，依然可以采用本地时间作为时间服务器为集群中的其他节点提供时间同步）
-server 127.127.1.0
-fudge 127.127.1.0 stratum 10
-
-其次进入/etc/sysconfig/ntpd文件：
-`sudo vim /etc/sysconfig/ntpd`
-增加内容如下（让硬件时间与系统时间一起同步）
-SYNC_HWCLOCK=yes
-
-（4）重启ntpd服务
-`systemctl start ntpd.service`
-`systemctl status ntpd.service`
-
-（5）设置ntpd服务开机启动
-`systemctl enable ntpd.service`
-
-#### 其他机器配置（hadoop102和hadoop103、必须root用户）
-（1）在其他机器配置10分钟与时间服务器同步一次
-`crontab -e`
-编写定时任务如下：
-`*/10 * * * * /usr/sbin/ntpdate hadoop102`
-（2）修改任意机器时间
-`date -s "2017-9-11 11:11:11"`
-（3）十分钟后查看机器是否与时间服务器同步
-`date`
-说明：测试的时候可以将10分钟调整为1分钟，节省时间。
-
----
-### HDFS概述
-Hadoop Distributed File System
-HDFS的使用场景：适合一次写入、多次读出的场景，且不支持文件的修改
-
-#### 优缺点
-优点：高容错性(可恢复的多副本)、适合处理大数据(PB级别数据量、百万规模文件数量)、可构建在廉价机器上(和超算相比，后者就是硬件牛逼)
-
-缺点：不适合低延时数据访问(运行慢)、无法高效对大量小文件进行存储(NN的条目太多)、不支持**并发写入**和文件随机修改(单线程写，仅支持数据追加append，修改只能删除重写)
-
-#### HDFS组成架构
-1）NameNode(nn):Master,主管、管理者
-    (1)管理HDFS的名称空间
-    (2)配置副本策略
-    (3)管理数据块(Block)映射信息
-    (4)处理客户端读写请求
-
-2）DataNode(dn):slave,nn下达命令，dn执行实际的操作
-    (1)存储实际的数据块
-    (2)执行数据块的读/写操作
-
-3）Client:客户端
-    (1)文件切分。将文件切分为block，再上传
-    (2)与nn交互，获取文件位置
-    (3)与dn交互，读写数据
-    (4)提供命令管理HDFS，如nn格式化
-    (5)通过命令访问HDFS，如对HDFS进行CRUD
-
-4）Secondary NameNode(2nn):不是nn的热备。不能在nn挂掉时，立刻替换
-    (1)辅助nn，分担工作量
-
-#### HDFS文件块大小（面试重点）
-块的大小可通过配置参数(dfs.blocksize)来规定
+</li>
+<li><p>Web端查看SecondaryNameNode<br>（a）浏览器中输入：<a href="http://hadoop103:50090/status.html" target="_blank" rel="noopener">http://hadoop103:50090/status.html</a><br>（b）查看SecondaryNameNode信息</p>
+</li>
+</ol>
+<h4 id="（3）各个服务组件逐一启动-停止"><a href="#（3）各个服务组件逐一启动-停止" class="headerlink" title="（3）各个服务组件逐一启动/停止"></a>（3）各个服务组件逐一启动/停止</h4><p>分别启动/停止HDFS组件<br><code>hadoop-daemon.sh  start / stop  namenode / datanode / secondarynamenode</code><br>启动/停止YARN<br><code>yarn-daemon.sh  start / stop  resourcemanager / nodemanager</code></p>
+<p>各个模块分开启动/停止（配置ssh是前提）常用<br>整体启动/停止HDFS<br><code>start-dfs.sh   /  stop-dfs.sh</code><br>整体启动/停止YARN<br><code>start-yarn.sh  /  stop-yarn.sh</code></p>
+<hr>
+<h3 id="配置历史服务器和日志聚集功能"><a href="#配置历史服务器和日志聚集功能" class="headerlink" title="配置历史服务器和日志聚集功能"></a>配置历史服务器和日志聚集功能</h3><p>mapred-site.xml:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 历史服务器端地址 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;hadoop103:10020&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 历史服务器web端地址 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;hadoop103:19888&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>yarn-site.xml:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 日志聚集功能使能 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.log-aggregation-enable&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;true&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	</span><br><span class="line">&lt;!-- 日志保留时间设置7天 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.log-aggregation.retain-seconds&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;604800&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br></pre></td></tr></table></figure><br>启动日志服务器命令：<br>在日志服务器端(hadoop103)<br><code>mr-jobhistory-daemon.sh start historyserver</code><br>关闭日志服务器命令：<br><code>mr-jobhistory-daemon.sh stop historyserver</code></p>
+<p><strong>“出错不要慌张，先冷静，然后去log目录下看.log文件定位错误！”</strong><br><strong>“读日志是一项很重要的技能！”</strong></p>
+<hr>
+<h3 id="时间同步服务"><a href="#时间同步服务" class="headerlink" title="时间同步服务"></a>时间同步服务</h3><h4 id="时间服务器配置（hadoop101、必须root用户）"><a href="#时间服务器配置（hadoop101、必须root用户）" class="headerlink" title="时间服务器配置（hadoop101、必须root用户）"></a>时间服务器配置（hadoop101、必须root用户）</h4><p>（1）检查ntp是否安装(使用root用户)<br><code>rpm -qa | grep ntp</code><br>出现<code>ntp-4.2.6p5-10.el6.centos.x86_64</code> 和 <code>ntpdate-4.2.6p5-10.el6.centos.x86_64</code>类似文件就证明已安装</p>
+<p>（2）检查ntp运行状态<br><code>service ntp status</code><br>若正在运行则停止：<code>service ntp stop</code><br>取消服务自启动：<code>chkconfig ntpd off</code><br>查看服务状态：<code>chkconfig --list ntpd</code><br>上面两条在centos7.x以后分别是：<br><code>systemctl disable ntpd.service</code><br><code>systemctl status ntpd.service</code></p>
+<p>（3）修改有关的配置文件<br>首先进入/etc/ntp.config文件：<br><code>sudo vim /etc/ntp.conf</code><br>a）修改1（授权192.168.1.0-192.168.1.255网段上的所有机器可以从这台机器上查询和同步时间）</p>
+<h1 id="restrict-192-168-1-0-mask-255-255-255-0-nomodify-notrap为"><a href="#restrict-192-168-1-0-mask-255-255-255-0-nomodify-notrap为" class="headerlink" title="restrict 192.168.1.0 mask 255.255.255.0 nomodify notrap为"></a>restrict 192.168.1.0 mask 255.255.255.0 nomodify notrap为</h1><p>restrict 192.168.1.0 mask 255.255.255.0 nomodify notrap<br>b）修改2（集群在局域网中，不使用其他互联网上的时间）<br>server 0.centos.pool.ntp.org iburst<br>server 1.centos.pool.ntp.org iburst<br>server 2.centos.pool.ntp.org iburst<br>server 3.centos.pool.ntp.org iburst为</p>
+<h1 id="server-0-centos-pool-ntp-org-iburst"><a href="#server-0-centos-pool-ntp-org-iburst" class="headerlink" title="server 0.centos.pool.ntp.org iburst"></a>server 0.centos.pool.ntp.org iburst</h1><h1 id="server-1-centos-pool-ntp-org-iburst"><a href="#server-1-centos-pool-ntp-org-iburst" class="headerlink" title="server 1.centos.pool.ntp.org iburst"></a>server 1.centos.pool.ntp.org iburst</h1><h1 id="server-2-centos-pool-ntp-org-iburst"><a href="#server-2-centos-pool-ntp-org-iburst" class="headerlink" title="server 2.centos.pool.ntp.org iburst"></a>server 2.centos.pool.ntp.org iburst</h1><h1 id="server-3-centos-pool-ntp-org-iburst"><a href="#server-3-centos-pool-ntp-org-iburst" class="headerlink" title="server 3.centos.pool.ntp.org iburst"></a>server 3.centos.pool.ntp.org iburst</h1><p>c）添加3（当该节点丢失网络连接，依然可以采用本地时间作为时间服务器为集群中的其他节点提供时间同步）<br>server 127.127.1.0<br>fudge 127.127.1.0 stratum 10</p>
+<p>其次进入/etc/sysconfig/ntpd文件：<br><code>sudo vim /etc/sysconfig/ntpd</code><br>增加内容如下（让硬件时间与系统时间一起同步）<br>SYNC_HWCLOCK=yes</p>
+<p>（4）重启ntpd服务<br><code>systemctl start ntpd.service</code><br><code>systemctl status ntpd.service</code></p>
+<p>（5）设置ntpd服务开机启动<br><code>systemctl enable ntpd.service</code></p>
+<h4 id="其他机器配置（hadoop102和hadoop103、必须root用户）"><a href="#其他机器配置（hadoop102和hadoop103、必须root用户）" class="headerlink" title="其他机器配置（hadoop102和hadoop103、必须root用户）"></a>其他机器配置（hadoop102和hadoop103、必须root用户）</h4><p>（1）在其他机器配置10分钟与时间服务器同步一次<br><code>crontab -e</code><br>编写定时任务如下：<br><code>*/10 * * * * /usr/sbin/ntpdate hadoop102</code><br>（2）修改任意机器时间<br><code>date -s &quot;2017-9-11 11:11:11&quot;</code><br>（3）十分钟后查看机器是否与时间服务器同步<br><code>date</code><br>说明：测试的时候可以将10分钟调整为1分钟，节省时间。</p>
+<hr>
+<h3 id="HDFS概述"><a href="#HDFS概述" class="headerlink" title="HDFS概述"></a>HDFS概述</h3><p>Hadoop Distributed File System<br>HDFS的使用场景：适合一次写入、多次读出的场景，且不支持文件的修改</p>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><p>优点：高容错性(可恢复的多副本)、适合处理大数据(PB级别数据量、百万规模文件数量)、可构建在廉价机器上(和超算相比，后者就是硬件牛逼)</p>
+<p>缺点：不适合低延时数据访问(运行慢)、无法高效对大量小文件进行存储(NN的条目太多)、不支持<strong>并发写入</strong>和文件随机修改(单线程写，仅支持数据追加append，修改只能删除重写)</p>
+<h4 id="HDFS组成架构"><a href="#HDFS组成架构" class="headerlink" title="HDFS组成架构"></a>HDFS组成架构</h4><p>1）NameNode(nn):Master,主管、管理者<br>    (1)管理HDFS的名称空间<br>    (2)配置副本策略<br>    (3)管理数据块(Block)映射信息<br>    (4)处理客户端读写请求</p>
+<p>2）DataNode(dn):slave,nn下达命令，dn执行实际的操作<br>    (1)存储实际的数据块<br>    (2)执行数据块的读/写操作</p>
+<p>3）Client:客户端<br>    (1)文件切分。将文件切分为block，再上传<br>    (2)与nn交互，获取文件位置<br>    (3)与dn交互，读写数据<br>    (4)提供命令管理HDFS，如nn格式化<br>    (5)通过命令访问HDFS，如对HDFS进行CRUD</p>
+<p>4）Secondary NameNode(2nn):不是nn的热备。不能在nn挂掉时，立刻替换<br>    (1)辅助nn，分担工作量</p>
+<h4 id="HDFS文件块大小（面试重点）"><a href="#HDFS文件块大小（面试重点）" class="headerlink" title="HDFS文件块大小（面试重点）"></a>HDFS文件块大小（面试重点）</h4><p>块的大小可通过配置参数(dfs.blocksize)来规定</p>
 <font color="red">默认大小在Hadoop2.x版本中是128M，老版本是64M</font>
 
 <p><strong>原因：</strong><br>块平均寻址时间为10ms</p>
-<p><font color="red">寻址时间为传输时间的1%时，则为最佳状态</font>因此传输时间为：<br>10ms/0.01=1000ms=1s<br>而目前磁盘的传输速率普遍为100MB/s<br>所以取2的幂：128M</p>
+<font color="red">寻址时间为传输时间的1%时，则为最佳状态</font>
+
+<p>因此传输时间为：<br>10ms/0.01=1000ms=1s<br>而目前磁盘的传输速率普遍为100MB/s<br>所以取2的幂：128M</p>
 <p><strong>块不能设置太小，也不能设置太大！</strong><br>太小：增加寻址时间，很慢<br>太大：会导致MapReduce处理不方便，很慢</p>
 <hr>
 <h4 id="HDFS的Shell操作-开发重点"><a href="#HDFS的Shell操作-开发重点" class="headerlink" title="HDFS的Shell操作(开发重点)"></a>HDFS的Shell操作(开发重点)</h4><p><code>hadoop fs</code> 和 <code>hdfs dfs</code>的效果一模一样，因为源码中调用的是同一个.sh文件</p>
