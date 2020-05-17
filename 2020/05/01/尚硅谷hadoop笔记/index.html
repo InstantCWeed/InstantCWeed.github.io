@@ -29,7 +29,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce大概意思.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;大数据技术生态体系.png">
-<meta property="og:updated_time" content="2020-05-16T15:47:43.510Z">
+<meta property="og:updated_time" content="2020-05-17T14:30:42.637Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
   <!-- Canonical links -->
@@ -502,6 +502,16 @@
 <p>1.DN向NN注册<br>2.DN注册成功<br>3.DN除在最开始，而且每周期(1h)上报所有块信息<br>4.每3秒一次心跳(last contact)，心跳返回的结果带有NN给DN的命令<br>5.默认超过(10分钟+30秒)没有DN的心跳，则认为该节点不可用</p>
 <p><strong>掉线时限参数设置：</strong><br><code>TimeOut = 2 * dfs.namenode.heartbeat.recheck-interval(5min) + 10 * dfs.heartbeat.interval(3s)</code><br>可以修改上面两个参数</p>
 <p><strong>数据校验算法：</strong>保证数据完整性<br>    crc(散列值：32bit)：HDFS传输一般数据<br>    md5(128bit)：HDFS传输元数据<br>    sha1(160bit)：安全性高，算一次消耗cpu多，传输代价高<br><a href="https://www.bilibili.com/video/BV164411Z7cR?p=26" target="_blank" rel="noopener">B站详解DN</a></p>
+<h4 id="服役新节点、退役旧节点、多目录配置"><a href="#服役新节点、退役旧节点、多目录配置" class="headerlink" title="服役新节点、退役旧节点、多目录配置"></a>服役新节点、退役旧节点、多目录配置</h4><p><strong>服役新节点比较简单，之前从伪分布式到完全分布式时已经做过，只须做到以下几点，新节点就能接入集群：</strong><br>1.环境准备，如jdk和hadoop环境。<code>rsync</code>一下hadoop有关的配置文件<br>2.更改ip和主机名，保证在</p>
+<font color="red">3.删除原来HDFS保留的data和log文件夹</font>
+
+<p>4.source一下配置文件：<code>source /etc/profile</code><br>5.单点启动DN时:<code>hadoop-daemon.sh start datanode</code>和<code>yarn-daemon.sh start nodemanager</code>,如果遇到数据不均衡，还可以使用<code>start-balancer.sh</code>命令实现集群的再平衡</p>
+<p><strong>退役旧节点有两种策略：添加白名单、黑名单退役。</strong><br><strong>HDFS使用的一般是黑名单。设置都在NN所在主机操作</strong><br>白名单机制一般是保证集群准入机制，保证集群自身的安全性，不多用于退役节点。</p>
+<p>黑名单机制比较温和，主要是添加<code>hdfs-site.xml</code>中<code>dfs.hosts.exclude</code>属性与值：<br>1.创建黑名单文件<code>blacklist</code>,写入要退役的主机名<br>2.在<code>hdfs-site.xml</code>中添加<code>dfs.hosts.exclude</code>属性，值就是黑名单文件<code>blacklist</code>的地址<br>3.刷新NameNode、刷新ResourceManager<br><code>hdfs dfsadmin -refreshNodes</code><br><code>yarn rmadmin -refreshNodes</code><br>4.检查web浏览器，退役节点状态显示为<code>decommission in progress(退役中)</code>，过会儿显示为<code>decommissioned(所有块复制完成，退役结束)</code>,但此时心跳仍然存在，只是集群不存放和处理这个节点的数据。如要完全退出就单点退出hdfs和yarn<br>5.遇到数据不均匀，还可以使用<code>start-balancer.sh</code>命令实现集群再平衡</p>
+<p>白名单机制比较激进，主要是添加<code>hdfs-site.xml</code>中<code>dfs.host</code>属性与值<br>1.创建白名单文件<code>whitelist</code>，写入可以进入集群的主机名<br>2.在<code>hdfs-site.xml</code>中添加<code>dfs.hosts</code>属性，值就是白名单<code>whitelist</code>的地址<br>3.配置文件分发到所有节点：<code>xsync hdfs-site.xml</code><br>4.刷新NameNode、刷新ResourceManager<br><code>hdfs dfsadmin -refreshNodes</code><br><code>yarn rmadmin -refreshNodes</code><br>5.在web浏览器查看当前DN节点情况<br>6.遇到数据不均匀，还可以使用<code>start-balancer.sh</code>命令实现集群再平衡</p>
+<p><strong>多目录配置主要是为了解决数据增大，硬盘容量不足的问题</strong><br>DataNode也可以配置成多个目录，每个目录存储的数据不一样。即：数据不是副本</p>
+<p>具体配置在<code>hdfs-site.xml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;file:///$&#123;hadoop.tmp.dir&#125;/dfs/data1,file:///$&#123;hadoop.tmp.dir&#125;/dfs/data2&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure><br>data2文件夹类似于在该挂载点处多挂载了一块新的硬盘</p>
+<hr>
 
       
     </div>
