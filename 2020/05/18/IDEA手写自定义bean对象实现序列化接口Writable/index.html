@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>IDEA手写自定义bean对象实现序列化接口Writable | FluffySpoooooonge!!!</title>
+  <meta name="description" content="需求：统计每一个手机号耗费的总上行流量、下行流量、总流量123456789101112131415161718192021221	13736230513	192.196.100.1	www.atguigu.com	2481	24681	2002	13846544121	192.196.100.2			264	0	2003 	13956435636	192.196.100.3			132	1512">
+<meta name="keywords" content="hadoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IDEA手写自定义bean对象实现序列化接口Writable">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;18&#x2F;IDEA%E6%89%8B%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89bean%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96%E6%8E%A5%E5%8F%A3Writable&#x2F;index.html">
+<meta property="og:site_name" content="FluffySpoooooooonge !!!">
+<meta property="og:description" content="需求：统计每一个手机号耗费的总上行流量、下行流量、总流量123456789101112131415161718192021221	13736230513	192.196.100.1	www.atguigu.com	2481	24681	2002	13846544121	192.196.100.2			264	0	2003 	13956435636	192.196.100.3			132	1512">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-18T14:59:19.280Z">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://www.fluffysponge.fun/2020/05/18/IDEA%E6%89%8B%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89bean%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96%E6%8E%A5%E5%8F%A3Writable/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="FluffySpoooooooonge !!!" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-black# 主题颜色 theme-black theme-blue theme-green theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/InstantCWeed" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">InstantCWeed</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Student</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> BeiJing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/InstantCWeed" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/3100744741" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="http://huaban.com/" target="_blank" title="Huaban" data-toggle=tooltip data-placement=top><i class="icon icon-huaban"></i></a></li>
+        
+        <li><a href="https://www.behance.net/" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>人处在一种默默奋斗的状态，精神就会从琐碎生活中得到升华。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">Java内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">61</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" style="font-size: 13px;">Java内容索引</a> <a href="/tags/hadoop/" style="font-size: 13.71px;">hadoop</a> <a href="/tags/hexo%E4%BD%BF%E7%94%A8/" style="font-size: 13.57px;">hexo使用</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 14px;">刷题</a> <a href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" style="font-size: 13.14px;">刷题目录</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 13.86px;">基础</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 13.43px;">学习笔记</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 13.14px;">工具使用</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" style="font-size: 13.14px;">工具学习</a> <a href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" style="font-size: 13px;">广告系统</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" style="font-size: 13.14px;">编程疑惑</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 13.29px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 13.29px;">读书</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.29px;">面试</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">49</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">44</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/18/IDEA%E6%89%8B%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89bean%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96%E6%8E%A5%E5%8F%A3Writable/" class="title">IDEA手写自定义bean对象实现序列化接口Writable</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-18T14:46:49.000Z" itemprop="datePublished">2020-05-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/18/IDEA%E6%89%8B%E5%86%99%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8Fwordcount%E5%B9%B6%E6%89%93%E5%8C%85%E8%BF%90%E8%A1%8C/" class="title">IDEA手写示例程序wordcount并打包运行</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-18T08:39:55.000Z" itemprop="datePublished">2020-05-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/16/%E5%B0%9A%E7%A1%85%E8%B0%B7spark%E7%AC%94%E8%AE%B0/" class="title">尚硅谷spark笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-16T15:46:26.000Z" itemprop="datePublished">2020-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/15/HDFS%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%BB%83%E4%B9%A0/" class="title">HDFS客户端练习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-15T14:22:36.000Z" itemprop="datePublished">2020-05-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/14/%E5%8A%9B%E6%89%A3-%E6%8E%A2%E7%B4%A2%E9%98%9F%E5%88%97%E5%92%8C%E6%A0%88/" class="title">力扣-探索队列和栈</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-14T09:24:07.000Z" itemprop="datePublished">2020-05-14</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-IDEA手写自定义bean对象实现序列化接口Writable" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      IDEA手写自定义bean对象实现序列化接口Writable
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/05/18/IDEA%E6%89%8B%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89bean%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96%E6%8E%A5%E5%8F%A3Writable/" class="article-date">
+	  <time datetime="2020-05-18T14:46:49.000Z" itemprop="datePublished">2020-05-18</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/hadoop/" rel="tag">hadoop</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/18/IDEA%E6%89%8B%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89bean%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96%E6%8E%A5%E5%8F%A3Writable/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>需求：统计每一个手机号耗费的总上行流量、下行流量、总流量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1	13736230513	192.196.100.1	www.atguigu.com	2481	24681	200</span><br><span class="line">2	13846544121	192.196.100.2			264	0	200</span><br><span class="line">3 	13956435636	192.196.100.3			132	1512	200</span><br><span class="line">4 	13966251146	192.168.100.1			240	0	404</span><br><span class="line">5 	18271575951	192.168.100.2	www.atguigu.com	1527	2106	200</span><br><span class="line">6 	84188413	192.168.100.3	www.atguigu.com	4116	1432	200</span><br><span class="line">7 	13590439668	192.168.100.4			1116	954	200</span><br><span class="line">8 	15910133277	192.168.100.5	www.hao123.com	3156	2936	200</span><br><span class="line">9 	13729199489	192.168.100.6			240	0	200</span><br><span class="line">10 	13630577991	192.168.100.7	www.shouhu.com	6960	690	200</span><br><span class="line">11 	15043685818	192.168.100.8	www.baidu.com	3659	3538	200</span><br><span class="line">12 	15959002129	192.168.100.9	www.atguigu.com	1938	180	500</span><br><span class="line">13 	13560439638	192.168.100.10			918	4938	200</span><br><span class="line">14 	13470253144	192.168.100.11			180	180	200</span><br><span class="line">15 	13682846555	192.168.100.12	www.qq.com	1938	2910	200</span><br><span class="line">16 	13992314666	192.168.100.13	www.gaga.com	3008	3720	200</span><br><span class="line">17 	13509468723	192.168.100.14	www.qinghua.com	7335	110349	404</span><br><span class="line">18 	18390173782	192.168.100.15	www.sogou.com	9531	2412	200</span><br><span class="line">19 	13975057813	192.168.100.16	www.baidu.com	11058	48243	200</span><br><span class="line">20 	13768778790	192.168.100.17			120	120	200</span><br><span class="line">21 	13568436656	192.168.100.18	www.alibaba.com	2481	24681	200</span><br><span class="line">22 	13568436656	192.168.100.19			1116	954	200</span><br></pre></td></tr></table></figure><br>输入数据格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">7 	13560436666	120.196.100.99		1116		 954			200</span><br><span class="line">id	手机号码		网络ip			上行流量  下行流量     网络状态码</span><br></pre></td></tr></table></figure><br>期望输出数据格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">13560436666 		1116		      954 			2070</span><br><span class="line">手机号码		    上行流量        下行流量		总流量</span><br></pre></td></tr></table></figure></p>
+<p>自定义流量统计Bean对象：FlowBean<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">package com.atguigu.flow;</span><br><span class="line"></span><br><span class="line">import org.apache.hadoop.io.Writable;</span><br><span class="line"></span><br><span class="line">import java.io.DataInput;</span><br><span class="line">import java.io.DataOutput;</span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class FlowBean implements Writable &#123;</span><br><span class="line">    private long upFlow;</span><br><span class="line">    private long downFlow;</span><br><span class="line">    private long sumFlow;</span><br><span class="line"></span><br><span class="line">    public FlowBean() &#123;//发射需要提供无参构造方法</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return upFlow + &quot;\t&quot; + downFlow + &quot;\t&quot; + sumFlow;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void set(long upFlow,long downFlow)&#123;</span><br><span class="line">        this.upFlow = upFlow;</span><br><span class="line">        this.downFlow = downFlow;</span><br><span class="line">        this.sumFlow = upFlow + downFlow;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public long getUpFlow() &#123;</span><br><span class="line">        return upFlow;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setUpFlow(long upFlow) &#123;</span><br><span class="line">        this.upFlow = upFlow;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public long getDownFlow() &#123;</span><br><span class="line">        return downFlow;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setDownFlow(long downFlow) &#123;</span><br><span class="line">        this.downFlow = downFlow;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public long getSumFlow() &#123;</span><br><span class="line">        return sumFlow;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setSumFlow(long sumFlow) &#123;</span><br><span class="line">        this.sumFlow = sumFlow;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 序列化方法</span><br><span class="line">     * @param dataOutput：框架提供的数据出口</span><br><span class="line">     * @throws IOException</span><br><span class="line">     */</span><br><span class="line">    public void write(DataOutput dataOutput) throws IOException &#123;</span><br><span class="line">        //顺序和反序列化的顺序要一模一样</span><br><span class="line">        dataOutput.writeLong(upFlow);</span><br><span class="line">        dataOutput.writeLong(downFlow);</span><br><span class="line">        dataOutput.writeLong(sumFlow);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 反序列化方法</span><br><span class="line">     * @param dataInput：框架提供的数据来源</span><br><span class="line">     * @throws IOException</span><br><span class="line">     */</span><br><span class="line">    public void readFields(DataInput dataInput) throws IOException &#123;</span><br><span class="line">        //顺序和序列化的顺序要一模一样</span><br><span class="line">        upFlow = dataInput.readLong();</span><br><span class="line">        downFlow = dataInput.readLong();</span><br><span class="line">        sumFlow = dataInput.readLong();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>FlowDriver:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">package com.atguigu.flow;</span><br><span class="line"></span><br><span class="line">import org.apache.hadoop.conf.Configuration;</span><br><span class="line">import org.apache.hadoop.fs.Path;</span><br><span class="line">import org.apache.hadoop.io.Text;</span><br><span class="line">import org.apache.hadoop.mapreduce.Job;</span><br><span class="line">import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line">import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class FLowDriver &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException &#123;</span><br><span class="line">        //1.获取job实例</span><br><span class="line">        Job job = Job.getInstance(new Configuration());</span><br><span class="line"></span><br><span class="line">        //2.设置类路径</span><br><span class="line">        job.setJarByClass(FLowDriver.class);</span><br><span class="line"></span><br><span class="line">        //3.设置Mapper和Reducer</span><br><span class="line">        job.setMapperClass(FlowMapper.class);</span><br><span class="line">        job.setReducerClass(FlowReducer.class);</span><br><span class="line"></span><br><span class="line">        //4.设置输入输出类型</span><br><span class="line">        job.setMapOutputKeyClass(Text.class);</span><br><span class="line">        job.setMapOutputValueClass(FlowBean.class);</span><br><span class="line"></span><br><span class="line">        job.setOutputKeyClass(Text.class);</span><br><span class="line">        job.setOutputValueClass(FlowBean.class);</span><br><span class="line"></span><br><span class="line">        //5.设置输入输出路径</span><br><span class="line">        FileInputFormat.setInputPaths(job, new Path(args[0]));</span><br><span class="line">        FileOutputFormat.setOutputPath(job, new Path(args[1]));</span><br><span class="line"></span><br><span class="line">        //6.提交</span><br><span class="line">        boolean b = job.waitForCompletion(true);</span><br><span class="line">        System.exit(b ? 0 : 1);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>FlowMapper:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package com.atguigu.flow;</span><br><span class="line"></span><br><span class="line">import org.apache.hadoop.io.LongWritable;</span><br><span class="line">import org.apache.hadoop.io.Text;</span><br><span class="line">import org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class FlowMapper extends Mapper&lt;LongWritable, Text,Text,FlowBean&gt; &#123;</span><br><span class="line">    /**</span><br><span class="line">     * LongWritable:框架输入类型的Key，这行在行首在文件中的偏移量</span><br><span class="line">     * Text:框架输入类型的Value，这行的内容</span><br><span class="line">     * Text:Mapper的输入类型Key</span><br><span class="line">     * FlowBean:Mapper的输入类型Value</span><br><span class="line">     */</span><br><span class="line">    private Text phone = new Text();</span><br><span class="line">    private FlowBean flow = new FlowBean();</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException &#123;</span><br><span class="line"></span><br><span class="line">        String[] fields = value.toString().split(&quot;\t&quot;);</span><br><span class="line">        phone.set(fields[1]);</span><br><span class="line">        long upFlow = Long.parseLong(fields[fields.length - 3]);</span><br><span class="line">        long downFlow = Long.parseLong(fields[fields.length - 2]);</span><br><span class="line">        flow.set(upFlow,downFlow);</span><br><span class="line">        context.write(phone,flow);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>FlowReducer:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package com.atguigu.flow;</span><br><span class="line"></span><br><span class="line">import org.apache.hadoop.io.Text;</span><br><span class="line">import org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class FlowReducer extends Reducer&lt;Text,FlowBean, Text,FlowBean&gt; &#123;</span><br><span class="line">    private FlowBean sumFlow = new FlowBean();</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void reduce(Text key, Iterable&lt;FlowBean&gt; values, Context context) throws IOException, InterruptedException &#123;</span><br><span class="line">        long sumUpFlow = 0;</span><br><span class="line">        long sumDownFlow = 0;</span><br><span class="line">        for (FlowBean value : values) &#123;</span><br><span class="line">            sumUpFlow += value.getUpFlow();</span><br><span class="line">            sumDownFlow += value.getDownFlow();</span><br><span class="line">        &#125;</span><br><span class="line">        sumFlow.set(sumUpFlow,sumDownFlow);</span><br><span class="line">        context.write(key,sumFlow);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://www.fluffysponge.fun/2020/05/18/IDEA%E6%89%8B%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89bean%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96%E6%8E%A5%E5%8F%A3Writable/" title="IDEA手写自定义bean对象实现序列化接口Writable" target="_blank" rel="external">https://www.fluffysponge.fun/2020/05/18/IDEA%E6%89%8B%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89bean%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96%E6%8E%A5%E5%8F%A3Writable/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/InstantCWeed" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/InstantCWeed" target="_blank"><span class="text-dark">InstantCWeed</span><small class="ml-1x">Student</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2020/05/18/IDEA%E6%89%8B%E5%86%99%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8Fwordcount%E5%B9%B6%E6%89%93%E5%8C%85%E8%BF%90%E8%A1%8C/" title="IDEA手写示例程序wordcount并打包运行"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipaying.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpaying.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/InstantCWeed" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/3100744741" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="http://huaban.com/" target="_blank" title="Huaban" data-toggle=tooltip data-placement=top><i class="icon icon-huaban"></i></a></li>
+        
+        <li><a href="https://www.behance.net/" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
