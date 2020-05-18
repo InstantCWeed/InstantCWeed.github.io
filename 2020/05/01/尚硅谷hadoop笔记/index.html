@@ -29,7 +29,9 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce大概意思.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;大数据技术生态体系.png">
-<meta property="og:updated_time" content="2020-05-18T15:09:19.576Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce的数据流.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;数据切片与MapTask并行度决定机制.png">
+<meta property="og:updated_time" content="2020-05-18T15:38:25.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
   <!-- Canonical links -->
@@ -518,7 +520,9 @@
 <h4 id="自定义序列化接口"><a href="#自定义序列化接口" class="headerlink" title="自定义序列化接口"></a>自定义序列化接口</h4><a href="/2020/05/18/IDEA%E6%89%8B%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89bean%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96%E6%8E%A5%E5%8F%A3Writable/" title="IDEA手写自定义bean对象实现序列化接口Writable">IDEA手写自定义bean对象实现序列化接口Writable</a>
 <p>以上可知：<br>用户编写的程序分成三个部分：Mapper、Reducer和Driver。<br><strong>Mapper阶段：</strong><br>1.用户自定义Mapper要继承框架父类Mapper<br>2.Mapper的输入数据是KV对形式，类型可自定义<br>3.Mapper的业务逻辑写在map()方法中<br>4.Mapper的输出数据是KV对形式，类型可自定义<br>5.map()方法(MapTask进程)对每个&lt; K,V &gt;调用一次<br><strong>Reducer阶段：</strong><br>1.用户自定义Reducer要继承框架父类Reducer<br>2.Reducer的输入数据类型对应Mapper的输出数据类型，是KV对形式<br>3.Reducer的业务逻辑写在reduce()方法中<br>4.Reducer的输出数据是KV对形式，类型可自定义<br>5.ReduceTask进程对每组相同K的&lt; K,V &gt;调用一次reduce()方法<br><strong>Driver阶段：</strong><br>相当于YARN集群客户端，用于提交我们程序到YARN，提交是封装了MapReduce程序相关运行参数的job对象</p>
 <hr>
-<h3 id="MapReduce框架原理"><a href="#MapReduce框架原理" class="headerlink" title="MapReduce框架原理"></a>MapReduce框架原理</h3>
+<h3 id="MapReduce框架原理-非常重要"><a href="#MapReduce框架原理-非常重要" class="headerlink" title="MapReduce框架原理(非常重要)"></a>MapReduce框架原理(非常重要)</h3><h4 id="MapReduce的数据流"><a href="#MapReduce的数据流" class="headerlink" title="MapReduce的数据流"></a>MapReduce的数据流</h4><p><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce的数据流.png" alt></p>
+<h4 id="数据切片与MapTask并行度决定机制，切片由InputFormat负责"><a href="#数据切片与MapTask并行度决定机制，切片由InputFormat负责" class="headerlink" title="数据切片与MapTask并行度决定机制，切片由InputFormat负责"></a>数据切片与MapTask并行度决定机制，切片由InputFormat负责</h4><p><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/数据切片与MapTask并行度决定机制.png" alt></p>
+
       
     </div>
     <div class="article-footer">
