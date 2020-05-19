@@ -17,52 +17,17 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>JavaSE-面向对象特征 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="成员变量和局部变量  继承的好处和弊端： 继承：方法重写 方法重写注意事项 Java继承的注意事项  权限修饰符 final、static状态修饰符  多态： 多态中成员访问特点： 多态的好处和弊端 抽象类： 抽象类的成员特点： 接口： 接口的特点： 接口的成员特点： 类和接口的关系： 抽象类和接口的区别： 接口和抽象类案例： 抽象类名作为形参和返回值： 接口名作为形参和返回值：  接口组成更新概">
-<meta name="keywords" content="基础">
+  <title>IDEA自定义InputFormat案例实操 | FluffySpoooooonge!!!</title>
+  <meta name="keywords" content="hadoop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaSE-面向对象特征">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;index.html">
+<meta property="og:title" content="IDEA自定义InputFormat案例实操">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;19&#x2F;IDEA%E8%87%AA%E5%AE%9A%E4%B9%89InputFormat%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="成员变量和局部变量  继承的好处和弊端： 继承：方法重写 方法重写注意事项 Java继承的注意事项  权限修饰符 final、static状态修饰符  多态： 多态中成员访问特点： 多态的好处和弊端 抽象类： 抽象类的成员特点： 接口： 接口的特点： 接口的成员特点： 类和接口的关系： 抽象类和接口的区别： 接口和抽象类案例： 抽象类名作为形参和返回值： 接口名作为形参和返回值：  接口组成更新概">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;成员变量和局部变量.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;继承的好处和弊端.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;继承-方法重写.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;方法重写注意事项.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;Java继承的注意事项.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;权限修饰符.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;状态修饰符.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;final修饰符.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;final修饰局部变量.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;static修饰符.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;static访问特点.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;多态.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;多态中成员访问特点.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;多态的好处和弊端.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;抽象类.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;抽象类的成员特点.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;接口.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;接口的特点.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;接口的成员特点.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;类和接口的关系.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;抽象类和接口的区别.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;抽象类和接口的区别2.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;接口和抽象类案例.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;抽象类名作为形参和返回值.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;接口名作为形参和返回值.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;接口组成更新概述.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;接口中默认方法.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;接口中静态方法.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;接口中私有方法.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;模块化概述.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;模块的基本使用.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;模块服务的使用.png">
-<meta property="og:updated_time" content="2020-04-16T13:02:12.317Z">
+<meta property="og:updated_time" content="2020-05-19T15:41:47.436Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;10&#x2F;JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81&#x2F;成员变量和局部变量.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/index.html">
+  <link rel="canonical" href="https://www.fluffysponge.fun/2020/05/19/IDEA%E8%87%AA%E5%AE%9A%E4%B9%89InputFormat%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/index.html">
   
     <link rel="alternate" href="/atom.xml" title="FluffySpoooooooonge !!!" type="application/atom+xml">
   
@@ -368,14 +333,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-JavaSE-面向对象特征" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-IDEA自定义InputFormat案例实操" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      JavaSE-面向对象特征
+      IDEA自定义InputFormat案例实操
     </h1>
   
 
@@ -383,15 +348,15 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/" class="article-date">
-	  <time datetime="2020-04-10T15:03:29.000Z" itemprop="datePublished">2020-04-10</time>
+	<a href="/2020/05/19/IDEA%E8%87%AA%E5%AE%9A%E4%B9%89InputFormat%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" class="article-date">
+	  <time datetime="2020-05-19T08:28:20.000Z" itemprop="datePublished">2020-05-19</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a>
+	<a class="article-tag-link" href="/tags/hadoop/" rel="tag">hadoop</a>
   </span>
 
 
@@ -404,45 +369,13 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/19/IDEA%E8%87%AA%E5%AE%9A%E4%B9%89InputFormat%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h4 id="成员变量和局部变量"><a href="#成员变量和局部变量" class="headerlink" title="成员变量和局部变量"></a>成员变量和局部变量</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/成员变量和局部变量.png" alt></p>
-<hr>
-<h4 id="继承的好处和弊端："><a href="#继承的好处和弊端：" class="headerlink" title="继承的好处和弊端："></a>继承的好处和弊端：</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/继承的好处和弊端.png" alt></p>
-<h4 id="继承：方法重写"><a href="#继承：方法重写" class="headerlink" title="继承：方法重写"></a>继承：方法重写</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/继承-方法重写.png" alt></p>
-<h4 id="方法重写注意事项"><a href="#方法重写注意事项" class="headerlink" title="方法重写注意事项"></a>方法重写注意事项</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/方法重写注意事项.png" alt></p>
-<h4 id="Java继承的注意事项"><a href="#Java继承的注意事项" class="headerlink" title="Java继承的注意事项"></a>Java继承的注意事项</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/Java继承的注意事项.png" alt></p>
-<hr>
-<h4 id="权限修饰符"><a href="#权限修饰符" class="headerlink" title="权限修饰符"></a>权限修饰符</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/权限修饰符.png" alt></p>
-<h4 id="final、static状态修饰符"><a href="#final、static状态修饰符" class="headerlink" title="final、static状态修饰符"></a>final、static状态修饰符</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/状态修饰符.png" alt><br><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/final修饰符.png" alt><br><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/final修饰局部变量.png" alt><br><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/static修饰符.png" alt><br><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/static访问特点.png" alt></p>
-<hr>
-<h4 id="多态："><a href="#多态：" class="headerlink" title="多态："></a>多态：</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/多态.png" alt></p>
-<h4 id="多态中成员访问特点："><a href="#多态中成员访问特点：" class="headerlink" title="多态中成员访问特点："></a>多态中成员访问特点：</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/多态中成员访问特点.png" alt></p>
-<h4 id="多态的好处和弊端"><a href="#多态的好处和弊端" class="headerlink" title="多态的好处和弊端"></a>多态的好处和弊端</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/多态的好处和弊端.png" alt></p>
-<h4 id="抽象类："><a href="#抽象类：" class="headerlink" title="抽象类："></a>抽象类：</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/抽象类.png" alt></p>
-<h4 id="抽象类的成员特点："><a href="#抽象类的成员特点：" class="headerlink" title="抽象类的成员特点："></a>抽象类的成员特点：</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/抽象类的成员特点.png" alt></p>
-<h4 id="接口："><a href="#接口：" class="headerlink" title="接口："></a>接口：</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/接口.png" alt></p>
-<h4 id="接口的特点："><a href="#接口的特点：" class="headerlink" title="接口的特点："></a>接口的特点：</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/接口的特点.png" alt></p>
-<h4 id="接口的成员特点："><a href="#接口的成员特点：" class="headerlink" title="接口的成员特点："></a>接口的成员特点：</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/接口的成员特点.png" alt></p>
-<h4 id="类和接口的关系："><a href="#类和接口的关系：" class="headerlink" title="类和接口的关系："></a>类和接口的关系：</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/类和接口的关系.png" alt></p>
-<h4 id="抽象类和接口的区别："><a href="#抽象类和接口的区别：" class="headerlink" title="抽象类和接口的区别："></a>抽象类和接口的区别：</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/抽象类和接口的区别.png" alt><br><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/抽象类和接口的区别2.png" alt></p>
-<h4 id="接口和抽象类案例："><a href="#接口和抽象类案例：" class="headerlink" title="接口和抽象类案例："></a>接口和抽象类案例：</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/接口和抽象类案例.png" alt></p>
-<h4 id="抽象类名作为形参和返回值："><a href="#抽象类名作为形参和返回值：" class="headerlink" title="抽象类名作为形参和返回值："></a>抽象类名作为形参和返回值：</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/抽象类名作为形参和返回值.png" alt></p>
-<h4 id="接口名作为形参和返回值："><a href="#接口名作为形参和返回值：" class="headerlink" title="接口名作为形参和返回值："></a>接口名作为形参和返回值：</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/接口名作为形参和返回值.png" alt></p>
-<hr>
-<h4 id="接口组成更新概述"><a href="#接口组成更新概述" class="headerlink" title="接口组成更新概述"></a>接口组成更新概述</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/接口组成更新概述.png" alt></p>
-<h4 id="接口中默认方法"><a href="#接口中默认方法" class="headerlink" title="接口中默认方法"></a>接口中默认方法</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/接口中默认方法.png" alt></p>
-<h4 id="接口中静态方法"><a href="#接口中静态方法" class="headerlink" title="接口中静态方法"></a>接口中静态方法</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/接口中静态方法.png" alt></p>
-<h4 id="接口中私有方法"><a href="#接口中私有方法" class="headerlink" title="接口中私有方法"></a>接口中私有方法</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/接口中私有方法.png" alt></p>
-<hr>
-<h4 id="模块化概述"><a href="#模块化概述" class="headerlink" title="模块化概述"></a>模块化概述</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/模块化概述.png" alt></p>
-<h4 id="模块的基本使用"><a href="#模块的基本使用" class="headerlink" title="模块的基本使用"></a>模块的基本使用</h4><p><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/模块的基本使用.png" alt></p>
-<h4 id="模块服务的使用"><a href="#模块服务的使用" class="headerlink" title="模块服务的使用"></a>模块服务的使用</h4><p><strong>服务使用者只需面向接口编程就行，不必考虑接口的具体实现</strong><br><img src="/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/模块服务的使用.png" alt><br><a href="/2020/04/16/Java-%E6%A8%A1%E5%9D%97%E5%8C%96%E8%AE%B2%E8%A7%A3%E7%BB%83%E4%B9%A0%E4%BB%A3%E7%A0%81/" title="Java-模块化讲解练习代码">Java-模块化讲解练习代码</a></p>
-
+        
       
     </div>
     <div class="article-footer">
@@ -451,7 +384,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://www.fluffysponge.fun/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/" title="JavaSE-面向对象特征" target="_blank" rel="external">https://www.fluffysponge.fun/2020/04/10/JavaSE-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E5%BE%81/</a>
+      <a href="https://www.fluffysponge.fun/2020/05/19/IDEA%E8%87%AA%E5%AE%9A%E4%B9%89InputFormat%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" title="IDEA自定义InputFormat案例实操" target="_blank" rel="external">https://www.fluffysponge.fun/2020/05/19/IDEA%E8%87%AA%E5%AE%9A%E4%B9%89InputFormat%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -497,13 +430,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/04/10/JavaSE-%E5%B8%B8%E7%94%A8API%E5%92%8C%E5%BC%82%E5%B8%B8/" title="JavaSE-常用API和异常"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/04/10/Java-TCP%E9%80%9A%E4%BF%A1%E7%A8%8B%E5%BA%8F%E7%BB%83%E4%B9%A0/" title="Java-TCP通信程序练习"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/05/18/IDEA%E6%89%8B%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89bean%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96%E6%8E%A5%E5%8F%A3Writable/" title="IDEA手写自定义bean对象实现序列化接口Writable"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
