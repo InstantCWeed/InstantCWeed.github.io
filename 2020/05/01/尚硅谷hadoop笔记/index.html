@@ -32,7 +32,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce的数据流.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;数据切片与MapTask并行度决定机制.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Shuffle机制.png">
-<meta property="og:updated_time" content="2020-05-22T09:17:35.618Z">
+<meta property="og:updated_time" content="2020-05-23T12:11:13.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
   <!-- Canonical links -->
@@ -524,10 +524,12 @@
 <h3 id="MapReduce框架原理-非常重要"><a href="#MapReduce框架原理-非常重要" class="headerlink" title="MapReduce框架原理(非常重要)"></a>MapReduce框架原理(非常重要)</h3><h4 id="MapReduce的数据流"><a href="#MapReduce的数据流" class="headerlink" title="MapReduce的数据流"></a>MapReduce的数据流</h4><p><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce的数据流.png" alt></p>
 <h4 id="数据切片与MapTask并行度决定机制，切片由InputFormat负责"><a href="#数据切片与MapTask并行度决定机制，切片由InputFormat负责" class="headerlink" title="数据切片与MapTask并行度决定机制，切片由InputFormat负责"></a>数据切片与MapTask并行度决定机制，切片由InputFormat负责</h4><p><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/数据切片与MapTask并行度决定机制.png" alt></p>
 <h4 id="InputFormat数据输入"><a href="#InputFormat数据输入" class="headerlink" title="InputFormat数据输入"></a>InputFormat数据输入</h4><p>InputFormat主要只干两件事：<strong>切片</strong>、<strong>输出KV值</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Inputformat			切片方法			KV方法</span><br><span class="line">Text				FIF的切片方法		LineRecordReader</span><br><span class="line">KeyValue			FIF的切片方法		KeyValueLineRecordReader</span><br><span class="line">NLine				自定义，N行一片		LineRecordReader</span><br><span class="line">CombineText			自定义,跨小文件切分				CombineFileRecordReader</span><br><span class="line">FixedLength			FIF的切片方法		FixedLengthRecordReader</span><br><span class="line">SequenceFile		FIF的切片方法		SequenceFileRecordReader</span><br></pre></td></tr></table></figure><br><a href="/2020/05/19/IDEA%E8%87%AA%E5%AE%9A%E4%B9%89InputFormat%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" title="IDEA自定义InputFormat案例实操">IDEA自定义InputFormat案例实操</a></p>
-<h4 id="Shuffle机制"><a href="#Shuffle机制" class="headerlink" title="Shuffle机制"></a>Shuffle机制</h4><ol>
-<li><p>Map方法结束后，数据进入环形缓冲区。当环形缓冲区满时，数据溢写要落盘，落盘前，先得到一个逻辑分区号，然后需完成<font color="red">分区和排序</font>的工作,本质上是一个工作，二排序完之后相同key相邻就完成了分区。<br>分区结束后，得到分区且区内有序文件，排序方法使用快排。<br>得到多个上述分区文件后，按照分区号，可进入Combiner进行一次分区的归并排序，减少之后IO的操作。<br>数据多次溢写文件，会多次输出文件。这些溢写文件再进行一次归并排序，进入Combiner之后落盘，得到按照分区且区内有序的文件。这就是一个MapTask的输出。</p>
+<h4 id="Shuffle机制-非常重要"><a href="#Shuffle机制-非常重要" class="headerlink" title="Shuffle机制(非常重要)"></a>Shuffle机制(非常重要)</h4><ol>
+<li><p>Map方法结束后，数据进入环形缓冲区。当环形缓冲区满时，数据溢写要落盘，落盘前，先得到一个逻辑分区号，然后需完成<font color="red">分区和排序</font>的工作,本质上是一个工作，二排序(先分区号，后按Key)完之后相同key相邻就完成了分区。<br>分区结束后，得到分区且区内有序文件，排序方法使用<strong>快排</strong>。<br>得到多个上述分区文件后，按照分区号，可进入Combiner进行一次分区的归并排序，减少之后IO的操作。<br>数据多次溢写文件，会多次输出文件。这些溢写文件再进行一次<strong>归并排序</strong>，进入Combiner之后落盘，得到按照分区且区内有序的文件。这就是一个MapTask的输出。</p>
 </li>
-<li><p>当有多个MapTask的输出文件时，启动和分区数相同的ReduceTask，并按分区号取出分区文件内容。每个ReduceTask都会处理所有MapTask相应分区的数据，再进行归并、分组和Reduce，之后交给OutputFormat。其中，一个ReduceTask对应一个输出文件。所以整个Shuffle过程有<strong>三次排序</strong>过程。<br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/Shuffle机制.png" alt></p>
+<li><p>当有n个MapTask的输出文件时，启动和分区数m个相同的ReduceTask，并按分区号取出分区文件内容。每个ReduceTask都会处理所有n个MapTask相应分区的数据。最后在内存缓存中产生m个文件，内存缓存满了才会使用磁盘。<br>接着，在内存缓存中再进行<strong>归并</strong>合成一整个输出文件，特点是key有序或按照自定义规则排好序，之后分组，并输入到Reduce方法中。其中分组阶段可以使用自定义分组规则，但注意之前排序规则就要比分组规则写的更细。如分组是按订单分组，那排序则需要先按订单排序，订单内部再按其他规则排序，这样才不会出现逻辑问题。<br>最后将分组文件交给OutputFormat。其中，一个ReduceTask对应一个输出文件。<br>整个Shuffle过程有<strong>三次排序</strong>过程。<br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/Shuffle机制.png" alt></p>
+</li>
+<li><p>环形缓冲区本质上就是内存。环形最大特点是没头没尾，所以在哪里写入都一样。默认是100M大小。写入数据时，任意一点开始，右边写入KV值，左边同时写入KV值对应的位置索引Index。遍历时，遍历索引index，因为占内存小，遍历省时。<br>当写入占环形缓冲容量的80%左右时，会发生溢写过程。当溢写时，Map方法来的数据写入剩余20%部分。环形的设计还可保持处理和写入的动态平衡。<br>默认80%参数可调，如果Map方法逻辑复杂，参数可调小；如果任务IO剧烈，压力比较大，参数调大一些。总之保证写入和处理动态平衡。<br>其实溢写过程的分区和排序也就是发生在环形缓冲区中。排序时，实际上不交换KV值，是交换索引Index，好处是Index的IO交换代价小。</p>
 </li>
 </ol>
 <p><strong>Partition分区案例实操</strong><br>ReduceTask的并行度是手动设置的，由job.setNumReduceTasks()方法决定。<br>分区是告诉数据应该被哪个ReduceTask处理。且分区号要从0开始，逐一累加，不能跳。<br>如果分区数量比ReduceTask的数量多，程序会报IOException:Illegal partition异常。<br>如果分区数量比ReduceTask的数量少，程序可正常运行，但是会有资源浪费，有ReduceTask空转，没有有效输出。<br><a href="/2020/05/20/IDEA%E6%89%8B%E5%86%99Partition%E5%88%86%E5%8C%BA%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" title="IDEA手写Partition分区案例实操">IDEA手写Partition分区案例实操</a></p>
@@ -536,6 +538,7 @@
 <p>Combiner默认是不启动的，能够启用的前提是不能影响最终的业务逻辑。而且Combiner输入和输出的类型必须相同，因为不能改<br>变Mapper输出的类型。</p>
 <p>Combiner对数据要求是数据本身可分组，是有序且有重复的。<br>故其在第一次排序——快排和第二次排序——归并起效。<br><a href="/2020/05/21/IDEA%E6%89%8B%E5%86%99Combiner%E5%90%88%E5%B9%B6%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" title="IDEA手写Combiner合并案例实操">IDEA手写Combiner合并案例实操</a></p>
 <p><strong>GroupingComparator分组排序器，辅助排序</strong><br>何时分组：Reduce阶段，在之前排序阶段之后<br>何时启用GroupingComparator：分组规则和排序规则不一样时，不希望默认按照Key比较规则。排序规则的粒度要更细，要体现出分组的规则。<br><a href="/2020/05/21/IDEA%E6%89%8B%E5%86%99GroupingComparator%E5%88%86%E7%BB%84%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" title="IDEA手写GroupingComparator分组案例实操">IDEA手写GroupingComparator分组案例实操</a></p>
+<h4 id="reduce-方法输入原理"><a href="#reduce-方法输入原理" class="headerlink" title="reduce()方法输入原理"></a>reduce()方法输入原理</h4><p>Reduce输入端只有一个空键对象Key和一个空值对象Value，所有数据在框架中都是通过KV值序列化的流传递，通过反序列化不断更新复用对象，达到遍历所有对象的需求。<br>数据的输入和分组是同时完成的。因为数据量非常大时，使用序列化方法复用对象，可以避免重复产生大量对象消耗资源。并且，反序列化遍历对象时，会默认输出排序后每组第一个key所对应的对象。如果想要取每组若干名，则可使用迭代器方法逐个在组内反序列化。详情可看<a href="/2020/05/21/IDEA%E6%89%8B%E5%86%99GroupingComparator%E5%88%86%E7%BB%84%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" title="IDEA手写GroupingComparator分组案例实操">IDEA手写GroupingComparator分组案例实操</a>中Reducer对象中reduce方法中的写法。</p>
 
       
     </div>
