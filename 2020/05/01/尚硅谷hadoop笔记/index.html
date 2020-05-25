@@ -34,7 +34,13 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Shuffle机制.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce详细工作流程一.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce详细工作流程二.png">
-<meta property="og:updated_time" content="2020-05-24T15:10:29.389Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce开发总结1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce开发总结2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce开发总结3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce开发总结4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce开发总结5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;HDFS-HA故障转移机制.png">
+<meta property="og:updated_time" content="2020-05-25T15:30:40.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
   <!-- Canonical links -->
@@ -548,7 +554,12 @@
 <p><strong>MapJoin案例实操</strong><br>MapJoin的含义是实际的Join工作是在Map端完成的。<br>MapJoin适用于一张表十分小(或者几张小表，但是能全部进内存)、一张表很大的场景。<br>优点：在Map端就完成了join操作，所以就不需要Reduce端的工作，也不需要shuffle,也不会因为shuffle而引起数据倾斜。</p>
 <a href="/2020/05/24/IDEA%E6%89%8B%E5%86%99MapJoin%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" title="IDEA手写MapJoin案例实操">IDEA手写MapJoin案例实操</a>
 <p><strong>数据清洗ETL案例实操</strong><br>在运行核心业务MapReduce程序之前，往往要先对数据进行清洗，清理掉不符合用户要求的数据。清理的过程往往只需要运行Mapper程序，不需要运行Reduce程序。<br><a href="/2020/05/24/IDEA%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97ETL%E5%AE%9E%E6%93%8D%E6%A1%88%E4%BE%8B-%E7%AE%80%E5%8D%95%E7%89%88/" title="IDEA数据清洗ETL实操案例-简单版">IDEA数据清洗ETL实操案例-简单版</a><br><a href="/2020/05/24/IDEA%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97ETL%E5%AE%9E%E6%93%8D%E6%A1%88%E4%BE%8B-%E5%A4%8D%E6%9D%82%E7%89%88/" title="IDEA数据清洗ETL实操案例-复杂版">IDEA数据清洗ETL实操案例-复杂版</a></p>
-
+<h4 id="MapReduce开发总结"><a href="#MapReduce开发总结" class="headerlink" title="MapReduce开发总结"></a>MapReduce开发总结</h4><p><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce开发总结1.png" alt><br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce开发总结2.png" alt><br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce开发总结3.png" alt><br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce开发总结4.png" alt><br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce开发总结5.png" alt><br><strong>MapReduce的重点在Shuffle机制</strong></p>
+<hr>
+<h3 id="HDFS-HA高可用"><a href="#HDFS-HA高可用" class="headerlink" title="HDFS HA高可用"></a>HDFS HA高可用</h3><p>1.x版本存在单点故障(SPOF)<br>2.x版本实现了高可用(High Available),即7*24小时不中断服务<br>实现高可用最关键的策略是消除单点故障。HA严格应分为各个组件的HA机制：HDFS的HA 和 YARN的HA。</p>
+<p>四大部分：<br>NN（active和standby）、第三方的edits文件管理系统QJM、ZK集群、Zk集群在NN上的客户端ZKfc<br>主要防止:split brain/脑裂 问题(两个NN导致的数据不安全问题)<br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/HDFS-HA故障转移机制.png" alt></p>
+<p>内容过于细节，参考讲解文档。</p>
+<h4 id="YARN-HA高可用"><a href="#YARN-HA高可用" class="headerlink" title="YARN HA高可用"></a>YARN HA高可用</h4>
       
     </div>
     <div class="article-footer">
