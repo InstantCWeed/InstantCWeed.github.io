@@ -30,6 +30,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce大概意思.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;大数据技术生态体系.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;HDFS上传流程.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;HDFS下载流程.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce的数据流.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;数据切片与MapTask并行度决定机制.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Shuffle机制.png">
@@ -42,7 +43,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce开发总结5.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;HDFS-HA故障转移机制.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;YARN-HA工作机制.png">
-<meta property="og:updated_time" content="2020-05-27T15:42:07.380Z">
+<meta property="og:updated_time" content="2020-05-27T15:58:58.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
   <!-- Canonical links -->
@@ -500,8 +501,8 @@
 <h3 id="HDFS的数据流（面试重点）"><a href="#HDFS的数据流（面试重点）" class="headerlink" title="HDFS的数据流（面试重点）"></a>HDFS的数据流（面试重点）</h3><h4 id="HDFS上传流程"><a href="#HDFS上传流程" class="headerlink" title="HDFS上传流程"></a>HDFS上传流程</h4><p>首先获得HDFS抽象封装，开启本地文件输入流和FSDataOutputStream输出流，然后：<br>    1.client向NN请求上传请求<br>    2.NN返回给client应答是否上传结果<br>    3.获得许可后，client逻辑切分文件为多个block<br>    4.client向NN请求上传第一个block<br>    5.NN给client返回多个DN(最近节点和其他节点)<br>    6.client依次向所有DN发送请求建立通道<br>    7.DN依次判断后向client返回应答成功<br>    8.client依次向所有DN以 packet(64KB) 形式上传数据，直到发送成功第一个block，并存储在DN中。这里传输会出现多种情况，具体可看视频。<br>    9.依次类推，直到发送完毕所有block<br>最后，上传文件结束，释放文件输入流和FSDataOutputStream输出流<br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/HDFS上传流程.png" alt></p>
 <p><strong>具体上传过程可看：</strong><br><a href="https://www.bilibili.com/video/BV164411Z7cR?p=21" target="_blank" rel="noopener">B站详细HDFS上传流程 01:38开始</a></p>
 <h4 id="拓扑距离-最近节点-和机架感知-其他节点"><a href="#拓扑距离-最近节点-和机架感知-其他节点" class="headerlink" title="拓扑距离(最近节点)和机架感知(其他节点)"></a>拓扑距离(最近节点)和机架感知(其他节点)</h4><p><a href="https://www.bilibili.com/video/BV164411Z7cR?p=23" target="_blank" rel="noopener">B站详细讲解</a></p>
-<h4 id="HDFS下载流程"><a href="#HDFS下载流程" class="headerlink" title="HDFS下载流程"></a>HDFS下载流程</h4><p>首先获得HDFS抽线封装，开启本地文件输出流和FSDataInputStream输入流，然后：<br>    1.client向NN请求下载请求<br>    2.NN返回给client应答文件是否存在<br>    3.获得许可后，client请求下载第一个block(0-128M)<br>    4.NN返回给client返回多个DN<br>    5.client首先向第1个DN请求建立通道<br>    6.DN1判断并向client返回应答成功，并传输packet数据，直到传输成功第1个block<br>    7.如果第一个DN应答失败才会向其他DN请求建立通道，每次请求一个DN，进行接下来的操作<br>    8.以此类推，接收完所有block<br>最后，下载文件结束，释放文件输出流和FSDataInputStream输入流</p>
-<p><a href="https://www.bilibili.com/video/BV164411Z7cR?p=22" target="_blank" rel="noopener">B站详细HDFS下载流程</a></p>
+<h4 id="HDFS下载流程"><a href="#HDFS下载流程" class="headerlink" title="HDFS下载流程"></a>HDFS下载流程</h4><p>首先获得HDFS抽线封装，开启本地文件输出流和FSDataInputStream输入流，然后：<br>    1.client向NN请求下载请求<br>    2.NN返回给client应答文件是否存在<br>    3.获得许可后，client请求下载第一个block(0-128M)<br>    4.NN返回给client返回多个DN<br>    5.client首先向第1个DN请求建立通道<br>    6.DN1判断并向client返回应答成功，并传输packet数据，直到传输成功第1个block<br>    7.如果第一个DN应答失败才会向其他DN请求建立通道，每次请求一个DN，进行接下来的操作<br>    8.以此类推，接收完所有block<br>最后，下载文件结束，释放文件输出流和FSDataInputStream输入流<br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/HDFS下载流程.png" alt></p>
+<p><strong>具体下载过程可看：</strong><br><a href="https://www.bilibili.com/video/BV164411Z7cR?p=22" target="_blank" rel="noopener">B站详细HDFS下载流程</a></p>
 <hr>
 <h4 id="NN和2NN工作机制-面试开发重点"><a href="#NN和2NN工作机制-面试开发重点" class="headerlink" title="NN和2NN工作机制(面试开发重点)"></a>NN和2NN工作机制(面试开发重点)</h4><p><strong>需要应对内存中的数据的持久化问题</strong><br>NameNode的内存大小一般在64G到128G之间</p>
 <p>如此大块数据的持久化，有样例：Redis的持久化，有两个策略：<br>RDB：内存镜像放在磁盘上，类似存档；<br>    特点：    持久化慢，占空间偏小；<br>            （加载高效，生成较慢）<br>            安全性低；</p>
@@ -569,7 +570,7 @@
 <h4 id="倒排索引案例"><a href="#倒排索引案例" class="headerlink" title="倒排索引案例"></a>倒排索引案例</h4><p>倒排索引是搜索引擎中非常重要的部分。<br>倒排的含义是：从 单词 到 文章 的索引。 正排：从文章到单词的索引<br>本案例需求：<br>对关键词出现的文档和该文档中出现的频率进行统计。<br>解决思路：<br>实际上是一个多job串联，每个job实现一个wordcount功能<br>第一次针对每个单词每篇文章做一次wordcount,key是单词-文章名，value是出现的次数；<br>第二次对结果文件进行处理，将key重新划分为单词，将value重新划分为文章名和对应出现次数的拼接字符串。<br>实现细节与讲解文档略有不同。<br></p>
 <h4 id="找博客共同好友案例"><a href="#找博客共同好友案例" class="headerlink" title="找博客共同好友案例"></a>找博客共同好友案例</h4><p>共同好友的延申：推荐共同好友<br>本案例需求：<br>以下是博客的好友列表数据，冒号前是一个用户，冒号后是该用户的所有好友（数据中的好友关系是单向的）<br>求出哪些人两两之间有共同好友，及他俩的共同好友都有谁？<br>解决思路：<br>首先第一次输出先找出A、B、C等都被谁关注。转变视角从我关注了谁，到谁关注了我。<br>其次，再从输出文件中每行的value两两找出关注者。<br>实现细节与讲解文档略有不同。<br><a href="/2020/05/27/IDEA%E4%B8%8A%E6%89%BE%E5%8D%9A%E5%AE%A2%E5%85%B1%E5%90%8C%E5%A5%BD%E5%8F%8B%E6%A1%88%E4%BE%8B/" title="IDEA上找博客共同好友案例">IDEA上找博客共同好友案例</a></p>
 <hr>
-<h3 id="Hadoop重点"><a href="#Hadoop重点" class="headerlink" title="Hadoop重点"></a>Hadoop重点</h3><p>入门：Hadoop组成<br>HDFS:HDFS的shell操作、HDFS的数据流<br>MapReduce:</p>
+<h3 id="Hadoop重点"><a href="#Hadoop重点" class="headerlink" title="Hadoop重点"></a>Hadoop重点</h3><p>入门：Hadoop组成<br>HDFS:HDFS的shell操作、HDFS的数据流<br>MapReduce:Shuffle机制(出现数据倾斜)、YARN工作机制</p>
 
       
     </div>
