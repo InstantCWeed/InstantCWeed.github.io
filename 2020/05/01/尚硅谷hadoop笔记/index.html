@@ -29,6 +29,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce大概意思.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;大数据技术生态体系.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;HDFS上传流程.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce的数据流.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;数据切片与MapTask并行度决定机制.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Shuffle机制.png">
@@ -40,7 +41,8 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce开发总结4.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;MapReduce开发总结5.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;HDFS-HA故障转移机制.png">
-<meta property="og:updated_time" content="2020-05-25T15:30:40.010Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;YARN-HA工作机制.png">
+<meta property="og:updated_time" content="2020-05-27T15:42:07.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
   <!-- Canonical links -->
@@ -231,7 +233,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">Java内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">61</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">Java内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">61</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -250,7 +252,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">49</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">44</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">49</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">44</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -262,6 +264,51 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/27/IDEA%E4%B8%8A%E6%89%BE%E5%8D%9A%E5%AE%A2%E5%85%B1%E5%90%8C%E5%A5%BD%E5%8F%8B%E6%A1%88%E4%BE%8B/" class="title">IDEA上找博客共同好友案例</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-27T06:48:26.000Z" itemprop="datePublished">2020-05-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/27/IDEA%E4%B8%8AT%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95%E6%A1%88%E4%BE%8B/" class="title">IDEA上T倒排索引案例</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-27T06:47:10.000Z" itemprop="datePublished">2020-05-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/27/IDEA%E4%B8%8ATopN%E6%A1%88%E4%BE%8B/" class="title">IDEA上TopN案例</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-27T06:42:10.000Z" itemprop="datePublished">2020-05-27</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -288,51 +335,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2020-05-24T15:08:56.000Z" itemprop="datePublished">2020-05-24</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/05/24/IDEA%E6%89%8B%E5%86%99MapJoin%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" class="title">IDEA手写MapJoin案例实操</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-05-24T14:56:06.000Z" itemprop="datePublished">2020-05-24</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/05/24/IDEA%E6%89%8B%E5%86%99ReduceJoin%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" class="title">IDEA手写ReduceJoin案例实操</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-05-24T12:31:52.000Z" itemprop="datePublished">2020-05-24</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/05/23/IDEA%E8%87%AA%E5%AE%9A%E4%B9%89OutputFormat%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" class="title">IDEA自定义OutputFormat案例实操</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-05-23T14:29:09.000Z" itemprop="datePublished">2020-05-23</time>
               </p>
             </div>
           </li>
@@ -495,7 +497,7 @@
 <hr>
 <h3 id="HDFS客户端开发（IDEA）"><a href="#HDFS客户端开发（IDEA）" class="headerlink" title="HDFS客户端开发（IDEA）"></a>HDFS客户端开发（IDEA）</h3><p>HDFS的Shell和客户端是开发的重点，须多加练习<br><strong>客户端操作本质上就是封装了shell语句的java程序，实现和逻辑都是shell</strong><br><a href="/2020/05/15/HDFS%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%BB%83%E4%B9%A0/" title="HDFS客户端练习">HDFS客户端练习</a></p>
 <hr>
-<h3 id="HDFS的数据流（面试重点）"><a href="#HDFS的数据流（面试重点）" class="headerlink" title="HDFS的数据流（面试重点）"></a>HDFS的数据流（面试重点）</h3><h4 id="HDFS上传流程"><a href="#HDFS上传流程" class="headerlink" title="HDFS上传流程"></a>HDFS上传流程</h4><p>首先获得HDFS抽线封装，开启本地文件输入流和FSDataOutputStream输出流，然后：<br>    1.client向NN请求上传请求<br>    2.NN返回给client应答是否上传结果<br>    3.获得许可后，client逻辑切分文件为多个block<br>    4.client向NN请求上传第一个block<br>    5.NN给client返回多个DN(最近节点和其他节点)<br>    6.client依次向所有DN发送请求建立通道<br>    7.DN依次判断后向client返回应答成功<br>    8.client依次向所有DN以 packet(64KB) 形式上传数据，直到发送成功第一个block，并存储在DN中。这里传输会出现多种情况，具体可看视频。<br>    9.依次类推，直到发送完毕所有block<br>最后，上传文件结束，释放文件输入流和FSDataOutputStream输出流</p>
+<h3 id="HDFS的数据流（面试重点）"><a href="#HDFS的数据流（面试重点）" class="headerlink" title="HDFS的数据流（面试重点）"></a>HDFS的数据流（面试重点）</h3><h4 id="HDFS上传流程"><a href="#HDFS上传流程" class="headerlink" title="HDFS上传流程"></a>HDFS上传流程</h4><p>首先获得HDFS抽象封装，开启本地文件输入流和FSDataOutputStream输出流，然后：<br>    1.client向NN请求上传请求<br>    2.NN返回给client应答是否上传结果<br>    3.获得许可后，client逻辑切分文件为多个block<br>    4.client向NN请求上传第一个block<br>    5.NN给client返回多个DN(最近节点和其他节点)<br>    6.client依次向所有DN发送请求建立通道<br>    7.DN依次判断后向client返回应答成功<br>    8.client依次向所有DN以 packet(64KB) 形式上传数据，直到发送成功第一个block，并存储在DN中。这里传输会出现多种情况，具体可看视频。<br>    9.依次类推，直到发送完毕所有block<br>最后，上传文件结束，释放文件输入流和FSDataOutputStream输出流<br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/HDFS上传流程.png" alt></p>
 <p><strong>具体上传过程可看：</strong><br><a href="https://www.bilibili.com/video/BV164411Z7cR?p=21" target="_blank" rel="noopener">B站详细HDFS上传流程 01:38开始</a></p>
 <h4 id="拓扑距离-最近节点-和机架感知-其他节点"><a href="#拓扑距离-最近节点-和机架感知-其他节点" class="headerlink" title="拓扑距离(最近节点)和机架感知(其他节点)"></a>拓扑距离(最近节点)和机架感知(其他节点)</h4><p><a href="https://www.bilibili.com/video/BV164411Z7cR?p=23" target="_blank" rel="noopener">B站详细讲解</a></p>
 <h4 id="HDFS下载流程"><a href="#HDFS下载流程" class="headerlink" title="HDFS下载流程"></a>HDFS下载流程</h4><p>首先获得HDFS抽线封装，开启本地文件输出流和FSDataInputStream输入流，然后：<br>    1.client向NN请求下载请求<br>    2.NN返回给client应答文件是否存在<br>    3.获得许可后，client请求下载第一个block(0-128M)<br>    4.NN返回给client返回多个DN<br>    5.client首先向第1个DN请求建立通道<br>    6.DN1判断并向client返回应答成功，并传输packet数据，直到传输成功第1个block<br>    7.如果第一个DN应答失败才会向其他DN请求建立通道，每次请求一个DN，进行接下来的操作<br>    8.以此类推，接收完所有block<br>最后，下载文件结束，释放文件输出流和FSDataInputStream输入流</p>
@@ -545,7 +547,7 @@
 <p><strong>Combiner合并</strong><br>Conbiner的父类是Reducer。与Reducer的区别在于：<br>    Combiner是在每个MapTask所在的节点运行；<br>    Reducer是接收全局所有Mapper的输出结果。<br>Combiner启用的意义就是对每个MapTask的输出进行局部汇总，目的是减少IO</p>
 <p>Combiner默认是不启动的，能够启用的前提是不能影响最终的业务逻辑。而且Combiner输入和输出的类型必须相同，因为不能改<br>变Mapper输出的类型。</p>
 <p>Combiner对数据要求是数据本身可分组，是有序且有重复的。<br>故其在第一次排序——快排和第二次排序——归并起效。<br><a href="/2020/05/21/IDEA%E6%89%8B%E5%86%99Combiner%E5%90%88%E5%B9%B6%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" title="IDEA手写Combiner合并案例实操">IDEA手写Combiner合并案例实操</a></p>
-<p><strong>GroupingComparator分组排序器，辅助排序</strong><br>何时分组：Reduce阶段，在之前排序阶段之后<br>何时启用GroupingComparator：分组规则和排序规则不一样时，不希望默认按照Key比较规则。排序规则的粒度要更细，要体现出分组的规则。<br><a href="/2020/05/21/IDEA%E6%89%8B%E5%86%99GroupingComparator%E5%88%86%E7%BB%84%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" title="IDEA手写GroupingComparator分组案例实操">IDEA手写GroupingComparator分组案例实操</a></p>
+<p><strong>GroupingComparator分组排序器，辅助排序</strong><br>何时分组：Reduce阶段，在之前排序阶段之后<br>何时启用GroupingComparator：<font color="red">分组规则和排序规则不一样时，不希望默认按照Key比较规则</font>。排序规则的粒度要更细，要体现出分组的规则。<br><a href="/2020/05/21/IDEA%E6%89%8B%E5%86%99GroupingComparator%E5%88%86%E7%BB%84%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" title="IDEA手写GroupingComparator分组案例实操">IDEA手写GroupingComparator分组案例实操</a></p>
 <h4 id="reduce-方法输入原理"><a href="#reduce-方法输入原理" class="headerlink" title="reduce()方法输入原理"></a>reduce()方法输入原理</h4><p>Reduce输入端只有一个空键对象Key和一个空值对象Value，所有数据在框架中都是通过KV值序列化的流传递，通过反序列化不断更新复用对象，达到遍历所有对象的需求。<br>数据的输入和分组是同时完成的。因为数据量非常大时，使用序列化方法复用对象，可以避免重复产生大量对象消耗资源。并且，反序列化遍历对象时，每个ReduceTask会默认调用Reduce方法，输出排序后每组第一个key所对应的对象(context.write(key,value.get()))。<br>如果想要取每组若干名，则可使用迭代器方法逐个在组内反序列化。详情可看<a href="/2020/05/21/IDEA%E6%89%8B%E5%86%99GroupingComparator%E5%88%86%E7%BB%84%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" title="IDEA手写GroupingComparator分组案例实操">IDEA手写GroupingComparator分组案例实操</a>中Reducer对象中reduce方法中的写法。</p>
 <h4 id="MapReduce详细工作流程"><a href="#MapReduce详细工作流程" class="headerlink" title="MapReduce详细工作流程"></a>MapReduce详细工作流程</h4><p><strong>自己必须可以画出整个工作流程！</strong><br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce详细工作流程一.png" alt><br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce详细工作流程二.png" alt><br>详细过程细节理解还可以参考这个网站：<a href="https://www.cnblogs.com/52mm/p/p15.html" target="_blank" rel="noopener">MapReduce过程详解(基于hadoop2.x架构)</a></p>
 <h4 id="自定义RecordWriter"><a href="#自定义RecordWriter" class="headerlink" title="自定义RecordWriter"></a>自定义RecordWriter</h4><p>FileInputFormat是文件到KV值<br>FileOutputFormat是KV值到文件<br><a href="/2020/05/23/IDEA%E8%87%AA%E5%AE%9A%E4%B9%89OutputFormat%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D/" title="IDEA自定义OutputFormat案例实操">IDEA自定义OutputFormat案例实操</a></p>
@@ -556,10 +558,19 @@
 <p><strong>数据清洗ETL案例实操</strong><br>在运行核心业务MapReduce程序之前，往往要先对数据进行清洗，清理掉不符合用户要求的数据。清理的过程往往只需要运行Mapper程序，不需要运行Reduce程序。<br><a href="/2020/05/24/IDEA%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97ETL%E5%AE%9E%E6%93%8D%E6%A1%88%E4%BE%8B-%E7%AE%80%E5%8D%95%E7%89%88/" title="IDEA数据清洗ETL实操案例-简单版">IDEA数据清洗ETL实操案例-简单版</a><br><a href="/2020/05/24/IDEA%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97ETL%E5%AE%9E%E6%93%8D%E6%A1%88%E4%BE%8B-%E5%A4%8D%E6%9D%82%E7%89%88/" title="IDEA数据清洗ETL实操案例-复杂版">IDEA数据清洗ETL实操案例-复杂版</a></p>
 <h4 id="MapReduce开发总结"><a href="#MapReduce开发总结" class="headerlink" title="MapReduce开发总结"></a>MapReduce开发总结</h4><p><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce开发总结1.png" alt><br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce开发总结2.png" alt><br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce开发总结3.png" alt><br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce开发总结4.png" alt><br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/MapReduce开发总结5.png" alt><br><strong>MapReduce的重点在Shuffle机制</strong></p>
 <hr>
-<h3 id="HDFS-HA高可用"><a href="#HDFS-HA高可用" class="headerlink" title="HDFS HA高可用"></a>HDFS HA高可用</h3><p>1.x版本存在单点故障(SPOF)<br>2.x版本实现了高可用(High Available),即7*24小时不中断服务<br>实现高可用最关键的策略是消除单点故障。HA严格应分为各个组件的HA机制：HDFS的HA 和 YARN的HA。</p>
+<h4 id="HDFS-HA高可用"><a href="#HDFS-HA高可用" class="headerlink" title="HDFS HA高可用"></a>HDFS HA高可用</h4><p>1.x版本存在单点故障(SPOF)<br>2.x版本实现了高可用(High Available),即7*24小时不中断服务<br>实现高可用最关键的策略是消除单点故障。HA严格应分为各个组件的HA机制：HDFS的HA 和 YARN的HA。</p>
 <p>四大部分：<br>NN（active和standby）、第三方的edits文件管理系统QJM、ZK集群、Zk集群在NN上的客户端ZKfc<br>主要防止:split brain/脑裂 问题(两个NN导致的数据不安全问题)<br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/HDFS-HA故障转移机制.png" alt></p>
-<p>内容过于细节，参考讲解文档。</p>
-<h4 id="YARN-HA高可用"><a href="#YARN-HA高可用" class="headerlink" title="YARN HA高可用"></a>YARN HA高可用</h4>
+<p>内容过于细节，参考讲解文档，实现细节略有不同。</p>
+<h4 id="YARN-HA高可用"><a href="#YARN-HA高可用" class="headerlink" title="YARN HA高可用"></a>YARN HA高可用</h4><p>YARN和HA都是2.x版本中的新特性，互相都在迭代过程中，所以很多东西已经设计在一起了。<br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/YARN-HA工作机制.png" alt></p>
+<p>同样内容过于细节，参考详解文档，实现细节略有不同。</p>
+<h4 id="HDFS-Federation架构设计"><a href="#HDFS-Federation架构设计" class="headerlink" title="HDFS Federation架构设计"></a>HDFS Federation架构设计</h4><p>主要解决由于DN数量增大，导致的NN内存不够的问题。<br>Federation的含义是：多个NN组成一个Block Pools,共同管理一片元数据，每个NN负责其中一个部分。</p>
+<hr>
+<h3 id="MapReduce扩展案例"><a href="#MapReduce扩展案例" class="headerlink" title="MapReduce扩展案例"></a>MapReduce扩展案例</h3><h4 id="TopN案例"><a href="#TopN案例" class="headerlink" title="TopN案例"></a>TopN案例</h4><p>本案例需求：<br>对 序列化操作案例 输出结果进行加工，输出流量使用量在前10的用户信息<br>解决思路：<br>将所有输出归总到同一个组中，只取前10个。所以要指定GroupComparator的compare分组方法。<br>实现细节与讲解文档略有不同。<br><a href="/2020/05/27/IDEA%E4%B8%8ATopN%E6%A1%88%E4%BE%8B/" title="IDEA上TopN案例">IDEA上TopN案例</a></p>
+<h4 id="倒排索引案例"><a href="#倒排索引案例" class="headerlink" title="倒排索引案例"></a>倒排索引案例</h4><p>倒排索引是搜索引擎中非常重要的部分。<br>倒排的含义是：从 单词 到 文章 的索引。 正排：从文章到单词的索引<br>本案例需求：<br>对关键词出现的文档和该文档中出现的频率进行统计。<br>解决思路：<br>实际上是一个多job串联，每个job实现一个wordcount功能<br>第一次针对每个单词每篇文章做一次wordcount,key是单词-文章名，value是出现的次数；<br>第二次对结果文件进行处理，将key重新划分为单词，将value重新划分为文章名和对应出现次数的拼接字符串。<br>实现细节与讲解文档略有不同。<br></p>
+<h4 id="找博客共同好友案例"><a href="#找博客共同好友案例" class="headerlink" title="找博客共同好友案例"></a>找博客共同好友案例</h4><p>共同好友的延申：推荐共同好友<br>本案例需求：<br>以下是博客的好友列表数据，冒号前是一个用户，冒号后是该用户的所有好友（数据中的好友关系是单向的）<br>求出哪些人两两之间有共同好友，及他俩的共同好友都有谁？<br>解决思路：<br>首先第一次输出先找出A、B、C等都被谁关注。转变视角从我关注了谁，到谁关注了我。<br>其次，再从输出文件中每行的value两两找出关注者。<br>实现细节与讲解文档略有不同。<br><a href="/2020/05/27/IDEA%E4%B8%8A%E6%89%BE%E5%8D%9A%E5%AE%A2%E5%85%B1%E5%90%8C%E5%A5%BD%E5%8F%8B%E6%A1%88%E4%BE%8B/" title="IDEA上找博客共同好友案例">IDEA上找博客共同好友案例</a></p>
+<hr>
+<h3 id="Hadoop重点"><a href="#Hadoop重点" class="headerlink" title="Hadoop重点"></a>Hadoop重点</h3><p>入门：Hadoop组成<br>HDFS:HDFS的shell操作、HDFS的数据流<br>MapReduce:</p>
+
       
     </div>
     <div class="article-footer">
