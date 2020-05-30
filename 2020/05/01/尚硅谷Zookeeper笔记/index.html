@@ -27,7 +27,7 @@
 <meta property="og:description" content="第一章 Zookeeper入门zookeeper 是一个开源的分布式，为分布式应用提供协调服务的Apache项目。Zookeeper = 文件系统 + 通知机制 ZK特点1）Zookeeper:一个领导者(Leader)，多个跟随者(Follower)组成的集群2）集群中只要有半数以上节点存活，ZK集群就能正常工作（偶数时可能会出现脑裂风险）3）全局数据一致：每个Server保存一份相同的数据副本">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Zookeeper%E7%AC%94%E8%AE%B0&#x2F;Zookeeper工作机制.png">
-<meta property="og:updated_time" content="2020-05-29T15:04:44.579Z">
+<meta property="og:updated_time" content="2020-05-29T16:01:02.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Zookeeper%E7%AC%94%E8%AE%B0&#x2F;Zookeeper工作机制.png">
   <!-- Canonical links -->
@@ -218,7 +218,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">Java内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">61</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">Java内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">61</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%95%86%E6%95%B0%E4%BB%93/" rel="tag">电商数仓</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -228,7 +228,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" style="font-size: 13px;">Java内容索引</a> <a href="/tags/hadoop/" style="font-size: 13.67px;">hadoop</a> <a href="/tags/hexo%E4%BD%BF%E7%94%A8/" style="font-size: 13.5px;">hexo使用</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 14px;">刷题</a> <a href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" style="font-size: 13.17px;">刷题目录</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 13.83px;">基础</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 13.5px;">学习笔记</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 13.17px;">工具使用</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" style="font-size: 13.17px;">工具学习</a> <a href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" style="font-size: 13px;">广告系统</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" style="font-size: 13.17px;">编程疑惑</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 13.33px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 13.33px;">读书</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.33px;">面试</a>
+      <a href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" style="font-size: 13px;">Java内容索引</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/hadoop/" style="font-size: 13.67px;">hadoop</a> <a href="/tags/hexo%E4%BD%BF%E7%94%A8/" style="font-size: 13.5px;">hexo使用</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 14px;">刷题</a> <a href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" style="font-size: 13.17px;">刷题目录</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 13.83px;">基础</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 13.5px;">学习笔记</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" style="font-size: 13.17px;">工具使用</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" style="font-size: 13.17px;">工具学习</a> <a href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" style="font-size: 13px;">广告系统</a> <a href="/tags/%E7%94%B5%E5%95%86%E6%95%B0%E4%BB%93/" style="font-size: 13px;">电商数仓</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" style="font-size: 13.17px;">编程疑惑</a> <a href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" style="font-size: 13.33px;">解决问题</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 13.33px;">读书</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 13.33px;">面试</a>
     </div>
   </div>
 
@@ -237,7 +237,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">49</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">25</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">49</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -249,6 +249,36 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/30/ZooKeeper%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%93%8D%E4%BD%9C/" class="title">ZooKeeper客户端操作</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-30T04:41:48.000Z" itemprop="datePublished">2020-05-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/30/%E7%94%B5%E5%95%86%E6%95%B0%E4%BB%93%E7%AC%94%E8%AE%B0/" class="title">电商数仓笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-30T02:05:59.000Z" itemprop="datePublished">2020-05-30</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -290,36 +320,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2020-05-27T06:42:10.000Z" itemprop="datePublished">2020-05-27</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/05/24/IDEA%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97ETL%E5%AE%9E%E6%93%8D%E6%A1%88%E4%BE%8B-%E5%A4%8D%E6%9D%82%E7%89%88/" class="title">IDEA数据清洗ETL实操案例-复杂版</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-05-24T15:09:03.000Z" itemprop="datePublished">2020-05-24</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2020/05/24/IDEA%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97ETL%E5%AE%9E%E6%93%8D%E6%A1%88%E4%BE%8B-%E7%AE%80%E5%8D%95%E7%89%88/" class="title">IDEA数据清洗ETL实操案例-简单版</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-05-24T15:08:56.000Z" itemprop="datePublished">2020-05-24</time>
               </p>
             </div>
           </li>
@@ -387,7 +387,7 @@
 <h3 id="第二章-Zookeeper安装"><a href="#第二章-Zookeeper安装" class="headerlink" title="第二章 Zookeeper安装"></a>第二章 Zookeeper安装</h3><p>单例模式：解压、改名conf/zoo_sample.cfg为zoo.cfg，即可启动standalone单例模式。<br>启动ZK：<code>bin/zkServer.sh start</code><br>查看ZK状态：<code>bin/zkServer.sh status</code><br>停止ZK:<code>bin/zkServer.sh stop</code></p>
 <p>集群模式：<br>1.在单例的基础上，修改zoo.cfg中<code>dataDir</code>的值为自建的zkData地址。<br>2.添加集群中所有机器路径、通信端口号和选举端口号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.1=hadoop101:2888:3888</span><br><span class="line">server.2=hadoop102:2888:3888</span><br><span class="line">server.3=hadoop103:2888:3888</span><br></pre></td></tr></table></figure><br>3.之后在<code>zkData</code>中新建<code>myid</code>文件，添加对应的标号<br>4.修改<code>bin</code>目录下的<code>zkEnv.sh</code>文件，修改<code>ZOO_LOG_DIR=/opt/module/zookeeper-3.4.10/logs</code>目录；在开头配置<code>JAVA_HOME</code>为<code>export JAVA_HOME=/opt/module/jdk1.8.0_144</code>(为了防止远程执行命令丢失环境变量，就把环境变量写死。这步非必须。)<br>5.使用<code>xsync</code>分发脚本</p>
 <hr>
-<h3 id="第三章-Zookeeper实战-开发重点"><a href="#第三章-Zookeeper实战-开发重点" class="headerlink" title="第三章 Zookeeper实战(开发重点)"></a>第三章 Zookeeper实战(开发重点)</h3><p>客户端命令行操作：(增删改查)<br>命令基本语法    功能描述<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">help	            显示所有操作命令</span><br><span class="line">ls path [watch]	  使用 ls 命令来查看当前znode中所包含的内容</span><br><span class="line">                  watch表示观察这个结点变化，当该path发生改变时，会收到一次更改信息，之后更新不反馈。</span><br><span class="line">ls2 path [watch]	查看当前节点数据并能看到更新次数等数据</span><br><span class="line">create	          普通创建</span><br><span class="line">              -s  含有序列（拼接全局序号）</span><br><span class="line">              -e  临时（重启或者超时消失）</span><br><span class="line">get path [watch]	获得节点的值。</span><br><span class="line">                  watch可以接收到一次set命令导致的结点变化信息。</span><br><span class="line">set	              设置节点的具体值</span><br><span class="line">stat	            查看节点状态</span><br><span class="line">delete	          删除节点</span><br><span class="line">rmr	              递归删除节点</span><br></pre></td></tr></table></figure></p>
+<h3 id="第三章-Zookeeper实战-开发重点"><a href="#第三章-Zookeeper实战-开发重点" class="headerlink" title="第三章 Zookeeper实战(开发重点)"></a>第三章 Zookeeper实战(开发重点)</h3><p>客户端命令行操作：(增删改查)<br>启动客户端：<code>bin/zkCli.sh</code><br>命令基本语法    功能描述<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">help	            显示所有操作命令</span><br><span class="line">ls path [watch]	  使用 ls 命令来查看当前znode中所包含的内容</span><br><span class="line">                  watch表示观察这个结点变化，当该path发生改变时，会收到一次更改信息，之后更新不反馈。</span><br><span class="line">ls2 path [watch]	查看当前节点数据并能看到更新次数等数据</span><br><span class="line">create	          普通创建</span><br><span class="line">              -s  含有序列（拼接全局序号）</span><br><span class="line">              -e  临时（重启或者超时消失）</span><br><span class="line">get path [watch]	获得节点的值。</span><br><span class="line">                  watch可以接收到一次set命令导致的结点变化信息。</span><br><span class="line">set	              设置节点的具体值</span><br><span class="line">stat	            查看节点状态</span><br><span class="line">delete	          删除节点</span><br><span class="line">rmr	              递归删除节点</span><br><span class="line">quit              退出客户端</span><br></pre></td></tr></table></figure></p>
 <hr>
 <h3 id="第四章-Zookeeper内部原理"><a href="#第四章-Zookeeper内部原理" class="headerlink" title="第四章 Zookeeper内部原理"></a>第四章 Zookeeper内部原理</h3><h4 id="4-1-节点类型"><a href="#4-1-节点类型" class="headerlink" title="4.1 节点类型"></a>4.1 节点类型</h4><p>  四种：持久非顺序编号节点、临时非顺序编号节点、持久顺序编号节点、临时顺序编号节点</p>
 <h4 id="4-2-Stat结构体"><a href="#4-2-Stat结构体" class="headerlink" title="4.2 Stat结构体"></a>4.2 Stat结构体</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1）czxid-创建节点的事务zxid</span><br><span class="line">每次修改ZooKeeper状态都会收到一个zxid形式的时间戳，也就是ZooKeeper事务ID。</span><br><span class="line">事务ID是ZooKeeper中所有修改总的次序。每个修改都有唯一的zxid，如果zxid1小于zxid2，那么zxid1在zxid2之前发生。</span><br><span class="line">2）ctime - znode被创建的毫秒数(从1970年开始)</span><br><span class="line">3）mzxid - znode最后更新的事务zxid</span><br><span class="line">4）mtime - znode最后修改的毫秒数(从1970年开始)</span><br><span class="line">5）pZxid-znode最后更新的子节点zxid</span><br><span class="line">6）cversion - znode子节点变化号，znode子节点修改次数</span><br><span class="line">7）dataversion - znode数据变化号</span><br><span class="line">8）aclVersion - znode访问控制列表的变化号</span><br><span class="line">9）ephemeralOwner- 如果是临时节点，这个是znode拥有者的session id。如果不是临时节点则是0。</span><br><span class="line">10）dataLength- znode的数据长度</span><br><span class="line">11）numChildren - znode子节点数量</span><br></pre></td></tr></table></figure>
