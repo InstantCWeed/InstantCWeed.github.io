@@ -18,13 +18,13 @@
   
   
   <title>尚硅谷hadoop笔记 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="第一部分 Hadoop入门Hadoop: Apache基金会的分布式基础架构解决海量数据存储 和 分析计算 问题 MySQL处理极限数据量在百万级别数据查询，大概1TB量Hadoop:存：HDFS; 算：MapReduce hadoop解耦后组织形式： hadoop的组成：1.x:MapReduce:  计算 + 资源调度HDFS: 数据存储 2.x:  解耦，实现计算模块可插拔MapReduce">
+  <meta name="description" content="目录第一部分 Hadoop入门第二部分 HDFS第三部分 mapreduce框架原理(非常重要)  第一部分 Hadoop入门Hadoop: Apache基金会的分布式基础架构解决海量数据存储 和 分析计算 问题 MySQL处理极限数据量在百万级别数据查询，大概1TB量Hadoop:存：HDFS; 算：MapReduce hadoop解耦后组织形式： hadoop的组成：1.x:MapReduce">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="尚硅谷hadoop笔记">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="第一部分 Hadoop入门Hadoop: Apache基金会的分布式基础架构解决海量数据存储 和 分析计算 问题 MySQL处理极限数据量在百万级别数据查询，大概1TB量Hadoop:存：HDFS; 算：MapReduce hadoop解耦后组织形式： hadoop的组成：1.x:MapReduce:  计算 + 资源调度HDFS: 数据存储 2.x:  解耦，实现计算模块可插拔MapReduce">
+<meta property="og:description" content="目录第一部分 Hadoop入门第二部分 HDFS第三部分 mapreduce框架原理(非常重要)  第一部分 Hadoop入门Hadoop: Apache基金会的分布式基础架构解决海量数据存储 和 分析计算 问题 MySQL处理极限数据量在百万级别数据查询，大概1TB量Hadoop:存：HDFS; 算：MapReduce hadoop解耦后组织形式： hadoop的组成：1.x:MapReduce">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;hadoop解耦后组织形式.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;Yarn架构.png">
@@ -46,7 +46,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;HDFS-HA故障转移机制.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;YARN-HA工作机制.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;YARN工作机制.png">
-<meta property="og:updated_time" content="2020-05-29T07:58:19.402Z">
+<meta property="og:updated_time" content="2020-05-31T16:28:46.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;hadoop解耦后组织形式.png">
   <!-- Canonical links -->
@@ -398,7 +398,9 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="第一部分-Hadoop入门"><a href="#第一部分-Hadoop入门" class="headerlink" title="第一部分 Hadoop入门"></a>第一部分 Hadoop入门</h3><p>Hadoop: Apache基金会的分布式基础架构<br>解决<strong>海量数据存储</strong> 和 <strong>分析计算</strong> 问题</p>
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><a href="#第一部分-hadoop入门">第一部分 Hadoop入门</a><br><a href="#第二部分-hdfs">第二部分 HDFS</a><br><a href="#第三部分mapreduce框架原理非常重要">第三部分 mapreduce框架原理(非常重要)</a></p>
+<hr>
+<h3 id="第一部分-Hadoop入门"><a href="#第一部分-Hadoop入门" class="headerlink" title="第一部分 Hadoop入门"></a>第一部分 Hadoop入门</h3><p>Hadoop: Apache基金会的分布式基础架构<br>解决<strong>海量数据存储</strong> 和 <strong>分析计算</strong> 问题</p>
 <p>MySQL处理极限数据量在百万级别数据查询，大概1TB量<br>Hadoop:存：HDFS; 算：MapReduce</p>
 <p>hadoop解耦后组织形式：<br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0/hadoop解耦后组织形式.png" alt></p>
 <p>hadoop的组成：<br>1.x:<br>MapReduce:  计算 + 资源调度<br>HDFS: 数据存储</p>

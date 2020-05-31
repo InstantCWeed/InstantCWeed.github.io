@@ -18,15 +18,15 @@
   
   
   <title>尚硅谷Hive笔记 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序1）Hive处理的数据存储在HDFS2）Hive分析数据底层的默认实现是MapReduce(可以改为Spark)3）执行程序运行在Yarn上">
+  <meta name="description" content="目录：第一章 Hive基本概念  第一章 Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序  1）Hive处理的数据存储在HDFS2）Hive分析数据底层的默认实现是MapReduce(可">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="尚硅谷Hive笔记">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序1）Hive处理的数据存储在HDFS2）Hive分析数据底层的默认实现是MapReduce(可以改为Spark)3）执行程序运行在Yarn上">
+<meta property="og:description" content="目录：第一章 Hive基本概念  第一章 Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序  1）Hive处理的数据存储在HDFS2）Hive分析数据底层的默认实现是MapReduce(可">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-31T14:53:11.178Z">
+<meta property="og:updated_time" content="2020-05-31T16:16:06.163Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/05/21/%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0/index.html">
@@ -377,9 +377,13 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="Hive基本概念"><a href="#Hive基本概念" class="headerlink" title="Hive基本概念"></a>Hive基本概念</h3><h4 id="什么是Hive"><a href="#什么是Hive" class="headerlink" title="什么是Hive"></a>什么是Hive</h4><p>Hive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查)</p>
-<p><font color="red">本质是：将HQL转化成MapReduce程序</font><br>1）Hive处理的数据存储在HDFS<br>2）Hive分析数据底层的<font color="red">默认实现</font>是MapReduce(可以改为Spark)<br>3）执行程序运行在Yarn上</p>
-<p>类似是一个Hadoop的客户端。<br>并不是一个分布式框架。<br>（之后如果讲到这是一个计算框架，那么这个框架一定是分布式的）</p>
+        <h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h2><p><a href="#第一章-hive基本概念">第一章 Hive基本概念</a><br><a href></a><br><a href></a><br><a href></a><br><a href></a><br><a href></a></p>
+<hr>
+<h2 id="第一章-Hive基本概念"><a href="#第一章-Hive基本概念" class="headerlink" title="第一章 Hive基本概念"></a>第一章 Hive基本概念</h2><h3 id="什么是Hive"><a href="#什么是Hive" class="headerlink" title="什么是Hive"></a>什么是Hive</h3><p>Hive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查)</p>
+<font color="red">本质是：将HQL转化成MapReduce程序</font>
+
+<p>1）Hive处理的数据存储在HDFS<br>2）Hive分析数据底层的<font color="red">默认实现</font>是MapReduce(可以改为Spark)<br>3）执行程序运行在Yarn上</p>
+<p>类似是一个Hadoop的客户端。<br>并不是一个分布式框架。<br>（之后如果讲到这是一个计算框架，那么这个框架一定是分布式的）<br><strong>注：大数据框架可分为：传输、存储、计算。注意学习总结！</strong></p>
 
       
     </div>
