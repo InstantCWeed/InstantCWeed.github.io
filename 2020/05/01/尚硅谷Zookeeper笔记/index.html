@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Zookeeper%E7%AC%94%E8%AE%B0&#x2F;Zookeeper工作机制.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Zookeeper%E7%AC%94%E8%AE%B0&#x2F;监听器原理.png">
-<meta property="og:updated_time" content="2020-05-30T12:33:24.925Z">
+<meta property="og:updated_time" content="2020-05-31T12:52:33.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Zookeeper%E7%AC%94%E8%AE%B0&#x2F;Zookeeper工作机制.png">
   <!-- Canonical links -->
@@ -394,7 +394,11 @@
 <h4 id="4-2-Stat结构体"><a href="#4-2-Stat结构体" class="headerlink" title="4.2 Stat结构体"></a>4.2 Stat结构体</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1）czxid-创建节点的事务zxid</span><br><span class="line">每次修改ZooKeeper状态都会收到一个zxid形式的时间戳，也就是ZooKeeper事务ID。</span><br><span class="line">事务ID是ZooKeeper中所有修改总的次序。每个修改都有唯一的zxid，如果zxid1小于zxid2，那么zxid1在zxid2之前发生。</span><br><span class="line">2）ctime - znode被创建的毫秒数(从1970年开始)</span><br><span class="line">3）mzxid - znode最后更新的事务zxid</span><br><span class="line">4）mtime - znode最后修改的毫秒数(从1970年开始)</span><br><span class="line">5）pZxid-znode最后更新的子节点zxid</span><br><span class="line">6）cversion - znode子节点变化号，znode子节点修改次数</span><br><span class="line">7）dataversion - znode数据变化号</span><br><span class="line">8）aclVersion - znode访问控制列表的变化号</span><br><span class="line">9）ephemeralOwner- 如果是临时节点，这个是znode拥有者的session id。如果不是临时节点则是0。</span><br><span class="line">10）dataLength- znode的数据长度</span><br><span class="line">11）numChildren - znode子节点数量</span><br></pre></td></tr></table></figure>
 <h4 id="4-3-监听器原理（面试重点）"><a href="#4-3-监听器原理（面试重点）" class="headerlink" title="4.3 监听器原理（面试重点）"></a>4.3 监听器原理（面试重点）</h4><p>new Zookeeper时生成两个线程：<strong>SendThread</strong> 和 <strong>EventThread</strong>。<br>SendThread负责连接通信，所有注册请求都通过它异步发给服务端<br>EventThread负责监听变化，启动回调函数Watcher中的process()方法</p>
 <p>大致原理：<br>ZooKeeper对于每个ZNode都有一个WatcherList，所有想要观察的这个ZNode的其他ZNode都注册在WatchList中。如果被观察的ZNode发生变化，线程就从上到下遍历这个List,遍历一个划掉一个。<br><img src="/2020/05/01/%E5%B0%9A%E7%A1%85%E8%B0%B7Zookeeper%E7%AC%94%E8%AE%B0/监听器原理.png" alt></p>
-<h4 id="4-5-选举机制（面试重点）"><a href="#4-5-选举机制（面试重点）" class="headerlink" title="4.5 选举机制（面试重点）"></a>4.5 选举机制（面试重点）</h4><hr>
+<h4 id="ZAB-Zookeeper-atomic-broadcast-协议：-最重要内容"><a href="#ZAB-Zookeeper-atomic-broadcast-协议：-最重要内容" class="headerlink" title="ZAB(Zookeeper atomic broadcast)协议：(最重要内容)"></a>ZAB(Zookeeper atomic broadcast)协议：(最重要内容)</h4><p><strong>一句话概括：保证Zk数据全局一致，保证读写顺序的原理。</strong></p>
+<p>“没有Leader选Leader，有Leader就干活”—— <strong>崩溃恢复</strong> 和 <strong>正常读写</strong><br>在以上两个阶段不断切换</p>
+<h4 id="4-5-选举机制（面试重点）"><a href="#4-5-选举机制（面试重点）" class="headerlink" title="4.5 选举机制（面试重点）"></a>4.5 选举机制（面试重点）</h4><p>选举时比较（二次比较）：先比较zxid，再比较myid。（尽量选择最新的节点做Leader）过半数以上同意节点当选leader.<br>5个ZNode时，若一个一个起服务，则3号当选；若一起开启服务，则最大的5号当选。<br>类似议会中议长和议员的关系。</p>
+<h4 id="4-6-写数据流程"><a href="#4-6-写数据流程" class="headerlink" title="4.6 写数据流程"></a>4.6 写数据流程</h4><p>客户端将写请求发送给任意一个server,然后这个server向leader汇报信息，leader向集群中所有server发送投票申请，过半同意后leader再广播给所有server写请求。<br>一开始发送投票申请时，写请求进每个节点的代写队列list。投票成功了就写，失败了就划掉回滚。<br>在过半数投票同意时，集群会执行写请求，原先投反对票的节点认为自己有问题进而自杀，同时从leader处同步数据。由此可以<strong>保证集群数据唯一性</strong><br>同意与否的依据就是判断请求的编号zxid和代写队列list中最小的编号相比，如果请求编号更大，表示请求时间更新，所以同意。失败的情况更多出现在各别节点的网络情况出现问题编号出现问题。<br>集群中observer就类似议会机制下的普通群众，不参与选举。由leader和follower选举后执行成功和失败的操作。<br>出现observer的两种常见情况：1.集群规模很大；2.集群跨数据中心DC</p>
+<hr>
 <h3 id="第五章-面试题-面试重点"><a href="#第五章-面试题-面试重点" class="headerlink" title="第五章 面试题(面试重点)"></a>第五章 面试题(面试重点)</h3>
       
     </div>
