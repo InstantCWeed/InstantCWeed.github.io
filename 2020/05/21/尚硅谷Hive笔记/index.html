@@ -27,7 +27,7 @@
 <meta property="og:description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序  1）Hive处理的数据存储在HDFS2）Hive分析">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
-<meta property="og:updated_time" content="2020-06-03T15:20:45.445Z">
+<meta property="og:updated_time" content="2020-06-03T15:45:03.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
   <!-- Canonical links -->
@@ -426,7 +426,8 @@
 <p>4.参数配置方式（3种）<br>（1）配置文件方式：配置文件的设定对本机启动的所有Hive进程都有效。<br>默认配置文件：hive-default.xml<br>用户自定义配置文件：hive-site.xml<br>（2）命令行参数方式：仅对本次hive启动有效<br>启动Hive时，可以在命令行添加-hiveconf param=value来设定参数。<br>（3）参数声明方式：仅对本次hive启动有效。<br>可以在HQL中使用SET关键字设定参数</p>
 <p><a href="#0">目录</a><br><a href="#2">第二章 Hive安装</a></p>
 <hr>
-<h2 id="第三章-Hive数据类型"><a href="#第三章-Hive数据类型" class="headerlink" title="第三章 Hive数据类型"></a><h2 id="3">第三章 Hive数据类型</h2></h2><p><a href="#0">目录</a><br><a href="#3">第三章 Hive数据类型</a></p>
+<h2 id="第三章-Hive数据类型"><a href="#第三章-Hive数据类型" class="headerlink" title="第三章 Hive数据类型"></a><h2 id="3">第三章 Hive数据类型</h2></h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>Hive和Java的基本数据类型基本相同。只有少数名称不同。主要记住INT、BIGINT、DOUBLE、STRING。大小写不区分。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Hive数据类型	Java数据类型	长度</span><br><span class="line">TINYINT	      byte	       1byte有符号整数</span><br><span class="line">SMALINT	      short	       2byte有符号整数</span><br><span class="line">INT	          int	         4byte有符号整数</span><br><span class="line">BIGINT	      long	       8byte有符号整数</span><br><span class="line">BOOLEAN	      boolean	     布尔类型，true或者false</span><br><span class="line">FLOAT	        float	       单精度浮点数</span><br><span class="line">DOUBLE	      double	     双精度浮点数</span><br><span class="line">STRING	      string	     字符系列。可以指定字符集。可以使用单引号或者双引号。</span><br><span class="line">TIMESTAMP		               时间类型</span><br><span class="line">BINARY		                 字节数组</span><br></pre></td></tr></table></figure></p>
+<h3 id="集合数据类型"><a href="#集合数据类型" class="headerlink" title="集合数据类型"></a>集合数据类型</h3><h3 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h3><p><a href="#0">目录</a><br><a href="#3">第三章 Hive数据类型</a></p>
 
       
     </div>
