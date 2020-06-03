@@ -18,16 +18,16 @@
   
   
   <title>尚硅谷Hive笔记 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="目录：第一章 Hive基本概念第二章 Hive安装  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序  1）Hive处理的数据存储在HDFS2）Hive分析数据底层的默认实现是Ma">
+  <meta name="description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序  1）Hive处理的数据存储在HDFS2）Hive分析">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="尚硅谷Hive笔记">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="目录：第一章 Hive基本概念第二章 Hive安装  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序  1）Hive处理的数据存储在HDFS2）Hive分析数据底层的默认实现是Ma">
+<meta property="og:description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序  1）Hive处理的数据存储在HDFS2）Hive分析">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
-<meta property="og:updated_time" content="2020-06-02T15:30:48.764Z">
+<meta property="og:updated_time" content="2020-06-03T15:20:45.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
   <!-- Canonical links -->
@@ -379,7 +379,7 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a><h2 id="0">目录：</h2></h2><p><a href="#1">第一章 Hive基本概念</a><br><a href="#2">第二章 Hive安装</a><br><a href></a><br><a href></a><br><a href></a><br><a href></a></p>
+        <h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a><h2 id="0">目录：</h2></h2><p><a href="#1">第一章 Hive基本概念</a><br><a href="#2">第二章 Hive安装</a><br><a href="#3">第三章 Hive数据类型</a><br><a href></a><br><a href></a><br><a href></a></p>
 <hr>
 <h2 id="第一章Hive基本概念"><a href="#第一章Hive基本概念" class="headerlink" title="第一章Hive基本概念"></a><h2 id="1">第一章Hive基本概念</h2></h2><h3 id="什么是Hive"><a href="#什么是Hive" class="headerlink" title="什么是Hive"></a>什么是Hive</h3><p>Hive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查)</p>
 <font color="red">本质是：将HQL转化成MapReduce程序</font>
@@ -409,8 +409,24 @@
 <p>3.加载HDFS中根目录<code>/</code>的文件<code>stu2.txt</code>到<code>student</code>数据表中（命令不带local）：<br><code>hive&gt; load data inpath &#39;/stu2.txt&#39; into table student;</code></p>
 <h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><p>因为默认的derby元数据库只支持开启一个Hive的客户端，不适合正常情况，需要安装MySQL替代derby。<br>注意安装时，视频中CentOS版本是6.5。我这里是CentOS 7。需要开始时把系统中默认的MySQL删除干净。<a href="/2020/06/02/%E5%AD%A6%E4%B9%A0hive%E6%97%B6%E5%AE%89%E8%A3%85mysql%E5%87%BA%E7%8E%B0%E5%A7%8B%E7%BB%88%E5%AE%89%E8%A3%85%E4%B8%8D%E4%B8%8A%E7%9A%84%E9%97%AE%E9%A2%98/" title="学习hive时安装mysql出现始终安装不上的问题">学习hive时安装mysql出现始终安装不上的问题</a></p>
 <p>剩下的按照笔记文档安装即可。</p>
+<h3 id="MySQL中user表中主机配置"><a href="#MySQL中user表中主机配置" class="headerlink" title="MySQL中user表中主机配置"></a>MySQL中user表中主机配置</h3><p>1．进入mysql<br><code>[root@hadoop101 mysql-libs]# mysql -uroot -p000000</code><br>2．显示数据库<br><code>mysql&gt;show databases;</code><br>3．使用mysql数据库<br><code>mysql&gt;use mysql;</code><br>4．展示mysql数据库中的所有表<br><code>mysql&gt;show tables;</code><br>5．展示user表的结构<br><code>mysql&gt;desc user;</code><br>6．查询user表<br><code>mysql&gt;select User, Host, Password from user;</code><br>7．修改user表，把Host表内容修改为%<br><code>mysql&gt;update user set host=&#39;%&#39; where host=&#39;localhost&#39;;</code><br>8．删除root用户的其他host<br><code>mysql&gt;delete from user where Host=&#39;hadoop102&#39;;</code><br><code>mysql&gt;delete from user where Host=&#39;127.0.0.1&#39;;</code><br><code>mysql&gt;delete from user where Host=&#39;::1&#39;;</code><br>9．刷新<br><code>mysql&gt;flush privileges;</code><br>10．退出<br><code>mysql&gt;quit;</code></p>
+<p>在mysql的<code>user</code>表中，<code>select user,host from user;</code>后只保留一条属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user    host</span><br><span class="line">root    %</span><br></pre></td></tr></table></figure><br>使用通配符%，保证所有主机都能以root用户进入mysql;</p>
+<h3 id="配置Metastore到MySql"><a href="#配置Metastore到MySql" class="headerlink" title="配置Metastore到MySql"></a>配置Metastore到MySql</h3><p>默认的元数据库derby不支持多用户，所以将其转移到MySQL中支持多用户。</p>
+<p>按照笔记文档修改<code>conf/hive-site.xml</code>之后，会出现hive启动不了的情况。<br>参考下面两个网站：<br><a href="https://blog.csdn.net/qql2011/article/details/53187851" target="_blank" rel="noopener">Hive配置hive-site.xml后启动出错</a><br><a href="https://blog.csdn.net/LOUISLIAOXH/article/details/52767209?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase" target="_blank" rel="noopener">mysql 赋给用户远程权限 grant all privileges on</a></p>
+<p><a href="https://www.jianshu.com/p/9a5de84357b8?from=singlemessage" target="_blank" rel="noopener">Navicat for MySQL12 安装破解图文教程(亲测可用)</a></p>
+<p>执行完以上配置之后，使用Navicat进入hadoop101。点击<code>metastore</code>中的表<code>DBS</code>，其中的<code>DB_LOCATION_URI</code>就记录了hive的元数据存放地址<strong>变化为</strong>在<code>hdfs://hadoop101:9000/user/hive/warehouse</code>。</p>
+<p><strong>在<code>metastore</code>数据库中，最关心的有以下6张表：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DBS</span><br><span class="line">TBLS</span><br><span class="line">PARTITION_KEY_VALS</span><br><span class="line">PARITION_KEYS</span><br><span class="line">PARTITION_PARAMS</span><br><span class="line">PATITIONS</span><br></pre></td></tr></table></figure></p>
+<h3 id="HiveJDBC访问"><a href="#HiveJDBC访问" class="headerlink" title="HiveJDBC访问"></a>HiveJDBC访问</h3><p>主要就是hiveserver2服务启动 和 启动beeline。了解即可，实际生产环境很少拿代码直接去用hive连JDBC，效率很低。<br>具体可看笔记文档。</p>
+<h3 id="Hive常用交互命令"><a href="#Hive常用交互命令" class="headerlink" title="Hive常用交互命令"></a>Hive常用交互命令</h3><p>在hive的目录下执行<code>bin/hive -help</code>可以得知常用的命令。<strong>其中最常用的有两条：-e 和 -f</strong><br><code>-e</code>不进入hive交互窗口执行sql语句:<br><code>bin/hive -e &quot;select * from aa;&quot;</code></p>
+<p><code>-f</code>执行脚本中的sql语句:<br>首先写一个hivef.sql文件：<code>touch hivef.sql</code>。文件中写入正确的sql语句：<code>select * from aa;</code><br>然后执行文件中sql语句：<code>bin/hive -f /opt/module/data/hivef.sql</code><br>还可以将执行结果写入文件中：<code>bin/hive -f /opt/module/data/hivef.sql &gt; /opt/module/data/hive_result.txt</code></p>
+<h3 id="常见配置信息"><a href="#常见配置信息" class="headerlink" title="常见配置信息"></a>常见配置信息</h3><p>1.默认数据仓库位置<br>使用default默认数据库创建的表都在HDFS的<code>/user/hive/warehouse</code>中，是默认值。可以在<code>hive-site.xml</code>中修改。</p>
+<p>2.查询数据库和表列信息显示<br>还可以在hive中显示当前数据库，以及查询表的头信息配置，在<code>hive-site.xml</code>中添加两个property:<br><code>hive.cli.print.header</code>设为<code>true</code><br><code>hive.cli.print.current.db</code>设为<code>true</code><br>重启后出现数据库和表列信息。</p>
+<p>3.Hive运行日志配置<br>Hive的log默认存放在/tmp/hadoop/hive.log目录下（当前用户名下）<br>修改hive的log存放日志到/opt/module/hive/logs</p>
+<p>修改/opt/module/hive/conf/hive-log4j.properties.template文件名称为 hive-log4j.properties<br><code>mv hive-log4j.properties.template hive-log4j.properties</code><br>在hive-log4j.properties文件中修改log存放位置<br><code>hive.log.dir=/opt/module/hive/logs</code></p>
+<p>4.参数配置方式（3种）<br>（1）配置文件方式：配置文件的设定对本机启动的所有Hive进程都有效。<br>默认配置文件：hive-default.xml<br>用户自定义配置文件：hive-site.xml<br>（2）命令行参数方式：仅对本次hive启动有效<br>启动Hive时，可以在命令行添加-hiveconf param=value来设定参数。<br>（3）参数声明方式：仅对本次hive启动有效。<br>可以在HQL中使用SET关键字设定参数</p>
 <p><a href="#0">目录</a><br><a href="#2">第二章 Hive安装</a></p>
 <hr>
+<h2 id="第三章-Hive数据类型"><a href="#第三章-Hive数据类型" class="headerlink" title="第三章 Hive数据类型"></a><h2 id="3">第三章 Hive数据类型</h2></h2><p><a href="#0">目录</a><br><a href="#3">第三章 Hive数据类型</a></p>
 
       
     </div>
