@@ -27,7 +27,7 @@
 <meta property="og:description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型第四章 DDL数据定义第五章 DML数据操作  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序  1）Hi">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
-<meta property="og:updated_time" content="2020-06-04T15:37:00.379Z">
+<meta property="og:updated_time" content="2020-06-05T15:46:12.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
   <!-- Canonical links -->
@@ -218,7 +218,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">Java内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">60</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%95%86%E6%95%B0%E4%BB%93/" rel="tag">电商数仓</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/" rel="tag">Java内容索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">61</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98%E7%9B%AE%E5%BD%95/" rel="tag">刷题目录</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="tag">工具使用</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" rel="tag">工具学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/" rel="tag">广告系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%95%86%E6%95%B0%E4%BB%93/" rel="tag">电商数仓</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E7%96%91%E6%83%91/" rel="tag">编程疑惑</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/" rel="tag">解决问题</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -453,7 +453,43 @@
 <p>管理表和外部表的转换：<br>首先查询表的类型：<code>hive&gt; desc formatted hive_db</code><br>  会显示<code>Table Type:  MANAGED_TABLE</code>或者<code>Table Type:  EXTERNAL_TABLE</code><br>修改内部表为外部表：<code>alter table student2 set tblproperties(&#39;EXTERNAL&#39;=&#39;TRUE&#39;);</code><br>修改外部表为内部表：<code>alter table student2 set tblproperties(&#39;EXTERNAL&#39;=&#39;FALSE&#39;);</code></p>
 <font color="red">注意：('EXTERNAL'='TRUE')和('EXTERNAL'='FALSE')为固定写法，区分大小写！</font>
 
-<h3 id="分区表"><a href="#分区表" class="headerlink" title="分区表"></a>分区表</h3><h3 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h3><h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><p><a href="#0">目录</a><br><a href="#4">第四章 DDL数据定义</a></p>
+<h3 id="分区表"><a href="#分区表" class="headerlink" title="分区表"></a>分区表</h3><h4 id="分区概念-amp-简单使用"><a href="#分区概念-amp-简单使用" class="headerlink" title="分区概念&amp;简单使用"></a>分区概念&amp;简单使用</h4><p><strong>分区表实际上就是对应一个HDFS文件系统上的独立文件夹。</strong><br>Hive中的分区就是分目录，把一个大的数据集根据业务分隔成小的数据集，通过where子句中的表达式选择查询所需要的分区，方便查询。</p>
+<p>另外，整个SQL的执行顺序，在from之后先走where。这样可以提前将数据集过滤出来，这个技术叫做：“谓词下推”。是一种常见的优化技术。</p>
+<p>创建分区表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hive (default)&gt; create table dept_partition(</span><br><span class="line">deptno int, dname string, loc string</span><br><span class="line">)</span><br><span class="line">partitioned by (month string)</span><br></pre></td></tr></table></figure></p>
+<p>加载数据到分区表中：<br><code>hive (default)&gt; load data local inpath &#39;/opt/module/data/dept.txt&#39; into table default.dept_partition partition(month=&#39;201707&#39;);</code><br>表建立在<code>/user/hive/warehouse/depth_partition</code>下，新建子文件夹<code>month=201707</code>中。</p>
+<p>查询分区表：<br><code>hive (default)&gt; select * from dept_partition where month=&#39;201709&#39;;</code></p>
+<p>“分区信息有些像索引的作用” 。查询语句中where字段可以使用分区信息缩小查询的范围。看起来是在原来的表中添加了一列分区字段。<strong>但实际上这列的信息是存在元数据库MySQL上的，会首先访问，其余列存在HDFS上。</strong></p>
+<h4 id="分区表基本操作"><a href="#分区表基本操作" class="headerlink" title="分区表基本操作"></a>分区表基本操作</h4><ol>
+<li><p>增加分区：<br>创建单个分区：<code>hive (default)&gt; alter table dept_partition add partition(month=&#39;201706&#39;);</code><br>同时创建多个分区：<code>hive (default)&gt; alter table dept_partition add partition(month=&#39;201705&#39;) partition(month=&#39;201704&#39;);</code></p>
+</li>
+<li><p>删除分区：<br>删除单个分区：<code>hive(default)&gt; alter table dept_partition drop partition(month=&#39;201704);</code><br>同时删除多个分区：<code>hive(default)&gt; alter table dept_partition drop partition(month=&#39;201705&#39;), partition(month=&#39;201706&#39;);</code></p>
+</li>
+<li><p>查看分区表有多少分区：<br><code>hive&gt; show partitions dept_partition;</code></p>
+</li>
+<li><p>查看分区表结构：<br><code>hive&gt; desc formatted dept_partition;</code></p>
+</li>
+</ol>
+<p>“使用时可以将分区字段当作普通字段使用，在where中加减都可以。但是要明白它和其它字段本质上不同：它存在元数据中。”</p>
+<ol>
+<li><p>创建二级分区：<br><code>hive&gt; create table dept_partition2(deptno int, dname string, loc string) partitioned by (month string, day string) row format delimited fields terminated by &#39;\t&#39;;</code><br>就建立了/month/day的二层目录</p>
+</li>
+<li><p>把数据直接上传到分区目录上，如果没有设置分区信息，数据会查询不到。<br>让分区表和数据产生关联的三种方式：<br>方式一：执行修复命令<br><code>hive&gt; msck repair table dept_partition2;</code></p>
+</li>
+</ol>
+<p>方式二：执行添加分区<br><code>hive (default)&gt; alter table dept_partition2 add partition(month=&#39;201709&#39;,day=&#39;11&#39;);</code></p>
+<p>方式三：创建文件夹后load数据到分区<br>创建目录<br><code>hive (default)&gt; dfs -mkdir -p /user/hive/warehouse/dept_partition2/month=201709/day=10;</code><br>上传数据<br><code>hive (default)&gt; load data local inpath &#39;/opt/module/datas/dept.txt&#39; into table dept_partition2 partition(month=&#39;201709&#39;,day=&#39;10&#39;);</code><br>常用方式二和方式一。</p>
+<h3 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h3><ol>
+<li><p>表重命名<br><code>hive (default)&gt; alter table dept_partition2 rename to dept_partition3;</code></p>
+</li>
+<li><p>增加、修改和删除表分区<br>详见上面内容。</p>
+</li>
+<li><p>增加/修改/替换列信息(很少操作，新建表时会有预留字段)<br>添加列(add columns)<br><code>hive (default)&gt; alter table dept_partition add columns(deptdesc string);</code></p>
+</li>
+</ol>
+<p>更新列(change column)<br><code>hive (default)&gt; alter table dept_partition change column deptdesc desc int;</code></p>
+<p>替换全部列(replace columns)<br><code>hive (default)&gt; alter table dept_partition replace columns(deptno string, dname string, loc string);</code></p>
+<h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><p><code>hive (default)&gt; drop table dept_partition;</code></p>
+<p><a href="#0">目录</a><br><a href="#4">第四章 DDL数据定义</a></p>
 <hr>
 <h2 id="第五章-DML数据操作"><a href="#第五章-DML数据操作" class="headerlink" title="第五章 DML数据操作"></a><h2 id="5">第五章 DML数据操作</h2></h2><p><a href="#0">目录</a><br><a href="#5">第五章 DML数据操作</a></p>
 
