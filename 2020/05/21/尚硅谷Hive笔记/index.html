@@ -18,16 +18,16 @@
   
   
   <title>尚硅谷Hive笔记 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型第四章 DDL数据定义第五章 DML数据操作  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序  1）Hi">
+  <meta name="description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型第四章 DDL数据定义第五章 DML数据操作第六章 查询  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="尚硅谷Hive笔记">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型第四章 DDL数据定义第五章 DML数据操作  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序  1）Hi">
+<meta property="og:description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型第四章 DDL数据定义第五章 DML数据操作第六章 查询  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
-<meta property="og:updated_time" content="2020-06-05T15:46:12.481Z">
+<meta property="og:updated_time" content="2020-06-06T15:36:37.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
   <!-- Canonical links -->
@@ -379,7 +379,7 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a><h2 id="0">目录：</h2></h2><p><a href="#1">第一章 Hive基本概念</a><br><a href="#2">第二章 Hive安装</a><br><a href="#3">第三章 Hive数据类型</a><br><a href="#4">第四章 DDL数据定义</a><br><a href="#5">第五章 DML数据操作</a><br><a href></a></p>
+        <h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a><h2 id="0">目录：</h2></h2><p><a href="#1">第一章 Hive基本概念</a><br><a href="#2">第二章 Hive安装</a><br><a href="#3">第三章 Hive数据类型</a><br><a href="#4">第四章 DDL数据定义</a><br><a href="#5">第五章 DML数据操作</a><br><a href="#6">第六章 查询</a></p>
 <hr>
 <h2 id="第一章Hive基本概念"><a href="#第一章Hive基本概念" class="headerlink" title="第一章Hive基本概念"></a><h2 id="1">第一章Hive基本概念</h2></h2><h3 id="什么是Hive"><a href="#什么是Hive" class="headerlink" title="什么是Hive"></a>什么是Hive</h3><p>Hive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查)</p>
 <font color="red">本质是：将HQL转化成MapReduce程序</font>
@@ -416,13 +416,13 @@
 <p><a href="https://www.jianshu.com/p/9a5de84357b8?from=singlemessage" target="_blank" rel="noopener">Navicat for MySQL12 安装破解图文教程(亲测可用)</a></p>
 <p>执行完以上配置之后，使用Navicat进入hadoop101。点击<code>metastore</code>中的表<code>DBS</code>，其中的<code>DB_LOCATION_URI</code>就记录了hive的元数据存放地址<strong>变化为</strong>在<code>hdfs://hadoop101:9000/user/hive/warehouse</code>。</p>
 <p><strong>在<code>metastore</code>数据库中，最关心的有以下6张表：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DBS</span><br><span class="line">TBLS</span><br><span class="line">PARTITION_KEY_VALS</span><br><span class="line">PARITION_KEYS</span><br><span class="line">PARTITION_PARAMS</span><br><span class="line">PATITIONS</span><br></pre></td></tr></table></figure></p>
-<h3 id="HiveJDBC访问"><a href="#HiveJDBC访问" class="headerlink" title="HiveJDBC访问"></a>HiveJDBC访问</h3><p>主要就是hiveserver2服务启动 和 启动beeline。了解即可，实际生产环境很少拿代码直接去用hive连JDBC，效率很低。<br>具体可看笔记文档。</p>
+<h3 id="HiveJDBC访问"><a href="#HiveJDBC访问" class="headerlink" title="HiveJDBC访问"></a>HiveJDBC访问</h3><p>主要就是<code>hiveserver2服务启动</code> 和 <code>启动beeline</code>。了解即可，实际生产环境很少拿代码直接去用hive连JDBC，效率很低。<br>具体可看笔记文档。</p>
 <h3 id="Hive常用交互命令"><a href="#Hive常用交互命令" class="headerlink" title="Hive常用交互命令"></a>Hive常用交互命令</h3><p>在hive的目录下执行<code>bin/hive -help</code>可以得知常用的命令。<strong>其中最常用的有两条：-e 和 -f</strong><br><code>-e</code>不进入hive交互窗口执行sql语句:<br><code>bin/hive -e &quot;select * from aa;&quot;</code></p>
 <p><code>-f</code>执行脚本中的sql语句:<br>首先写一个hivef.sql文件：<code>touch hivef.sql</code>。文件中写入正确的sql语句：<code>select * from aa;</code><br>然后执行文件中sql语句：<code>bin/hive -f /opt/module/data/hivef.sql</code><br>还可以将执行结果写入文件中：<code>bin/hive -f /opt/module/data/hivef.sql &gt; /opt/module/data/hive_result.txt</code></p>
 <h3 id="常见配置信息"><a href="#常见配置信息" class="headerlink" title="常见配置信息"></a>常见配置信息</h3><p>1.默认数据仓库位置<br>使用default默认数据库创建的表都在HDFS的<code>/user/hive/warehouse</code>中，是默认值。可以在<code>hive-site.xml</code>中修改。</p>
 <p>2.查询数据库和表列信息显示<br>还可以在hive中显示当前数据库，以及查询表的头信息配置，在<code>hive-site.xml</code>中添加两个property:<br><code>hive.cli.print.header</code>设为<code>true</code><br><code>hive.cli.print.current.db</code>设为<code>true</code><br>重启后出现数据库和表列信息。</p>
 <p>3.Hive运行日志配置<br>Hive的log默认存放在/tmp/hadoop/hive.log目录下（当前用户名下）<br>修改hive的log存放日志到/opt/module/hive/logs</p>
-<p>修改/opt/module/hive/conf/hive-log4j.properties.template文件名称为 hive-log4j.properties<br><code>mv hive-log4j.properties.template hive-log4j.properties</code><br>在hive-log4j.properties文件中修改log存放位置<br><code>hive.log.dir=/opt/module/hive/logs</code></p>
+<p>修改/opt/module/hive/conf/hive-log4j.properties.template文件名称为 <code>hive-log4j.properties</code><br><code>mv hive-log4j.properties.template hive-log4j.properties</code><br>在hive-log4j.properties文件中修改log存放位置<br><code>hive.log.dir=/opt/module/hive/logs</code></p>
 <p>4.参数配置方式（3种）<br>（1）配置文件方式：配置文件的设定对本机启动的所有Hive进程都有效。<br>默认配置文件：hive-default.xml<br>用户自定义配置文件：hive-site.xml<br>（2）命令行参数方式：仅对本次hive启动有效<br>启动Hive时，可以在命令行添加-hiveconf param=value来设定参数。<br>（3）参数声明方式：仅对本次hive启动有效。<br>可以在HQL中使用SET关键字设定参数</p>
 <p><a href="#0">目录</a><br><a href="#2">第二章 Hive安装</a></p>
 <hr>
@@ -491,7 +491,19 @@
 <h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><p><code>hive (default)&gt; drop table dept_partition;</code></p>
 <p><a href="#0">目录</a><br><a href="#4">第四章 DDL数据定义</a></p>
 <hr>
-<h2 id="第五章-DML数据操作"><a href="#第五章-DML数据操作" class="headerlink" title="第五章 DML数据操作"></a><h2 id="5">第五章 DML数据操作</h2></h2><p><a href="#0">目录</a><br><a href="#5">第五章 DML数据操作</a></p>
+<h2 id="第五章-DML数据操作"><a href="#第五章-DML数据操作" class="headerlink" title="第五章 DML数据操作"></a><h2 id="5">第五章 DML数据操作</h2></h2><h3 id="数据导入（最常用Load和Insert方式）"><a href="#数据导入（最常用Load和Insert方式）" class="headerlink" title="数据导入（最常用Load和Insert方式）"></a>数据导入（最常用Load和Insert方式）</h3><h4 id="Load装载数据"><a href="#Load装载数据" class="headerlink" title="Load装载数据"></a>Load装载数据</h4><p><code>hive&gt; load data [local] inpath &#39;/opt/module/datas/student.txt&#39; [overwrite] into table student [partitio (partcol1=val1,…)];</code><br>local:表示从本地加载数据到hive表；否则从HDFS加载数据到hive表<br>overwrite:表示覆盖表中已有数据，否则表示追加</p>
+<h4 id="Insert通过查询语句向表中插入数据"><a href="#Insert通过查询语句向表中插入数据" class="headerlink" title="Insert通过查询语句向表中插入数据"></a>Insert通过查询语句向表中插入数据</h4><p>基本插入数据<br><code>hive (default)&gt; insert into table  student partition(month=&#39;201709&#39;) values(1,&#39;wangwu&#39;),(2,’zhaoliu’);</code><br>基本模式插入（根据单张表查询结果）<br><code>hive (default)&gt; insert overwrite table student partition(month=&#39;201708&#39;) select id, name from student where month=&#39;201709&#39;;</code><br>insert into：以追加数据的方式插入到表或分区，原有数据不会删除<br>insert overwrite：会覆盖表或分区中已存在的数据</p>
+<h4 id="As-Select查询语句创建表并加载数据"><a href="#As-Select查询语句创建表并加载数据" class="headerlink" title="As Select查询语句创建表并加载数据"></a>As Select查询语句创建表并加载数据</h4><p>根据查询结果创建表（查询的结果会添加到新创建的表中）<br><code>hive (default)&gt; create table if not exists student3 as select id, name from student;</code></p>
+<h4 id="创建表时通过Location指定加载数据路径"><a href="#创建表时通过Location指定加载数据路径" class="headerlink" title="创建表时通过Location指定加载数据路径"></a>创建表时通过Location指定加载数据路径</h4><p>创建表，并指定在hdfs上的位置<br><code>hive (default)&gt; create external table if not exists student5(id int, name string) row format delimited fields terminated by &#39;\t&#39; location &#39;/student;</code></p>
+<h4 id="Import数据到指定Hive表中"><a href="#Import数据到指定Hive表中" class="headerlink" title="Import数据到指定Hive表中"></a>Import数据到指定Hive表中</h4><p>注意：先用export导出后，再将数据导入。<br><code>hive (default)&gt; import table student2 partition(month=&#39;201709&#39;) from &#39;/user/hive/warehouse/export/student&#39;;</code></p>
+<h3 id="数据导出"><a href="#数据导出" class="headerlink" title="数据导出"></a>数据导出</h3><h4 id="Insert导出数据到文件系统"><a href="#Insert导出数据到文件系统" class="headerlink" title="Insert导出数据到文件系统"></a>Insert导出数据到文件系统</h4><p>将查询的结果格式化导出到本地<br><code>hive(default)&gt;insert overwrite local directory &#39;/opt/module/data/export/student1&#39; ROW FORMAT DELIMITED FIELDS TERMINATED BY &#39;\t&#39; select * from student;</code><br>将查询的结果导出到HDFS上(没有local)<br><code>hive (default)&gt; insert overwrite directory &#39;/user/atguigu/student2&#39; ROW FORMAT DELIMITED FIELDS TERMINATED BY &#39;\t&#39; select * from student;</code></p>
+<h4 id="Hadoop命令导出到本地"><a href="#Hadoop命令导出到本地" class="headerlink" title="Hadoop命令导出到本地"></a>Hadoop命令导出到本地</h4><p><code>hive (default)&gt; dfs -get /user/hive/warehouse/student month=201709/000000_0 /opt/module/datas/export/student3.txt;</code></p>
+<h4 id="Hive-Shell-命令导出"><a href="#Hive-Shell-命令导出" class="headerlink" title="Hive Shell 命令导出"></a>Hive Shell 命令导出</h4><p>基本语法：（hive -f/-e 执行语句或者脚本 &gt; file）<br><code>[hadoop@hadoop101 hive]$ bin/hive -e &#39;select * from default.student;&#39; &gt; /opt/module/datas/export/student4.txt;</code></p>
+<h4 id="Export导出到HDFS上"><a href="#Export导出到HDFS上" class="headerlink" title="Export导出到HDFS上"></a>Export导出到HDFS上</h4><p><code>hive(default)&gt; export table default.student to &#39;/user/hive/warehouse/export/student&#39;;</code><br>export和import主要用于两个Hadoop平台集群之间Hive表迁移。</p>
+<h4 id="Sqoop导出"><a href="#Sqoop导出" class="headerlink" title="Sqoop导出"></a>Sqoop导出</h4><h3 id="清除表中数据-Truncate"><a href="#清除表中数据-Truncate" class="headerlink" title="清除表中数据(Truncate)"></a>清除表中数据(Truncate)</h3><p>注意：Truncate只能删除管理表，不能删除外部表中数据<br><code>hive (default)&gt; truncate table student;</code></p>
+<p><a href="#0">目录</a><br><a href="#5">第五章 DML数据操作</a></p>
+<hr>
+<h2 id="第六章-查询"><a href="#第六章-查询" class="headerlink" title="第六章 查询"></a><h2 id="6">第六章 查询</h2></h2><p><a href="#0">目录</a><br><a href="#6">第六章 查询</a></p>
 
       
     </div>
