@@ -27,7 +27,7 @@
 <meta property="og:description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型第四章 DDL数据定义第五章 DML数据操作第六章 查询  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
-<meta property="og:updated_time" content="2020-06-06T15:36:37.088Z">
+<meta property="og:updated_time" content="2020-06-07T05:40:27.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
   <!-- Canonical links -->
@@ -503,7 +503,13 @@
 <h4 id="Sqoop导出"><a href="#Sqoop导出" class="headerlink" title="Sqoop导出"></a>Sqoop导出</h4><h3 id="清除表中数据-Truncate"><a href="#清除表中数据-Truncate" class="headerlink" title="清除表中数据(Truncate)"></a>清除表中数据(Truncate)</h3><p>注意：Truncate只能删除管理表，不能删除外部表中数据<br><code>hive (default)&gt; truncate table student;</code></p>
 <p><a href="#0">目录</a><br><a href="#5">第五章 DML数据操作</a></p>
 <hr>
-<h2 id="第六章-查询"><a href="#第六章-查询" class="headerlink" title="第六章 查询"></a><h2 id="6">第六章 查询</h2></h2><p><a href="#0">目录</a><br><a href="#6">第六章 查询</a></p>
+<h2 id="第六章-查询"><a href="#第六章-查询" class="headerlink" title="第六章 查询"></a><h2 id="6">第六章 查询</h2></h2><h3 id="基本查询select-from"><a href="#基本查询select-from" class="headerlink" title="基本查询select from"></a>基本查询select from</h3><h4 id="全表查询和特定列查询"><a href="#全表查询和特定列查询" class="headerlink" title="全表查询和特定列查询"></a>全表查询和特定列查询</h4><p>1．全表查询<br><code>hive (default)&gt; select * from emp;</code><br>2．选择特定列查询<br><code>hive (default)&gt; select empno, ename from emp;</code></p>
+<h4 id="列别名"><a href="#列别名" class="headerlink" title="列别名"></a>列别名</h4><p>紧跟列名，也可以在列名和别名之间加入关键字‘AS’<br><code>hive (default)&gt; select ename AS name, deptno dn from emp;</code></p>
+<h4 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h4><p>+、-、*、/、%、&amp;、|、^、~</p>
+<h4 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h4><p>1．求总行数（count）<br><code>hive (default)&gt; select count(*) cnt from emp;</code><br>2．求工资的最大值（max）<br><code>hive (default)&gt; select max(sal) max_sal from emp;</code><br>3．求工资的最小值（min）<br><code>hive (default)&gt; select min(sal) min_sal from emp;</code><br>4．求工资的总和（sum）<br><code>hive (default)&gt; select sum(sal) sum_sal from emp;</code><br>5．求工资的平均值（avg）<br><code>hive (default)&gt; select avg(sal) avg_sal from emp;</code></p>
+<h4 id="Limit语句"><a href="#Limit语句" class="headerlink" title="Limit语句"></a>Limit语句</h4><p>典型的查询会返回多行数据。LIMIT子句用于限制返回的行数。<br><code>hive (default)&gt; select * from emp limit 5;</code></p>
+<h3 id="where谓词语句"><a href="#where谓词语句" class="headerlink" title="where谓词语句"></a>where谓词语句</h3><h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><h3 id="Join语句"><a href="#Join语句" class="headerlink" title="Join语句"></a>Join语句</h3><p>注意：建表思路Hive和MySQL有所差别：<br>MySQL常针对数据分维度建表，减少数据冗余；<br>Hive存储资源相对计算资源充足，建表粒度更粗，减少Join等计算的消耗</p>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p><a href="#0">目录</a><br><a href="#6">第六章 查询</a></p>
 
       
     </div>
