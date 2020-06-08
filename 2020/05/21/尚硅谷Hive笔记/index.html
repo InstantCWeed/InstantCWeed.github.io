@@ -18,16 +18,16 @@
   
   
   <title>尚硅谷Hive笔记 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型第四章 DDL数据定义第五章 DML数据操作第六章 查询  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序">
+  <meta name="description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型第四章 DDL数据定义第五章 DML数据操作（重要）第六章 查询（非常重要）第七章 函数（很重要）第八章 压缩和存储第九章 企业级调优  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="尚硅谷Hive笔记">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型第四章 DDL数据定义第五章 DML数据操作第六章 查询  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查) 本质是：将HQL转化成MapReduce程序">
+<meta property="og:description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型第四章 DDL数据定义第五章 DML数据操作（重要）第六章 查询（非常重要）第七章 函数（很重要）第八章 压缩和存储第九章 企业级调优  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
-<meta property="og:updated_time" content="2020-06-07T14:02:59.479Z">
+<meta property="og:updated_time" content="2020-06-08T12:27:41.633Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
   <!-- Canonical links -->
@@ -379,7 +379,7 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a><h2 id="0">目录：</h2></h2><p><a href="#1">第一章 Hive基本概念</a><br><a href="#2">第二章 Hive安装</a><br><a href="#3">第三章 Hive数据类型</a><br><a href="#4">第四章 DDL数据定义</a><br><a href="#5">第五章 DML数据操作</a><br><a href="#6">第六章 查询</a></p>
+        <h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a><h2 id="0">目录：</h2></h2><p><a href="#1">第一章 Hive基本概念</a><br><a href="#2">第二章 Hive安装</a><br><a href="#3">第三章 Hive数据类型</a><br><a href="#4">第四章 DDL数据定义</a><br><a href="#5">第五章 DML数据操作</a><strong>（重要）</strong><br><a href="#6">第六章 查询</a><strong>（非常重要）</strong><br><a href="#7">第七章 函数</a><strong>（很重要）</strong><br><a href="#8">第八章 压缩和存储</a><br><a href="#9">第九章 企业级调优</a></p>
 <hr>
 <h2 id="第一章Hive基本概念"><a href="#第一章Hive基本概念" class="headerlink" title="第一章Hive基本概念"></a><h2 id="1">第一章Hive基本概念</h2></h2><h3 id="什么是Hive"><a href="#什么是Hive" class="headerlink" title="什么是Hive"></a>什么是Hive</h3><p>Hive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读取。(HDFS背景：增、删、查)</p>
 <font color="red">本质是：将HQL转化成MapReduce程序</font>
@@ -562,7 +562,21 @@
 <p><code>COLLECT_SET(col)</code>：函数只接受基本数据类型，它的主要作用是将某字段的值进行去重汇总，产生array类型字段。</p>
 <h4 id="列转行-集合转多行"><a href="#列转行-集合转多行" class="headerlink" title="列转行(集合转多行)"></a>列转行(集合转多行)</h4><p>函数说明<br><code>EXPLODE(col)</code>：将hive一列中复杂的array或者map结构拆分成多行。</p>
 <p>LATERAL VIEW<br>用法：<code>LATERAL VIEW udtf(expression) tableAlias AS columnAlias</code><br>解释：用于和split, explode等UDTF一起使用，它能够将一列数据拆成多行数据，在此基础上可以对拆分后的数据进行聚合。</p>
-<h4 id="窗口函数（开窗函数）"><a href="#窗口函数（开窗函数）" class="headerlink" title="窗口函数（开窗函数）"></a>窗口函数（开窗函数）</h4><h4 id="Rank"><a href="#Rank" class="headerlink" title="Rank"></a>Rank</h4><p><a href="#0">目录</a><br><a href="#6">第六章 查询</a></p>
+<h4 id="窗口函数（开窗函数）"><a href="#窗口函数（开窗函数）" class="headerlink" title="窗口函数（开窗函数）"></a>窗口函数（开窗函数）</h4><p>窗口函数：在执行一些聚合函数的时候，指定的操作窗口。</p>
+<p>窗口函数的执行时机几乎上在最后(如果有全局排序order by，窗口函数会在order by之前执行)，所以等整表其他数据都出来了，才会执行窗口函数。</p>
+<p>每多一个窗口，就会多一个MR程序，除非开的窗口是一样的。每开一个窗，依次补齐新增的一列。可以使用<strong>explain关键字</strong>展示整个执行的过程。</p>
+<h4 id="Rank"><a href="#Rank" class="headerlink" title="Rank"></a>Rank</h4><p>排名函数常与窗口函数一起使用，返回排名。</p>
+<p><a href="#0">目录</a><br><a href="#6">第六章 查询</a></p>
+<hr>
+<h2 id="第七章-函数"><a href="#第七章-函数" class="headerlink" title="第七章 函数"></a><h2 id="7">第七章 函数</h2></h2><h3 id="系统内置函数"><a href="#系统内置函数" class="headerlink" title="系统内置函数"></a>系统内置函数</h3><p>可以使用<code>hive&gt; show functions;</code>查看hive中的内置函数</p>
+<h3 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h3><p>写java程序，后用Maven导出成jar包，导入hive的lib文件夹中，注册为临时function。</p>
+<p>UDAF：聚合函数，多进一出。一般跟窗口函数和group by联用。<br>UDTF：一进多出。一般和lateral view explode()联用</p>
+<p><a href="#0">目录</a><br><a href="#7">第七章 函数</a></p>
+<hr>
+<h2 id="第八章-压缩和存储"><a href="#第八章-压缩和存储" class="headerlink" title="第八章 压缩和存储"></a><h2 id="8">第八章 压缩和存储</h2></h2><h3 id="Hadoop源码支持Snappy压缩"><a href="#Hadoop源码支持Snappy压缩" class="headerlink" title="Hadoop源码支持Snappy压缩"></a>Hadoop源码支持Snappy压缩</h3><p>查看支持的本地库：<code>hadoop checknative</code></p>
+<p><a href="#0">目录</a><br><a href="#8">第八章 压缩和存储</a></p>
+<hr>
+<h2 id="第九章-企业级调优"><a href="#第九章-企业级调优" class="headerlink" title="第九章 企业级调优"></a><h2 id="9">第九章 企业级调优</h2></h2><p><a href="#0">目录</a><br><a href="#9">第九章 企业级调优</a></p>
 <hr>
 
       
