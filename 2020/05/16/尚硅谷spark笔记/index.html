@@ -18,15 +18,15 @@
   
   
   <title>尚硅谷spark笔记 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="目录：Spark基础解析第一章 Spark概述第二章 Spark运行模式第三章 案例实操 SparkCoreSparkSqlSparkStreaming 第一章 Spark概述MR的缺点：MR基于数据集的计算，所以面向数据  基本运算规则从存储介质中获取(采集)数据，然后进行计算，然后将结果存储到介质中，所以主要应用于一次性的计算，不适合数据挖掘和机器学习这样的迭代计算和图形挖掘计算。 MR基于文">
+  <meta name="description" content="目录：Spark基础解析第一章 Spark概述第二章 Spark运行模式第三章 案例实操 SparkCoreSparkSqlSparkStreaming 第一章 Spark概述Hadoop 与 Spark2012年发布1.x稳定版：HDFS（存储框架）:一个 NameNode 对应 多个 DataNode、一个SecondaryNameNodeMapReduce（计算和资源调度框架）: 一个Job">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="尚硅谷spark笔记">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;16&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7spark%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="目录：Spark基础解析第一章 Spark概述第二章 Spark运行模式第三章 案例实操 SparkCoreSparkSqlSparkStreaming 第一章 Spark概述MR的缺点：MR基于数据集的计算，所以面向数据  基本运算规则从存储介质中获取(采集)数据，然后进行计算，然后将结果存储到介质中，所以主要应用于一次性的计算，不适合数据挖掘和机器学习这样的迭代计算和图形挖掘计算。 MR基于文">
+<meta property="og:description" content="目录：Spark基础解析第一章 Spark概述第二章 Spark运行模式第三章 案例实操 SparkCoreSparkSqlSparkStreaming 第一章 Spark概述Hadoop 与 Spark2012年发布1.x稳定版：HDFS（存储框架）:一个 NameNode 对应 多个 DataNode、一个SecondaryNameNodeMapReduce（计算和资源调度框架）: 一个Job">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-17T01:39:52.421Z">
+<meta property="og:updated_time" content="2020-06-17T16:27:57.661Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/05/16/%E5%B0%9A%E7%A1%85%E8%B0%B7spark%E7%AC%94%E8%AE%B0/index.html">
@@ -379,13 +379,18 @@
       
         <h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a><h2 id="0">目录：</h2></h2><h3 id="Spark基础解析"><a href="#Spark基础解析" class="headerlink" title="Spark基础解析"></a>Spark基础解析</h3><p><a href="#1">第一章 Spark概述</a><br><a href="#2">第二章 Spark运行模式</a><br><a href="#3">第三章 案例实操</a></p>
 <h3 id="SparkCore"><a href="#SparkCore" class="headerlink" title="SparkCore"></a>SparkCore</h3><h3 id="SparkSql"><a href="#SparkSql" class="headerlink" title="SparkSql"></a>SparkSql</h3><h3 id="SparkStreaming"><a href="#SparkStreaming" class="headerlink" title="SparkStreaming"></a>SparkStreaming</h3><hr>
-<h2 id="第一章-Spark概述"><a href="#第一章-Spark概述" class="headerlink" title="第一章 Spark概述"></a><h2 id="1">第一章 Spark概述</h2></h2><p>MR的缺点：<br>MR基于数据集的计算，所以面向数据</p>
+<h2 id="第一章-Spark概述"><a href="#第一章-Spark概述" class="headerlink" title="第一章 Spark概述"></a><h2 id="1">第一章 Spark概述</h2></h2><h3 id="Hadoop-与-Spark"><a href="#Hadoop-与-Spark" class="headerlink" title="Hadoop 与 Spark"></a>Hadoop 与 Spark</h3><p>2012年发布1.x稳定版：<br>HDFS（存储框架）:一个 NameNode 对应 多个 DataNode、一个SecondaryNameNode<br>MapReduce（计算和资源调度框架）: 一个JobTracker 对应 多个 TaskTracker</p>
+<p>MR的缺点：<br>MR基于数据集的计算，所以面向数据</p>
 <ol>
 <li>基本运算规则从存储介质中获取(采集)数据，然后进行计算，然后将结果存储到介质中，所以主要应用于一次性的计算，不适合数据挖掘和机器学习这样的迭代计算和图形挖掘计算。</li>
 <li>MR基于文件存储介质的操作，所以性能非常的慢。</li>
-<li>MR和Hadoop紧密耦合在一起，无法动态替换</li>
+<li>MR和Hadoop紧密耦合在一起，无法动态替换。</li>
 </ol>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><h2 id="第二章-Spark运行模式"><a href="#第二章-Spark运行模式" class="headerlink" title="第二章 Spark运行模式"></a><h2 id="1">第二章 Spark运行模式</h2></h2><h2 id="第三章-案例实操"><a href="#第三章-案例实操" class="headerlink" title="第三章 案例实操"></a><h2 id="1">第三章 案例实操</h2></h2>
+<p>2013年10月 hadoop 2.x发布(Yarn)：<br>ResourceManager 对应 NodeManager，负责资源调度；<br>Driver 对应 Task，负责计算；<br><strong>为了资源调度和计算解耦</strong>，在RM中存在ApplicationMaster，负责RM和Driver的交互；在NM中存在Container，负责NM和Task的交互。<br>Yarn将资源调度和计算分离，就使得将计算框架可插拔，替换成为可能。</p>
+<p>Spark历史：<br>2013年6月发布<br>Spark基于Hadoop1.x架构思想，采用自己的方式改善Hadoop1.x中的问题<br>Spark计算基于内存，并且基于Scala语法开发，所以天生适合迭代式计算<br><strong>也是为了资源调度和计算解耦</strong>，Spark的基础架构中设计为Master和多个Worker相对应，负责资源调度；<br>在Master中也存在ApplicationMaster，对应Worker中存在的Executor，负责计算；<br>整体设计和Yarn的设计思路很相似。为了使用Hadoop的HDFS存储框架，插拔计算框架，所以整体框架采用HDFS+Yarn+Spark.</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>Spark是一种基于<font color="red">内存</font>的快速、通用、可扩展的大数据分析引擎。</p>
+<h3 id="内置模块"><a href="#内置模块" class="headerlink" title="内置模块"></a>内置模块</h3><p>Spark Core是框架中最重要的部分<br>Spark 中调度模块有Spark自己的独立调度器、Hadoop的Yarn和Apache的Mesos;上层的周边模块有SparkSQL、SparkStreaming、SparkMlib等</p>
+<h2 id="第二章-Spark运行模式"><a href="#第二章-Spark运行模式" class="headerlink" title="第二章 Spark运行模式"></a><h2 id="1">第二章 Spark运行模式</h2></h2><h2 id="第三章-案例实操"><a href="#第三章-案例实操" class="headerlink" title="第三章 案例实操"></a><h2 id="1">第三章 案例实操</h2></h2>
       
     </div>
     <div class="article-footer">
