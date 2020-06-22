@@ -45,7 +45,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;HDFS-HA故障转移机制.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;YARN-HA工作机制.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;YARN工作机制.png">
-<meta property="og:updated_time" content="2020-06-21T04:54:13.612Z">
+<meta property="og:updated_time" content="2020-06-21T05:00:01.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;01&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7hadoop%E7%AC%94%E8%AE%B0&#x2F;hadoop解耦后组织形式.png">
   <!-- Canonical links -->
@@ -398,7 +398,7 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><h2 id="0">目录</h2></h2><p><a href="#1">第一部分 Hadoop入门</a><br><a href="#2">第二部分 HDFS</a><br><a href="#3">第三部分 mapreduce框架原理(非常重要)</a></p>
-<h3 id="Hadoop重点"><a href="#Hadoop重点" class="headerlink" title="Hadoop重点"></a>Hadoop重点</h3><p>入门：Hadoop组成<br>HDFS：HDFS的shell操作、HDFS的数据流<br>MapReduce：Shuffle机制(出现数据倾斜)、YARN工作机制</p>
+<h4 id="Hadoop重点"><a href="#Hadoop重点" class="headerlink" title="Hadoop重点"></a>Hadoop重点</h4><p>入门：Hadoop组成<br>HDFS：HDFS的shell操作、HDFS的数据流<br>MapReduce：Shuffle机制(出现数据倾斜)、YARN工作机制</p>
 <hr>
 <h2 id="第一部分-Hadoop入门"><a href="#第一部分-Hadoop入门" class="headerlink" title="第一部分 Hadoop入门"></a><h2 id="1">第一部分 Hadoop入门</h2></h2><p>Hadoop: Apache基金会的 分布式基础架构<br>解决<strong>海量数据存储</strong> 和 <strong>分析计算</strong> 问题</p>
 <p>MySQL处理极限数据量在百万级别数据查询，大概1TB量<br>Hadoop:存：HDFS; 算：MapReduce</p>
@@ -476,7 +476,7 @@
 <p><strong>其他机器配置（hadoop102和hadoop103、必须root用户）</strong><br>（1）在其他机器配置10分钟与时间服务器同步一次<br><code>crontab -e</code><br>编写定时任务如下：<br><code>*/10 * * * * /usr/sbin/ntpdate hadoop102</code><br>（2）修改任意机器时间<br><code>date -s &quot;2017-9-11 11:11:11&quot;</code><br>（3）十分钟后查看机器是否与时间服务器同步<br><code>date</code><br>说明：测试的时候可以将10分钟调整为1分钟，节省时间。</p>
 <p><a href="#0">目录</a><br><a href="#1">第一部分 Hadoop入门</a></p>
 <hr>
-<h2 id="第二部分-HDFS"><a href="#第二部分-HDFS" class="headerlink" title="第二部分 HDFS"></a><h2 id="2">第二部分 HDFS<h2></h2><p>Hadoop Distributed File System<br>HDFS的使用场景：适合一次写入、多次读出的场景，且不支持文件的修改</p>
+<h2 id="第二部分-HDFS"><a href="#第二部分-HDFS" class="headerlink" title="第二部分 HDFS"></a><h2 id="2">第二部分 HDFS<h2></h2><p>Hadoop Distributed File System<br>HDFS的使用场景：<font color="red">适合一次写入、多次读出的场景，且不支持文件的修改</font></p>
 <h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><p>优点：高容错性(可恢复的多副本)、适合处理大数据(PB级别数据量、百万规模文件数量)、可构建在廉价机器上(和超算相比，后者就是硬件牛逼)</p>
 <p>缺点：不适合低延时数据访问(运行慢)、无法高效对大量小文件进行存储(NN的条目太多)、不支持<strong>并发写入</strong>和文件随机修改(单线程写，仅支持数据追加append，修改只能删除重写)</p>
 <h4 id="HDFS组成架构"><a href="#HDFS组成架构" class="headerlink" title="HDFS组成架构"></a>HDFS组成架构</h4><p>1）NameNode(nn):Master,主管、管理者<br>    (1)管理HDFS的名称空间<br>    (2)配置副本策略<br>    (3)管理数据块(Block)映射信息<br>    (4)处理客户端读写请求</p>

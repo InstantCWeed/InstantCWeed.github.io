@@ -18,16 +18,18 @@
   
   
   <title>尚硅谷spark笔记 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="目录：Spark基础解析第一章 Spark概述第二章 Spark运行模式第三章 案例实操 SparkCoreSparkSqlSparkStreaming 第一章 Spark概述Hadoop 与 Spark2012年发布1.x稳定版：HDFS（存储框架）:一个 NameNode 对应 多个 DataNode、一个SecondaryNameNodeMapReduce（计算和资源调度框架）: 一个Job">
+  <meta name="description" content="目录：Spark基础解析第一章 Spark概述第二章 Spark运行模式 SparkCoreSparkSqlSparkStreaming 第一章 Spark概述Hadoop 与 Spark2012年发布1.x稳定版：HDFS（存储框架）:一个 NameNode 对应 多个 DataNode、一个SecondaryNameNodeMapReduce（计算和资源调度框架）: 一个JobTracker">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="尚硅谷spark笔记">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;16&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7spark%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="目录：Spark基础解析第一章 Spark概述第二章 Spark运行模式第三章 案例实操 SparkCoreSparkSqlSparkStreaming 第一章 Spark概述Hadoop 与 Spark2012年发布1.x稳定版：HDFS（存储框架）:一个 NameNode 对应 多个 DataNode、一个SecondaryNameNodeMapReduce（计算和资源调度框架）: 一个Job">
+<meta property="og:description" content="目录：Spark基础解析第一章 Spark概述第二章 Spark运行模式 SparkCoreSparkSqlSparkStreaming 第一章 Spark概述Hadoop 与 Spark2012年发布1.x稳定版：HDFS（存储框架）:一个 NameNode 对应 多个 DataNode、一个SecondaryNameNodeMapReduce（计算和资源调度框架）: 一个JobTracker">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-19T14:41:18.412Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;16&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7spark%E7%AC%94%E8%AE%B0&#x2F;Spark部署在Yarn上.png">
+<meta property="og:updated_time" content="2020-06-22T12:16:49.134Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;16&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7spark%E7%AC%94%E8%AE%B0&#x2F;Spark部署在Yarn上.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/05/16/%E5%B0%9A%E7%A1%85%E8%B0%B7spark%E7%AC%94%E8%AE%B0/index.html">
   
@@ -377,7 +379,7 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a><h2 id="0">目录：</h2></h2><h3 id="Spark基础解析"><a href="#Spark基础解析" class="headerlink" title="Spark基础解析"></a>Spark基础解析</h3><p><a href="#1">第一章 Spark概述</a><br><a href="#2">第二章 Spark运行模式</a><br><a href="#3">第三章 案例实操</a></p>
+        <h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a><h2 id="0">目录：</h2></h2><h3 id="Spark基础解析"><a href="#Spark基础解析" class="headerlink" title="Spark基础解析"></a>Spark基础解析</h3><p><a href="#1">第一章 Spark概述</a><br><a href="#2">第二章 Spark运行模式</a></p>
 <h3 id="SparkCore"><a href="#SparkCore" class="headerlink" title="SparkCore"></a>SparkCore</h3><h3 id="SparkSql"><a href="#SparkSql" class="headerlink" title="SparkSql"></a>SparkSql</h3><h3 id="SparkStreaming"><a href="#SparkStreaming" class="headerlink" title="SparkStreaming"></a>SparkStreaming</h3><hr>
 <h2 id="第一章-Spark概述"><a href="#第一章-Spark概述" class="headerlink" title="第一章 Spark概述"></a><h2 id="1">第一章 Spark概述</h2></h2><h3 id="Hadoop-与-Spark"><a href="#Hadoop-与-Spark" class="headerlink" title="Hadoop 与 Spark"></a>Hadoop 与 Spark</h3><p>2012年发布1.x稳定版：<br>HDFS（存储框架）:一个 NameNode 对应 多个 DataNode、一个SecondaryNameNode<br>MapReduce（计算和资源调度框架）: 一个JobTracker 对应 多个 TaskTracker</p>
 <p>MR的缺点：<br>MR基于数据集的计算，所以面向数据</p>
@@ -391,8 +393,13 @@
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>Spark是一种基于<font color="red">内存</font>的快速、通用、可扩展的大数据分析引擎。</p>
 <h3 id="内置模块"><a href="#内置模块" class="headerlink" title="内置模块"></a>内置模块</h3><p>Spark Core是框架中最重要的部分<br>Spark 中调度模块有Spark自己的独立调度器、Hadoop的Yarn和Apache的Mesos;上层的周边模块有SparkSQL、SparkStreaming、SparkMlib等</p>
 <h3 id="两个重要角色——针对计算而言"><a href="#两个重要角色——针对计算而言" class="headerlink" title="两个重要角色——针对计算而言"></a>两个重要角色——针对计算而言</h3><p>Driver（驱动器）：管理、调度的<br>Executor（执行器）：真正做计算的</p>
-<h3 id="执行WordCount"><a href="#执行WordCount" class="headerlink" title="执行WordCount"></a>执行WordCount</h3><p>文件读入行（textFile(“input”)）、扁平化（flatMap( _.split(“ “))）、转换结构（ map ((_,1))）、分组聚合（reduceByKey(_+_)）、收集展示（collect）</p>
-<h2 id="第二章-Spark运行模式"><a href="#第二章-Spark运行模式" class="headerlink" title="第二章 Spark运行模式"></a><h2 id="1">第二章 Spark运行模式</h2></h2><h2 id="第三章-案例实操"><a href="#第三章-案例实操" class="headerlink" title="第三章 案例实操"></a><h2 id="1">第三章 案例实操</h2></h2>
+<hr>
+<h2 id="第二章-Spark运行模式"><a href="#第二章-Spark运行模式" class="headerlink" title="第二章 Spark运行模式"></a><h2 id="2">第二章 Spark运行模式</h2></h2><h3 id="执行WordCount"><a href="#执行WordCount" class="headerlink" title="执行WordCount"></a>执行WordCount</h3><p>文件读入行（textFile(“input”)）、扁平化（flatMap( _.split(“ “))）、转换结构（ map ((_,1))）、分组聚合（reduceByKey(_+_)）、收集展示（collect）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import org.apache.spark.rdd.RDD</span><br><span class="line">import org.apache.spark.&#123;SparkConf, SparkContext&#125;</span><br><span class="line"></span><br><span class="line">object WordCount &#123;</span><br><span class="line"></span><br><span class="line">    def main(args : Array[String]): Unit = &#123;</span><br><span class="line">        // 使用开发工具进行Spark WordCount的开发</span><br><span class="line"></span><br><span class="line">        //local模式</span><br><span class="line">        //创建SparkConf对象</span><br><span class="line">        //设定Spark计算框架的运行(部署)环境</span><br><span class="line">        //app id全局应用id</span><br><span class="line">        val config : SparkConf = new SparkConf().setMaster(&quot;local[*]&quot;).setAppName(&quot;WordCount&quot;)</span><br><span class="line"></span><br><span class="line">        //创建Spark上下文对象</span><br><span class="line">        val sc = new SparkContext(config)</span><br><span class="line"></span><br><span class="line">        //读取文件,将文件内容一行一行的读取出来</span><br><span class="line">        val lines: RDD[String] = sc.textFile(&quot;in&quot;)</span><br><span class="line"></span><br><span class="line">        //将一行一行的数据分解为一个一个的单词</span><br><span class="line">        val words: RDD[String] = lines.flatMap(_.split(&quot; &quot;))</span><br><span class="line"></span><br><span class="line">        //为了统计方便，将单词数据进行结构的转换</span><br><span class="line">        val wordToOne: RDD[(String, Int)] = words.map((_,1))</span><br><span class="line"></span><br><span class="line">        //对转换结构后的数据进行分组聚合</span><br><span class="line">        val wordToSum: RDD[(String, Int)] = wordToOne.reduceByKey(_+_)</span><br><span class="line"></span><br><span class="line">        //将统计结果采集后打印到控制台</span><br><span class="line">        val result: Array[(String, Int)] = wordToSum.collect()</span><br><span class="line">        //println(result)</span><br><span class="line">        result.foreach(println)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="将Spark程序部署到Yarn中执行（重点）"><a href="#将Spark程序部署到Yarn中执行（重点）" class="headerlink" title="将Spark程序部署到Yarn中执行（重点）"></a>将Spark程序部署到Yarn中执行（重点）</h3><p>两个框架协同工作，结合画图一起理解：<br><img src="/2020/05/16/%E5%B0%9A%E7%A1%85%E8%B0%B7spark%E7%AC%94%E8%AE%B0/Spark部署在Yarn上.png" alt><br>1.Client向RM提交app submit<br>2.RM选择一个NM启动AM，AM启动Driver（即初始化sc）<br>3.AM向RM申请资源<br>4.RM给AM返回可用的资源列表<br>5.AM在其余NM中创建Container对象，在Container中创建执行器对象Executor<br>6.NM的Executor向AM反向注册，汇报自己的存在<br>7.AM分解任务，并调度任务分发给不同的Executor执行</p>
+<h3 id="Spark部署到Yarn中执行spark-shell"><a href="#Spark部署到Yarn中执行spark-shell" class="headerlink" title="Spark部署到Yarn中执行spark-shell"></a>Spark部署到Yarn中执行spark-shell</h3><p>在spark的目录下执行：<code>bin/spark-shell --master yarn</code>就可以在配置过spark-env.sh后以yarn模式运行</p>
+<p>在终端输入<code>yarn application -list</code>可以看到在Yarn上运行的任务情况。</p>
+<hr>
+
       
     </div>
     <div class="article-footer">
