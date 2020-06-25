@@ -18,14 +18,18 @@
   
   
   <title>力扣-142-环形链表II | FluffySpoooooonge!!!</title>
-  <meta name="keywords" content="刷题">
+  <meta name="description" content="题目：142. Linked List Cycle II(easy)  解题思路：双指针典型例题。首先利用快慢指针是否能够相遇，判断是否有环。接着，在有环的基础上，假设起点到环起点长度为x,环起点和相遇点的长度为y，相遇点继续走到下次环起点的长度为z。已知：slow走的路程：x+y；fast走的路程：x+y+z+y又因：fast走过路程是slow路程的两倍：2*(x+y) = x+y+z+y。得：">
+<meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="力扣-142-环形链表II">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;06&#x2F;02&#x2F;%E5%8A%9B%E6%89%A3-142-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
+<meta property="og:description" content="题目：142. Linked List Cycle II(easy)  解题思路：双指针典型例题。首先利用快慢指针是否能够相遇，判断是否有环。接着，在有环的基础上，假设起点到环起点长度为x,环起点和相遇点的长度为y，相遇点继续走到下次环起点的长度为z。已知：slow走的路程：x+y；fast走的路程：x+y+z+y又因：fast走过路程是slow路程的两倍：2*(x+y) = x+y+z+y。得：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-02T16:00:52.785Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;06&#x2F;02&#x2F;%E5%8A%9B%E6%89%A3-142-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II&#x2F;力扣142演示图解.png">
+<meta property="og:updated_time" content="2020-06-25T14:30:25.891Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;06&#x2F;02&#x2F;%E5%8A%9B%E6%89%A3-142-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II&#x2F;力扣142演示图解.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/06/02/%E5%8A%9B%E6%89%A3-142-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II/index.html">
   
@@ -375,7 +379,12 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        
+        <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/linked-list-cycle-ii/" target="_blank" rel="noopener">142. Linked List Cycle II(easy)</a></p>
+<hr>
+<p><strong>解题思路：</strong><br>双指针典型例题。<br>首先利用快慢指针是否能够相遇，判断是否有环。<br>接着，在有环的基础上，假设起点到环起点长度为<code>x</code>,环起点和相遇点的长度为<code>y</code>，相遇点继续走到下次环起点的长度为<code>z</code>。<br>已知：<br>slow走的路程：<code>x+y</code>；fast走的路程：<code>x+y+z+y</code><br>又因：<br>fast走过路程是slow路程的两倍：<code>2*(x+y) = x+y+z+y</code>。得：<code>x=z</code><br>所以，head到环起点距离 = 相遇点继续走到环起点得距离。<br><img src="/2020/06/02/%E5%8A%9B%E6%89%A3-142-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II/力扣142演示图解.png" alt><br><a href="https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/xiang-xi-tu-jie-ken-ding-kan-de-ming-bai-by-xixili/" target="_blank" rel="noopener">来自力扣的清晰解释</a></p>
+<hr>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br><span class="line">public ListNode detectCycle(ListNode head) &#123;</span><br><span class="line">    ListNode fast = head,slow = head;</span><br><span class="line">    while(true)&#123;</span><br><span class="line">        if(fast == null || fast.next == null)   return null;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">        slow = slow.next;</span><br><span class="line">        if(slow == fast)    break;</span><br><span class="line">    &#125;</span><br><span class="line">    fast = head;</span><br><span class="line">    while(fast != slow)&#123;</span><br><span class="line">        fast = fast.next;</span><br><span class="line">        slow = slow.next;</span><br><span class="line">    &#125;</span><br><span class="line">    return fast;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     <div class="article-footer">
