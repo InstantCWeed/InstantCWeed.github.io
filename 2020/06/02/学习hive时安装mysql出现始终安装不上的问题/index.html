@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
 <meta property="og:description" content="我的虚拟机是CentOS7的版本，在&#x2F;opt&#x2F;software&#x2F;mysql-libs下的版本分别是：123MySQL-client-5.6.24-1.el6.x86_64.rpmmysql-connector-java-5.1.27.tar.gzMySQL-server-5.6.24-1.el6.x86_64.rpm 首先查看mysql是否安装，如果安装了，卸载mysql，注意使用su权限（1）查">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-15T09:17:01.644Z">
+<meta property="og:updated_time" content="2020-07-05T07:31:16.856Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/06/02/%E5%AD%A6%E4%B9%A0hive%E6%97%B6%E5%AE%89%E8%A3%85mysql%E5%87%BA%E7%8E%B0%E5%A7%8B%E7%BB%88%E5%AE%89%E8%A3%85%E4%B8%8D%E4%B8%8A%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
@@ -378,9 +378,9 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <p>我的虚拟机是CentOS7的版本，在<code>/opt/software/mysql-libs</code>下的版本分别是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MySQL-client-5.6.24-1.el6.x86_64.rpm</span><br><span class="line">mysql-connector-java-5.1.27.tar.gz</span><br><span class="line">MySQL-server-5.6.24-1.el6.x86_64.rpm</span><br></pre></td></tr></table></figure></p>
-<p>首先查看mysql是否安装，如果安装了，卸载mysql，注意使用su权限<br>（1）查看<br><code>rpm -qa|grep mysql</code><br>（2）卸载<br><code>rpm -e --nodeps mysql-libs-xxx.xx</code></p>
-<p>首先安装mysql服务器<br><code>rpm -ivh MySQL-server-5.6.24-1.el6.x86_64.rpm</code><br>依次出现了很多问题，如：<br>安装时出现冲突，版本没有perl的相关库的依赖；<br>安装结束没有出现 /root/mysql_secret这个存放临时密码的目录；</p>
-<p>后来发现应该还有CentOS版本和MySQL没有卸载干净带来的问题，于是找到这个网站，解决了主要的安装问题：<a href="https://blog.csdn.net/zhwyj1019/article/details/80274269?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">centos7彻底卸载mysql和通过yum安装mysql</a></p>
+<p>首先查看mysql是否安装，如果安装了，卸载mysql，注意使用su权限<br>（1）查看<br><code>rpm -qa|grep mysql</code><br><code>rpm -qa|grep -i mysql</code><br>（2）卸载<br><code>rpm -e --nodeps mysql-libs-xxx.xx</code></p>
+<p>首先安装mysql服务器<br><code>rpm -ivh MySQL-server-5.6.24-1.el6.x86_64.rpm</code><br>依次出现了很多问题，如：<br>安装时出现冲突，版本没有perl的相关库的依赖；<br>安装结束没有出现 /root/.mysql_secret这个存放临时密码的目录；</p>
+<p>后来发现应该还有CentOS版本和MySQL没有卸载干净带来的问题，于是找到这两个网站，解决了主要的安装问题：<br><a href="https://www.cnblogs.com/wangg-mail/p/4418360.html" target="_blank" rel="noopener">CentOS7安装MySQL</a><br><a href="https://blog.csdn.net/zhwyj1019/article/details/80274269?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">centos7彻底卸载mysql和通过yum安装mysql</a></p>
 
       
     </div>
