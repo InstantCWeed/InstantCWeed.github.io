@@ -27,7 +27,7 @@
 <meta property="og:description" content="目录：第一章 Hive基本概念第二章 Hive安装第三章 Hive数据类型第四章 DDL数据定义第五章 DML数据操作（重要）第六章 查询（非常重要）第七章 函数（很重要）第八章 压缩和存储第九章 企业级调优  第一章Hive基本概念什么是HiveHive是基于Hadoop的数据仓库工具，解决海量、结构化、日志的数据统计。将结构化数据文件映射为一张表，并提供类SQL查询功能。常用于一次写入，多次读">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
-<meta property="og:updated_time" content="2020-07-07T01:56:43.579Z">
+<meta property="og:updated_time" content="2020-07-09T15:59:30.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%9A%E7%A1%85%E8%B0%B7Hive%E7%AC%94%E8%AE%B0&#x2F;Hive架构.png">
   <!-- Canonical links -->
@@ -435,21 +435,12 @@
 <h3 id="查询数据库"><a href="#查询数据库" class="headerlink" title="查询数据库"></a>查询数据库</h3><p>显示数据库：<code>hive&gt; show databases;</code><br>模糊匹配显示：<code>hive&gt; show databases like &#39;db_hive*&#39;;</code><br>查看数据库信息，可看扩展信息：<code>hive&gt; desc database [extended] db_hive;</code><br>切换当前数据库：<code>hive&gt; use db_hive;</code></p>
 <h3 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h3><p><code>hive (default)&gt; alter database db_hive set dbproperties(&#39;createtime&#39;=&#39;20170830&#39;);</code></p>
 <font color="red">注意：数据库的其他元数据信息都是不可更改的，包括数据库名和数据库所在的目录位置。</font>
-更改或新增的只是一些数据库的属性信息。
 
-### 删除数据库
-删除空数据库：`hive> drop database db_hive2;`
-如果删除的数据库不存在，会报错。
-最好采用 if exists判断数据库是否存在：
-`hive> drop database if exists db_hive2;`
-如果数据库不为空，普通删除会报错。可以采用cascade命令，强制删除:
-`hive> drop database db_hive cascade;`
-
-### 创建表
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CREATE [EXTERNAL] TABLE [IF NOT EXISTS] table_name ##重要</span><br><span class="line">[(col_name data_type [COMMENT col_comment], ...)] </span><br><span class="line">[COMMENT table_comment] </span><br><span class="line">[PARTITIONED BY (col_name data_type [COMMENT col_comment], ...)] ##分区表，非常重要</span><br><span class="line">[CLUSTERED BY (col_name, col_name, ...) ##汇总表 </span><br><span class="line">[SORTED BY (col_name [ASC|DESC], ...)] INTO num_buckets BUCKETS] </span><br><span class="line">[ROW FORMAT row_format]   ##重要</span><br><span class="line">[STORED AS file_format] </span><br><span class="line">[LOCATION hdfs_path]   ##重要</span><br><span class="line">[TBLPROPERTIES (property_name=property_value, ...)]</span><br><span class="line">[AS select_statement]</span><br></pre></td></tr></table></figure>
-
-#### 管理表/外部表 
-创建表默认创建是**管理表**，也称内部表。默认存在HDFS的`/user/hive/warehouse`定义的目录下。<font color="red">删除表时，Hive也会删除这个表中数据。</font>
+<p>更改或新增的只是一些数据库的属性信息。</p>
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><p>删除空数据库：<code>hive&gt; drop database db_hive2;</code><br>如果删除的数据库不存在，会报错。<br>最好采用 if exists判断数据库是否存在：<br><code>hive&gt; drop database if exists db_hive2;</code><br>如果数据库不为空，普通删除会报错。可以采用cascade命令，强制删除:<br><code>hive&gt; drop database db_hive cascade;</code></p>
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CREATE [EXTERNAL] TABLE [IF NOT EXISTS] table_name ##重要</span><br><span class="line">[(col_name data_type [COMMENT col_comment], ...)] </span><br><span class="line">[COMMENT table_comment] </span><br><span class="line">[PARTITIONED BY (col_name data_type [COMMENT col_comment], ...)] ##分区表，非常重要</span><br><span class="line">[CLUSTERED BY (col_name, col_name, ...) ##汇总表 </span><br><span class="line">[SORTED BY (col_name [ASC|DESC], ...)] INTO num_buckets BUCKETS] </span><br><span class="line">[ROW FORMAT row_format]   ##重要</span><br><span class="line">[STORED AS file_format] </span><br><span class="line">[LOCATION hdfs_path]   ##重要</span><br><span class="line">[TBLPROPERTIES (property_name=property_value, ...)]</span><br><span class="line">[AS select_statement]</span><br></pre></td></tr></table></figure>
+<h4 id="管理表-外部表"><a href="#管理表-外部表" class="headerlink" title="管理表/外部表"></a>管理表/外部表</h4><p>创建表默认创建是<strong>管理表</strong>，也称内部表。默认存在HDFS的<code>/user/hive/warehouse</code>定义的目录下。</p>
+<font color="red">删除表时，Hive也会删除这个表中数据。</font>
 
 <p>还可以创建外部表。Hive认为表不是完全拥有这份数据。所以，<font color="red">删除表时，Hive不会删除这份数据，只会将描述表的元数据信息删除。</font>在实际工作中，也常使用这种方式，因为这样协同开发时，数据更加安全。重新创建表时也可以恢复Hive的读取结果。</p>
 <p>管理表和外部表的转换：<br>首先查询表的类型：<code>hive&gt; desc formatted hive_db</code><br>  会显示<code>Table Type:  MANAGED_TABLE</code>或者<code>Table Type:  EXTERNAL_TABLE</code><br>修改内部表为外部表：<code>alter table student2 set tblproperties(&#39;EXTERNAL&#39;=&#39;TRUE&#39;);</code><br>修改外部表为内部表：<code>alter table student2 set tblproperties(&#39;EXTERNAL&#39;=&#39;FALSE&#39;);</code></p>
