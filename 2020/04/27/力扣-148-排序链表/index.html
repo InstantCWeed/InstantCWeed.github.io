@@ -18,15 +18,15 @@
   
   
   <title>力扣-148-排序链表 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="题目：148. Sort List(easy)  解题思路：在O(NlogN)时间复杂度和O(1)常数空间复杂度对链表进行排序。  代码：1234Java:public ListNode sortList(ListNode head)&amp;#123;&amp;#125;">
+  <meta name="description" content="题目：148. Sort List(easy)  解题思路：在O(NlogN)时间复杂度和O(1)常数空间复杂度对链表进行排序。  代码：12345678910111213141516171819202122232425262728293031Java:public ListNode sortList(ListNode head) &amp;#123;  QuickSort(head,null);  re">
 <meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="力扣-148-排序链表">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;27&#x2F;%E5%8A%9B%E6%89%A3-148-%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="题目：148. Sort List(easy)  解题思路：在O(NlogN)时间复杂度和O(1)常数空间复杂度对链表进行排序。  代码：1234Java:public ListNode sortList(ListNode head)&amp;#123;&amp;#125;">
+<meta property="og:description" content="题目：148. Sort List(easy)  解题思路：在O(NlogN)时间复杂度和O(1)常数空间复杂度对链表进行排序。  代码：12345678910111213141516171819202122232425262728293031Java:public ListNode sortList(ListNode head) &amp;#123;  QuickSort(head,null);  re">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-25T14:30:33.547Z">
+<meta property="og:updated_time" content="2020-07-13T09:22:30.690Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/27/%E5%8A%9B%E6%89%A3-148-%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/index.html">
@@ -381,7 +381,7 @@
 <hr>
 <p><strong>解题思路：</strong><br>在O(NlogN)时间复杂度和O(1)常数空间复杂度对链表进行排序。</p>
 <hr>
-<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br><span class="line">public ListNode sortList(ListNode head)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">Java:</span><br><span class="line">public ListNode sortList(ListNode head) &#123;</span><br><span class="line">  QuickSort(head,null);</span><br><span class="line">  return head;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">private void QuickSort(ListNode head,ListNode tail)&#123;</span><br><span class="line">  if(head == tail || head.next == tail)   return;</span><br><span class="line">  int pivot = head.val;//使得左边的值都小于pivot，右边的值都不小于pivot</span><br><span class="line">  ListNode left = head,cur = head.next;</span><br><span class="line"></span><br><span class="line">  while(cur != tail)&#123;</span><br><span class="line">      if(cur.val &lt; pivot)&#123;</span><br><span class="line">          left = left.next;</span><br><span class="line">          //swap(left.val,cur.val);</span><br><span class="line">          int t = left.val;</span><br><span class="line">          left.val = cur.val;</span><br><span class="line">          cur.val = t;</span><br><span class="line">      &#125;</span><br><span class="line">      cur = cur.next;</span><br><span class="line">  &#125;</span><br><span class="line">  //swap(head.val,left.val);</span><br><span class="line">  int t = head.val;</span><br><span class="line">  head.val = left.val;</span><br><span class="line">  left.val = t;</span><br><span class="line"></span><br><span class="line">  QuickSort(head,left);</span><br><span class="line">  QuickSort(left.next,tail);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  //https://leetcode-cn.com/problems/sort-list/solution/gui-bing-pai-xu-he-kuai-su-pai-xu-by-a380922457/</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
