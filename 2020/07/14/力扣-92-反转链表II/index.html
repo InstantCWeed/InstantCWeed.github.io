@@ -18,15 +18,15 @@
   
   
   <title>力扣-92-反转链表II | FluffySpoooooonge!!!</title>
-  <meta name="description" content="题目：92. Reverse Linked List II(medium)  解题思路：  代码：1java:">
+  <meta name="description" content="题目：92. Reverse Linked List II(medium)  解题思路：递归翻转链表的进阶版 将从位置m到n的翻转先转换成翻转前n个，看作m=1时的情形；再递归扩展到m != 1的情形。 https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;reverse-linked-list-ii&#x2F;solution&#x2F;bu-bu-chai-jie-ru-he-di-gui-di-fa">
 <meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="力扣-92-反转链表II">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;07&#x2F;14&#x2F;%E5%8A%9B%E6%89%A3-92-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8II&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="题目：92. Reverse Linked List II(medium)  解题思路：  代码：1java:">
+<meta property="og:description" content="题目：92. Reverse Linked List II(medium)  解题思路：递归翻转链表的进阶版 将从位置m到n的翻转先转换成翻转前n个，看作m=1时的情形；再递归扩展到m != 1的情形。 https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;reverse-linked-list-ii&#x2F;solution&#x2F;bu-bu-chai-jie-ru-he-di-gui-di-fa">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-07-14T13:33:30.820Z">
+<meta property="og:updated_time" content="2020-07-14T15:48:40.139Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/07/14/%E5%8A%9B%E6%89%A3-92-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8II/index.html">
@@ -379,9 +379,11 @@
       
         <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/reverse-linked-list-ii/" target="_blank" rel="noopener">92. Reverse Linked List II(medium)</a></p>
 <hr>
-<p><strong>解题思路：</strong></p>
+<p><strong>解题思路：</strong><br>递归翻转链表的进阶版</p>
+<p>将从位置m到n的翻转先转换成翻转前n个，看作m=1时的情形；<br>再递归扩展到m != 1的情形。</p>
+<p><a href="https://leetcode-cn.com/problems/reverse-linked-list-ii/solution/bu-bu-chai-jie-ru-he-di-gui-di-fan-zhuan-lian-biao/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/reverse-linked-list-ii/solution/bu-bu-chai-jie-ru-he-di-gui-di-fan-zhuan-lian-biao/</a></p>
 <hr>
-<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java:</span><br></pre></td></tr></table></figure></p>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">java:</span><br><span class="line">public ListNode reverseBetween(ListNode head, int m, int n) &#123;</span><br><span class="line">    if(m==1)</span><br><span class="line">        return reverseN(head,n);</span><br><span class="line">    head.next = reverseBetween(head.next,m-1,n-1);</span><br><span class="line">    return head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ListNode next = null;//后驱结点</span><br><span class="line">private ListNode reverseN(ListNode head,int n)&#123;//反转链表前N个结点</span><br><span class="line">    if(n == 1)&#123;</span><br><span class="line">        //记住n+1个结点</span><br><span class="line">        next = head.next;</span><br><span class="line">        return head;</span><br><span class="line">    &#125;</span><br><span class="line">    ListNode newHead = reverseN(head.next,n-1);</span><br><span class="line">    head.next.next = head;</span><br><span class="line">    head.next = next;</span><br><span class="line"></span><br><span class="line">    return newHead;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
