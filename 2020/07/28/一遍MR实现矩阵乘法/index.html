@@ -17,19 +17,19 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Java-遍历目录 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344package com.fluffysponge;import java.io.File;&#x2F;**   需求：*       给定一个路径(E:\\),请通过递归完成遍历该目录下的所有内容，并把所有文件的绝对路径输出在控制台*   思路：*">
-<meta name="keywords" content="基础">
+  <title>一遍MR实现矩阵乘法 | FluffySpoooooonge!!!</title>
+  <meta name="description" content="面试回顾：2020.07.26 抖音大数据工程师一面时长：一个小时面试方式：视频面 1.自我介绍2.编程题：一遍MapReduce实现矩阵乘法AB，map端输入数据格式是(矩阵名(A或B)，行号，列号，值)。A:mn B：n*k。行数和列数非常大，所以只能按照一行数据输入3.Spark中RDD的一个常见问题4.Hadoop中shuffle的详细过程5.Hive避免数据倾斜有哪些优化手段6.之前接触">
+<meta name="keywords" content="面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java-遍历目录">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;04&#x2F;06&#x2F;Java-%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95&#x2F;index.html">
+<meta property="og:title" content="一遍MR实现矩阵乘法">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;07&#x2F;28&#x2F;%E4%B8%80%E9%81%8DMR%E5%AE%9E%E7%8E%B0%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344package com.fluffysponge;import java.io.File;&#x2F;**   需求：*       给定一个路径(E:\\),请通过递归完成遍历该目录下的所有内容，并把所有文件的绝对路径输出在控制台*   思路：*">
+<meta property="og:description" content="面试回顾：2020.07.26 抖音大数据工程师一面时长：一个小时面试方式：视频面 1.自我介绍2.编程题：一遍MapReduce实现矩阵乘法AB，map端输入数据格式是(矩阵名(A或B)，行号，列号，值)。A:mn B：n*k。行数和列数非常大，所以只能按照一行数据输入3.Spark中RDD的一个常见问题4.Hadoop中shuffle的详细过程5.Hive避免数据倾斜有哪些优化手段6.之前接触">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-06T14:27:42.025Z">
+<meta property="og:updated_time" content="2020-07-28T14:41:53.447Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://www.fluffysponge.fun/2020/04/06/Java-%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/index.html">
+  <link rel="canonical" href="https://www.fluffysponge.fun/2020/07/28/%E4%B8%80%E9%81%8DMR%E5%AE%9E%E7%8E%B0%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/index.html">
   
     <link rel="alternate" href="/atom.xml" title="FluffySpoooooooonge !!!" type="application/atom+xml">
   
@@ -335,14 +335,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Java-遍历目录" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="n-一遍MR实现矩阵乘法" class="article article-type-n" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Java-遍历目录
+      一遍MR实现矩阵乘法
     </h1>
   
 
@@ -350,15 +350,15 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/04/06/Java-%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/" class="article-date">
-	  <time datetime="2020-04-06T08:55:11.000Z" itemprop="datePublished">2020-04-06</time>
+	<a href="/2020/07/28/%E4%B8%80%E9%81%8DMR%E5%AE%9E%E7%8E%B0%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/" class="article-date">
+	  <time datetime="2020-07-28T14:28:22.000Z" itemprop="datePublished">2020-07-28</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a>
+	<a class="article-tag-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a>
   </span>
 
 
@@ -371,13 +371,19 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/04/06/Java-%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/28/%E4%B8%80%E9%81%8DMR%E5%AE%9E%E7%8E%B0%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">package com.fluffysponge;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">*   需求：</span><br><span class="line">*       给定一个路径(E:\\),请通过递归完成遍历该目录下的所有内容，并把所有文件的绝对路径输出在控制台</span><br><span class="line">*   思路：</span><br><span class="line">*       1.提供给定的路径创建一个File对象</span><br><span class="line">*       2.定义一个方法，用于获取给定目录下的所有内容，参数为第1步创建的File对象</span><br><span class="line">*       3.获取给定的File目录下所有的文件或者目录的File数组</span><br><span class="line">*       4.遍历该File数组，得到每一个File对象</span><br><span class="line">*       5.判断该File对象是否是目录</span><br><span class="line">*           是：递归调用</span><br><span class="line">*           否：获取绝对路径输出在控制台</span><br><span class="line">*       6.调用方法</span><br><span class="line">* */</span><br><span class="line"></span><br><span class="line">public class DiGuiDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //提供给定的路径创建一个File对象</span><br><span class="line">        File srcFile = new File(&quot;E:\\Hexo&quot;);</span><br><span class="line">        //调用方法</span><br><span class="line">        getAllFilePath(srcFile);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //定义一个方法，用于获取给定目录下的所有内容，参数为第1步创</span><br><span class="line">    public static void getAllFilePath(File srcFile)&#123;</span><br><span class="line">        //获取给定的File目录下所有的文件或者目录的File数组</span><br><span class="line">        File[] fileArray = srcFile.listFiles();</span><br><span class="line">        //遍历该File数组，得到每一个File对象</span><br><span class="line">        if(fileArray != null)&#123;</span><br><span class="line">            for(File file : fileArray)&#123;</span><br><span class="line">                //判断该File对象是否是目录</span><br><span class="line">                if(file.isDirectory())&#123;</span><br><span class="line">                    //是：递归调用</span><br><span class="line">                    getAllFilePath(file);</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    System.out.println(file.getAbsolutePath());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><strong>面试回顾：</strong><br>2020.07.26 抖音大数据工程师一面<br>时长：一个小时<br>面试方式：视频面</p>
+<p>1.自我介绍<br>2.编程题：一遍MapReduce实现矩阵乘法A<em>B，map端输入数据格式是(矩阵名(A或B)，行号，列号，值)。A:m</em>n B：n*k。<br>行数和列数非常大，所以只能按照一行数据输入<br>3.Spark中RDD的一个常见问题<br>4.Hadoop中shuffle的详细过程<br>5.Hive避免数据倾斜有哪些优化手段<br>6.之前接触过哪些数据库，redis? Hbase? MySQL?一个有关数据库引擎的问题<br>7.Hive中分桶技术<br>8.操作系统中进程和线程的定义和区别<br>9.简述局部性原理内容和计算机领域的应用<br>10.进程间通信的方式有哪些</p>
+<p>最主要收获：编程题和java开发风格不太一样，需要多关注大数据方向的编程题和常见思维模式<br>其次：计算机基础内容知道关键点即可，答出关键点就下一题了。但是方向技术栈要非常熟悉，另外编程题很重要。</p>
+<hr>
+<p><strong>矩阵乘法：</strong><br>当时确实没有想到map方法和reduce方法中，什么作为key，什么作为value可以满足分布式计算的特点，还是准备不够充分，之前一直准备的是剑指或者力扣的题，这次告诉我还是要多看多写多积累分布式计算算法的思维模式，面试之后，我就在这个<a href="https://blog.csdn.net/conansix/article/details/39958957" target="_blank" rel="noopener">MapReduce实现矩阵乘法</a>看到问题分析、设计和代码。之后也在IDEA中跑了一遍代码。<br><strong>还是警醒自己，多看多想多积累。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">AMMapper:</span><br><span class="line">package ArrayMultiply;</span><br><span class="line"></span><br><span class="line">import org.apache.hadoop.io.LongWritable;</span><br><span class="line">import org.apache.hadoop.io.Text;</span><br><span class="line">import org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class AMMapper extends Mapper&lt;LongWritable, Text,Text, Text&gt; &#123;</span><br><span class="line">    private String flag = null;</span><br><span class="line">    //A:4*3         B:3*3</span><br><span class="line">    private int m = 4;//矩阵A的行数</span><br><span class="line">    private int p = 3;//矩阵B的列数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException &#123;</span><br><span class="line">        String[] fields = value.toString().split(&quot;,&quot;);</span><br><span class="line">        if(fields[0].equals(&quot;a&quot;))&#123;</span><br><span class="line">            for(int i = 1;i&lt;=p;i++)&#123;</span><br><span class="line">                context.write(new Text(fields[1] + &quot;,&quot; + i),new Text(&quot;a,&quot; + fields[2] + &quot;,&quot; +fields[3]));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else if(fields[0].equals(&quot;b&quot;))&#123;</span><br><span class="line">            for(int i = 1;i&lt;=m;i++)&#123;</span><br><span class="line">                context.write(new Text(i + &quot;,&quot; + fields[2]),new Text(&quot;b,&quot;+ fields[1] + &quot;,&quot; + fields[3]));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">AMReducer:</span><br><span class="line">package ArrayMultiply;</span><br><span class="line"></span><br><span class="line">import org.apache.hadoop.io.IntWritable;</span><br><span class="line">import org.apache.hadoop.io.Text;</span><br><span class="line">import org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line"></span><br><span class="line">public class AMReducer extends Reducer&lt;Text, Text,Text, IntWritable&gt; &#123;</span><br><span class="line">    @Override</span><br><span class="line">    protected void reduce(Text key, Iterable&lt;Text&gt; values, Context context) throws IOException, InterruptedException &#123;</span><br><span class="line">        HashMap&lt;String,String&gt; mapA = new HashMap&lt;&gt;();</span><br><span class="line">        HashMap&lt;String,String&gt; mapB = new HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        for (Text value : values) &#123;</span><br><span class="line">            String[] val = value.toString().split(&quot;,&quot;);</span><br><span class="line">            if(&quot;a&quot;.equals(val[0]))&#123;</span><br><span class="line">                mapA.put(val[1],val[2]);</span><br><span class="line">            &#125;else if(&quot;b&quot;.equals(val[0]))&#123;</span><br><span class="line">                mapB.put(val[1],val[2]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        int result = 0;</span><br><span class="line">        Iterator&lt;String&gt; mKeys = mapA.keySet().iterator();</span><br><span class="line">        while(mKeys.hasNext())&#123;</span><br><span class="line">            String mkey = mKeys.next();</span><br><span class="line">            if(mapB.get(mkey) == null)</span><br><span class="line">                continue;</span><br><span class="line">            result += Integer.parseInt(mapA.get(mkey))</span><br><span class="line">                    * Integer.parseInt(mapB.get(mkey));</span><br><span class="line">        &#125;</span><br><span class="line">        context.write(key,new IntWritable(result));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <div class="article-footer">
@@ -386,7 +392,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://www.fluffysponge.fun/2020/04/06/Java-%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/" title="Java-遍历目录" target="_blank" rel="external">https://www.fluffysponge.fun/2020/04/06/Java-%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/</a>
+      <a href="https://www.fluffysponge.fun/2020/07/28/%E4%B8%80%E9%81%8DMR%E5%AE%9E%E7%8E%B0%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/" title="一遍MR实现矩阵乘法" target="_blank" rel="external">https://www.fluffysponge.fun/2020/07/28/%E4%B8%80%E9%81%8DMR%E5%AE%9E%E7%8E%B0%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -432,13 +438,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/04/06/%E5%8A%9B%E6%89%A3-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/" title="力扣-70-爬楼梯"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/04/05/Java-%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88%E7%B1%BB%E5%AE%9E%E7%8E%B0%E6%A8%A1%E6%8B%9F%E6%96%97%E5%9C%B0%E4%B8%BB%E6%B4%97%E7%89%8C%E5%8F%91%E7%89%8C%E5%92%8C%E7%9C%8B%E7%89%8C/" title="Java-使用集合类实现模拟斗地主洗牌发牌和看牌"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/07/18/%E5%8A%9B%E6%89%A3-199-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E8%A7%86%E5%9B%BE/" title="力扣-199-二叉树的右视图"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
