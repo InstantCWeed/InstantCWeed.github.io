@@ -18,15 +18,15 @@
   
   
   <title>力扣-887-鸡蛋掉落 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="题目：887. Super Egg Drop(hard)  解题思路：  代码：12">
+  <meta name="description" content="题目：887. Super Egg Drop(hard)  解题思路：状态：dp[K][N]:当前有K个鸡蛋，还有N层楼需要测式时最小移动的次数选择：当选择在第i层扔鸡蛋时：当鸡蛋碎了：dp[K][N] = dp[K-1][i-1]当鸡蛋没碎：dp[K][N] = dp[K][N-i]base case:dp[K][0] = 0:没有楼层需要测试，需要0次dp[1][n] = 1:只有一个鸡蛋只能">
 <meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="力扣-887-鸡蛋掉落">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;07&#x2F;31&#x2F;%E5%8A%9B%E6%89%A3-887-%E9%B8%A1%E8%9B%8B%E6%8E%89%E8%90%BD&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="题目：887. Super Egg Drop(hard)  解题思路：  代码：12">
+<meta property="og:description" content="题目：887. Super Egg Drop(hard)  解题思路：状态：dp[K][N]:当前有K个鸡蛋，还有N层楼需要测式时最小移动的次数选择：当选择在第i层扔鸡蛋时：当鸡蛋碎了：dp[K][N] = dp[K-1][i-1]当鸡蛋没碎：dp[K][N] = dp[K][N-i]base case:dp[K][0] = 0:没有楼层需要测试，需要0次dp[1][n] = 1:只有一个鸡蛋只能">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-07-31T15:34:55.465Z">
+<meta property="og:updated_time" content="2020-08-03T02:37:03.778Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/07/31/%E5%8A%9B%E6%89%A3-887-%E9%B8%A1%E8%9B%8B%E6%8E%89%E8%90%BD/index.html">
@@ -379,9 +379,10 @@
       
         <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/super-egg-drop/" target="_blank" rel="noopener">887. Super Egg Drop(hard)</a></p>
 <hr>
-<p><strong>解题思路：</strong></p>
+<p><strong>解题思路：</strong><br>状态：<br><code>dp[K][N]</code>:当前有K个鸡蛋，还有N层楼需要测式时最小移动的次数<br>选择：<br>当选择在第i层扔鸡蛋时：<br>当鸡蛋碎了：<code>dp[K][N] = dp[K-1][i-1]</code><br>当鸡蛋没碎：<code>dp[K][N] = dp[K][N-i]</code><br>base case:<br><code>dp[K][0] = 0</code>:没有楼层需要测试，需要0次<br><code>dp[1][n] = 1</code>:只有一个鸡蛋只能从低到高逐层试，需要n次</p>
+<p>递归求解：<br>消除重叠子问题：memo备忘录<br>减少计算规模：二分思想</p>
 <hr>
-<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Integer[][] memo = null;</span><br><span class="line">public int superEggDrop(int K, int N) &#123;</span><br><span class="line">    memo = new Integer[K+1][N+1];</span><br><span class="line">    return dp(K,N);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private int dp(int k,int n)&#123;</span><br><span class="line">    if(k == 1)  return n;</span><br><span class="line">    if(n&lt;= 0)   return 0;</span><br><span class="line">    if(memo[k][n] != null)  return memo[k][n];</span><br><span class="line"></span><br><span class="line">    int res = Integer.MAX_VALUE;</span><br><span class="line"></span><br><span class="line">    //二分 时间复杂度O(KNlogN)</span><br><span class="line">    int low = 1,high = n;</span><br><span class="line">    while(low &lt;= high)&#123;</span><br><span class="line">        int mid = low + (high - low)/2;</span><br><span class="line">        int eggBreak = dp(k-1,mid-1);</span><br><span class="line">        int eggUnBreak = dp(k,n-mid);</span><br><span class="line">        if(eggBreak &gt; eggUnBreak)&#123;//最坏条件下</span><br><span class="line">            high = mid - 1;</span><br><span class="line">            res = Math.min(res,eggBreak+1);//最坏条件下选最小的情况</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            low = mid + 1;</span><br><span class="line">            res = Math.min(res,eggUnBreak+1);//最坏条件下选最小的情况</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    memo[k][n] = res;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line">//https://leetcode-cn.com/problems/super-egg-drop/solution/la-bu-la-duo-xiao-hong-mao-da-niu-ti-jie-dai-ma-ja/</span><br><span class="line">//https://leetcode-cn.com/problems/super-egg-drop/solution/ji-ben-dong-tai-gui-hua-jie-fa-by-labuladong/</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
