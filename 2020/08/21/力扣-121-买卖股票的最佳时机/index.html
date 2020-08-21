@@ -18,15 +18,15 @@
   
   
   <title>力扣-121-买卖股票的最佳时机 | FluffySpoooooonge!!!</title>
-  <meta name="description" content="题目：  解题思路：  代码：12">
+  <meta name="description" content="题目：121. Best Time to Buy and Sell Stock(easy)  解题思路：labuladong:一个方法团灭 6 道股票问题  代码：1234567891011121314public int maxProfit(int[] prices) &amp;#123;    if(prices == null || prices.length == 0)    return 0;">
 <meta name="keywords" content="刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="力扣-121-买卖股票的最佳时机">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.fluffysponge.fun&#x2F;2020&#x2F;08&#x2F;21&#x2F;%E5%8A%9B%E6%89%A3-121-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA&#x2F;index.html">
 <meta property="og:site_name" content="FluffySpoooooooonge !!!">
-<meta property="og:description" content="题目：  解题思路：  代码：12">
+<meta property="og:description" content="题目：121. Best Time to Buy and Sell Stock(easy)  解题思路：labuladong:一个方法团灭 6 道股票问题  代码：1234567891011121314public int maxProfit(int[] prices) &amp;#123;    if(prices == null || prices.length == 0)    return 0;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-08-21T09:29:36.609Z">
+<meta property="og:updated_time" content="2020-08-21T10:43:40.554Z">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="https://www.fluffysponge.fun/2020/08/21/%E5%8A%9B%E6%89%A3-121-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/index.html">
@@ -377,11 +377,11 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>题目：</strong></p>
+        <p><strong>题目：</strong><br><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/submissions/" target="_blank" rel="noopener">121. Best Time to Buy and Sell Stock(easy)</a></p>
 <hr>
-<p><strong>解题思路：</strong></p>
+<p><strong>解题思路：</strong><br><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-l-3/" target="_blank" rel="noopener">labuladong:一个方法团灭 6 道股票问题</a></p>
 <hr>
-<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public int maxProfit(int[] prices) &#123;</span><br><span class="line">    if(prices == null || prices.length == 0)    return 0;</span><br><span class="line">    int n = prices.length;</span><br><span class="line">    int[][] dp = new int[n][2];//1:表示还持有股票；2:表示手中股票已经售出</span><br><span class="line">    dp[0][0] = 0;</span><br><span class="line">    dp[0][1] = -prices[0];</span><br><span class="line"></span><br><span class="line">    for(int i = 1;i&lt;n;++i)&#123;</span><br><span class="line">        dp[i][0] = Math.max(dp[i-1][0],dp[i-1][1] + prices[i]);//第i天没有持有股票利润</span><br><span class="line">        dp[i][1] = Math.max(dp[i-1][1], - prices[i]);//第i天持有股票的利润</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return dp[n-1][0];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
